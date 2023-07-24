@@ -5,31 +5,22 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float rotateSpeed=10f;
+    [SerializeField] private GameInput gameInput;
+    private bool isWalking;
     private void Update()
     {
-        Vector2 inputVector = new Vector2(0, 0);
+       
+        Vector2 inputVector = gameInput.GetMovmentVectorNormalized();
+        Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);      
+        transform.position += moveDirection * Time.deltaTime * speed;
+        isWalking = moveDirection != Vector3.zero;
+        transform.forward = Vector3.Slerp(transform.forward,moveDirection,Time.deltaTime*rotateSpeed);
 
-        if (Input.GetKey(KeyCode.W))
+       
+    } 
+    public bool IsWalking()
         {
-            inputVector.y = +1;
+            return isWalking;
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            inputVector.x = -1;
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            inputVector.y = -1;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            inputVector.x = +1;
-        }
-        inputVector = inputVector.normalized;
-
-        Vector3 MoveDirection = new Vector3(inputVector.x, 0f, inputVector.y);      
-        transform.position += MoveDirection * Time.deltaTime * speed;
-    }
 }
