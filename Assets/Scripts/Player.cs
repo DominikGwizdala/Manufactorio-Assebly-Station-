@@ -1,16 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
+    
 {
+  public static Player Instance { get; private set; }  
+    public event EventHandler<OnSelectedCounterChangedEventArgs> OnselectedCunterChanged;
+    public class OnSelectedCounterChangedEventArgs : EventArgs {
+        public ClearCunter selectedCunter;
+    }
+
     [SerializeField] private float speed;
     [SerializeField] private float rotateSpeed=10f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
+
     private bool isWalking;
     private Vector3 lastInteractDirection;
+    private ClearCunter selectedCunter;
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            Debug.LogError("Jest wiêcej ni¿ jedna instancja Gracza/Playera");
+        }
+        Instance = this;
+    }
     private void Start()
     {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
@@ -18,23 +36,11 @@ public class Player : MonoBehaviour
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
-        Vector2 inputVector = gameInput.GetMovmentVectorNormalized();
-        Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
-        if (moveDirection != Vector3.zero)
+        if(selectedCunter != null)
         {
-            lastInteractDirection = moveDirection;
+            selectedCunter.Interact();
         }
-        float interactDistance = 2f;
-        if (Physics.Raycast(transform.position, lastInteractDirection, out RaycastHit raycastHit, interactDistance, countersLayerMask))
-        {
-            if (raycastHit.transform.TryGetComponent(out ClearCunter clearCunter))
-            {
-
-                clearCunter.Interact();
-            }
-
-
-        }
+        
     }
 
     private void Update()
@@ -59,11 +65,17 @@ public class Player : MonoBehaviour
             if(raycastHit.transform.TryGetComponent(out ClearCunter clearCunter)){
 
                 //clearCunter.Interact();
+                if(clearCunter != selectedCunter) { 
+                    SetSelectedCunter(clearCunter); 
+                }
+            }else{
+                SetSelectedCunter(null);
             }
-            
-                
+        }else
+            {
+            SetSelectedCunter(null);
         }
-       
+        Debug.Log(selectedCunter);
     }
     private void HandleMovment() 
     {
@@ -111,5 +123,15 @@ public class Player : MonoBehaviour
         {
             return isWalking;
         }
+    private void SetSelectedCunter(ClearCunter slectedCounter)
+    {
+        this.selectedCunter = slectedCounter;
+
+        OnselectedCunterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
+        {
+            selectedCunter = selectedCunter
+        });
+
+    }
 
 }
