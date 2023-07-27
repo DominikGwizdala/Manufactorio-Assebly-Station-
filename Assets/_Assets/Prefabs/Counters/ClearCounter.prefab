@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 42766502574714503}
   - component: {fileID: 4286755350293952635}
   m_Layer: 6
-  m_Name: ClearCunter
+  m_Name: ClearCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,8 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a8f15cb57d1f64a94507c49a2a2b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tomatoPrefab: {fileID: 1081354090152448444, guid: 154a1b869675f9f4781d42683bf35cd6,
-    type: 3}
+  kitchenObjectSO: {fileID: 0}
   counterTopPoint: {fileID: 8917169073473579119}
 --- !u!1001 &5215217514756649043
 PrefabInstance:
@@ -285,6 +284,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Selected
       objectReference: {fileID: 0}
+    - target: {fileID: 4589716710238282922, guid: 0004cb1e11ad014419b943c7da960724,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4589716710238282923, guid: 0004cb1e11ad014419b943c7da960724,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -393,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e252a903fe25c534eaf26eb9cefed588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearCunter: {fileID: 4286755350293952635}
+  clearCounter: {fileID: 0}
   visualgameObject: {fileID: 2469641751759585479}
 --- !u!4 &7510848695608977187 stripped
 Transform:

@@ -642,7 +642,7 @@ PrefabInstance:
     - target: {fileID: 4145637903280035628, guid: ac2fb418222f9e34a94d6241c5b858f1,
         type: 3}
       propertyPath: m_Name
-      value: ClearCunter
+      value: ClearCounter
       objectReference: {fileID: 0}
     - target: {fileID: 4286755350293952635, guid: ac2fb418222f9e34a94d6241c5b858f1,
         type: 3}
@@ -705,6 +705,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131457328676443047, guid: ac2fb418222f9e34a94d6241c5b858f1,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c9539600c8c64cf49924b554a71a9e15,
+        type: 2}
+    - target: {fileID: 7439613866431350330, guid: ac2fb418222f9e34a94d6241c5b858f1,
+        type: 3}
+      propertyPath: m_Name
+      value: Cheese
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510848695608977186, guid: ac2fb418222f9e34a94d6241c5b858f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -974,7 +990,7 @@ PrefabInstance:
     - target: {fileID: 4145637903280035628, guid: ac2fb418222f9e34a94d6241c5b858f1,
         type: 3}
       propertyPath: m_Name
-      value: ClearCunter (1)
+      value: ClearCounter (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4286755350293952635, guid: ac2fb418222f9e34a94d6241c5b858f1,
         type: 3}
@@ -1043,6 +1059,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510848695608977186, guid: ac2fb418222f9e34a94d6241c5b858f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
