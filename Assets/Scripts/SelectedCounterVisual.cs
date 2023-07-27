@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectedCunterVisual : MonoBehaviour
+public class SelectedCounterVisual : MonoBehaviour
 {
-    [SerializeField] private ClearCunter clearCunter;
+    [SerializeField] private ClearCounter clearCounter;
     [SerializeField] private GameObject visualgameObject;
     private void Start()
     {
-        Player.Instance.OnselectedCunterChanged += Player_OnselectedCunterChanged;
+        Player.Instance.OnselectedCounterChanged += Player_OnselectedCounterChanged;
     }
 
-    private void Player_OnselectedCunterChanged(object sender, Player.OnSelectedCounterChangedEventArgs e)
+    private void Player_OnselectedCounterChanged(object sender, Player.OnSelectedCounterChangedEventArgs e)
     {
-        if(e.selectedCunter==clearCunter) {
+        if(e.selectedCounter==clearCounter) {
             Show();
         }else{
             Hide();
