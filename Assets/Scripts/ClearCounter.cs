@@ -21,7 +21,7 @@ public class ClearCounter : MonoBehaviour
             }
         }
     }
-    public void Interact()
+    public void Interact(Player player)
     {
         if (kitchenObject == null)
         {
@@ -30,6 +30,8 @@ public class ClearCounter : MonoBehaviour
         }
         else
         {
+            //Podnoszenie przedmiotów
+            kitchenObject.SetClearCounter(player);
             Debug.Log(kitchenObject.GetClearCounter());
         }
     }
