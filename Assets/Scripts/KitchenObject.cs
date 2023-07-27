@@ -17,7 +17,7 @@ public class KitchenObject : MonoBehaviour
             this.clearCounter.ClearKitchenObjcet();
         }
         this.clearCounter = clearCounter;
-        clearCounter.SetKitchenObject(this);
+        
 
         if (clearCounter.HasKitchenObject())
         {
