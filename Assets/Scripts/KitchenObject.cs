@@ -12,7 +12,21 @@ public class KitchenObject : MonoBehaviour
     }
     public void SetClearCounter(ClearCounter clearCounter)
     {
-        this.clearCounter = clearCounter;    
+        if(this.clearCounter != null)
+        {
+            this.clearCounter.ClearKitchenObjcet();
+        }
+        this.clearCounter = clearCounter;
+        clearCounter.SetKitchenObject(this);
+
+        if (clearCounter.HasKitchenObject())
+        {
+            Debug.LogError("Cwaniaczek ma ju¿ Kuchenny Obiekt");
+        }
+        clearCounter.SetKitchenObject(this);
+
+        transform.parent = clearCounter.GetKitchenObjectFollowTransform();
+        transform.localPosition = Vector3.zero;
     }
     public ClearCounter GetClearCounter()
     {
