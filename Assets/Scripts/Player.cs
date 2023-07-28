@@ -9,7 +9,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
   public static Player Instance { get; private set; }  
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnselectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs {
-        public ClearCounter selectedCounter;
+        public BaseCounter selectedCounter;
     }
 
     [SerializeField] private float speed;
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private bool isWalking;
     private Vector3 lastInteractDirection;
-    private ClearCounter selectedCounter;
+    private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
 
     private void Awake()
@@ -60,11 +60,11 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         float interactDistance = 2f;
         if(Physics.Raycast(transform.position,lastInteractDirection,out RaycastHit raycastHit, interactDistance,countersLayerMask))
         {
-            if(raycastHit.transform.TryGetComponent(out ClearCounter clearCounter)){
+            if(raycastHit.transform.TryGetComponent(out BaseCounter baseCounter)){
 
                 //clearCounter.Interact();
-                if(clearCounter != selectedCounter) { 
-                    SetSelectedCounter(clearCounter); 
+                if(baseCounter != selectedCounter) { 
+                    SetSelectedCounter(baseCounter); 
                 }
             }else{
                 SetSelectedCounter(null);
@@ -121,13 +121,13 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         {
             return isWalking;
         }
-    private void SetSelectedCounter(ClearCounter slectedCounter)
+    private void SetSelectedCounter(BaseCounter selectedCounter)
     {
-        this.selectedCounter = slectedCounter;
+        this.selectedCounter = selectedCounter;
 
         OnselectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
         {
-            selectedCounter = selectedCounter
+            selectedCounter = this.selectedCounter
         });
 
     }
