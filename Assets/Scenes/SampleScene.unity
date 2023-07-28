@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -646,6 +646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4286755350293952635, guid: ac2fb418222f9e34a94d6241c5b858f1,
         type: 3}
+      propertyPath: testing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286755350293952635, guid: ac2fb418222f9e34a94d6241c5b858f1,
+        type: 3}
       propertyPath: kitchenObjectSO
       value: 
       objectReference: {fileID: 11400000, guid: c9539600c8c64cf49924b554a71a9e15,
@@ -656,6 +661,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 09f38833050ddf6458621a929622e26c,
         type: 2}
+    - target: {fileID: 4286755350293952635, guid: ac2fb418222f9e34a94d6241c5b858f1,
+        type: 3}
+      propertyPath: secondClearCounter
+      value: 
+      objectReference: {fileID: 1333981725}
     - target: {fileID: 5875839680263466205, guid: ac2fb418222f9e34a94d6241c5b858f1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -833,6 +843,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333981725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4286755350293952635, guid: ac2fb418222f9e34a94d6241c5b858f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1675175698}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a8f15cb57d1f64a94507c49a2a2b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1375003540
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,6 +1013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ClearCounter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286755350293952635, guid: ac2fb418222f9e34a94d6241c5b858f1,
+        type: 3}
+      propertyPath: testing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4286755350293952635, guid: ac2fb418222f9e34a94d6241c5b858f1,
         type: 3}

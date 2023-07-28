@@ -4,15 +4,9 @@ using UnityEngine;
 
 public interface IKitchenObjectParent
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Transform GetKitchenObjectFollowTransform();
+    public void SetKitchenObject(KitchenObject kitchenObject);
+    public KitchenObject GetKitchenObject();
+    public void ClearKitchenObject();
+    public bool HasKitchenObject();
 }
