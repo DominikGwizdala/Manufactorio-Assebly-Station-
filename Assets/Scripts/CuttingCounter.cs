@@ -25,9 +25,10 @@ public class CuttingCounter : BaseCounter
     }
     public override void InteractAlternate(Player player)
     {
-        if(player.HasKitchenObject())
+        if(HasKitchenObject())
         {
             GetKitchenObject().DestroySelf();
+
             Transform kitchenObjectTransform = Instantiate(cutKitchenObjectSO.prefab);
             kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(this);
 
