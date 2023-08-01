@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgresBarUI : MonoBehaviour
+public class ProgressBarUI : MonoBehaviour
 {
     [SerializeField] private CuttingCounter cuttingCounter;
     [SerializeField] Image barImage;
