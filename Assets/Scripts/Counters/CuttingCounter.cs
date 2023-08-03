@@ -38,6 +38,16 @@ public class CuttingCounter : BaseCounter, IHasProgress
                     progressNormalized = 0f
                 });
             }
+            else
+            {
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
+                    }
+                }
+            }
         }
     }
     public override void InteractAlternate(Player player)
