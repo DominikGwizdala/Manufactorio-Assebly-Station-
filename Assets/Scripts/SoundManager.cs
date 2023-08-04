@@ -71,5 +71,5 @@ public class SoundManager : MonoBehaviour
     public void PlayFootstepsSound(Vector3 position,float volume)
     {
         PlaySound(audioClipRefsSO.footstep, position, volume);
-    }
+    } 
 }
