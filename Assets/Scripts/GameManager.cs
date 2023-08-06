@@ -101,11 +101,13 @@ public class GameManager : MonoBehaviour
         if (isGamePaused)
         {
             Time.timeScale = 0f;
+
             OnGamePaused?.Invoke(this, EventArgs.Empty);
         }
         else
         {
             Time.timeScale = 1f;
+
             OnGameUnpaused?.Invoke(this,EventArgs.Empty);
         }
          

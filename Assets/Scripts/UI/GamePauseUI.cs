@@ -8,17 +8,20 @@ public class GamePauseUI : MonoBehaviour
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button mainMenuButton;
 
-    private void Awake()
+     private void Awake()
     {
         resumeButton.onClick.AddListener(() =>{
-            GameManager.Instance.TogglePauseGame();
             Debug.Log("Kilik resume");
+            GameManager.Instance.TogglePauseGame();
         });
+         
         mainMenuButton.onClick.AddListener(() =>{
             Debug.Log("Kilik menu");
             Loader.Load(Loader.Scene.MainMenuScene);
         });
     }
+
+
     private void Start()
     {
         GameManager.Instance.OnGamePaused += GameManager_OnGamePaused;

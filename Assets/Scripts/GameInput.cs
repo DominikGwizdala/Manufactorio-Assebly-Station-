@@ -15,6 +15,7 @@ public class GameInput : MonoBehaviour
     private void Awake()
     {
         Instance = this; 
+
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Interaction.performed += Interaction_performed;
