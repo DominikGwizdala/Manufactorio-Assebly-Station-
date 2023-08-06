@@ -11,12 +11,10 @@ public class GamePauseUI : MonoBehaviour
      private void Awake()
     {
         resumeButton.onClick.AddListener(() =>{
-            Debug.Log("Kilik resume");
             GameManager.Instance.TogglePauseGame();
         });
          
         mainMenuButton.onClick.AddListener(() =>{
-            Debug.Log("Kilik menu");
             Loader.Load(Loader.Scene.MainMenuScene);
         });
     }

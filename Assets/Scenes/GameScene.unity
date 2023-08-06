@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aad24ce08392d8418970df5457aec3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resumeButton: {fileID: 0}
+  resumeButton: {fileID: 168828860}
   mainMenuButton: {fileID: 369366467}
 --- !u!1001 &264146425
 PrefabInstance:
