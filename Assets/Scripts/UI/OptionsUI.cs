@@ -18,6 +18,9 @@ public class OptionsUI : MonoBehaviour
     [SerializeField] private Button interactButton;
     [SerializeField] private Button interactAlternateButton;
     [SerializeField] private Button pauseButton;
+    [SerializeField] private Button gamepadInteractButton;
+    [SerializeField] private Button gamepadInteractAlternateButton;
+    [SerializeField] private Button gamepadPauseButton;
     [SerializeField] private Button closeButton;
     [SerializeField] private TextMeshProUGUI soundEffectsText;
     [SerializeField] private TextMeshProUGUI musicText;
@@ -28,6 +31,10 @@ public class OptionsUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI interactText;
     [SerializeField] private TextMeshProUGUI interactAlternateText;
     [SerializeField] private TextMeshProUGUI pauseText;
+    [SerializeField] private TextMeshProUGUI gamepadInteractText;
+    [SerializeField] private TextMeshProUGUI gamepadInteractAlternateText;
+    [SerializeField] private TextMeshProUGUI gamepadPauseText;
+    [SerializeField] private Transform pressToRebindKeyTransform;
 
     private void Awake()
     {
@@ -49,10 +56,16 @@ public class OptionsUI : MonoBehaviour
             GamePauseUI.Instance.Show();
         });
 
-        moveUpButton.onClick.AddListener(() =>
-        {
-            GameInput.Instance.RebindBinding(GameInput.Binding.Move_Up);
-        });
+        moveUpButton.onClick.AddListener(() =>{RebindBinding(GameInput.Binding.Move_Up);});
+        moveDownButton.onClick.AddListener(() =>{RebindBinding(GameInput.Binding.Move_Down);});
+        moveLeftButton.onClick.AddListener(() =>{RebindBinding(GameInput.Binding.Move_Left);});
+        moveRightButton.onClick.AddListener(() =>{RebindBinding(GameInput.Binding.Move_Right);});
+        interactButton.onClick.AddListener(() =>{ RebindBinding(GameInput.Binding.Interact);});
+        interactAlternateButton.onClick.AddListener(() =>{RebindBinding(GameInput.Binding.Interact_Alternate);});
+        pauseButton.onClick.AddListener(() =>{RebindBinding(GameInput.Binding.Pause);});
+        gamepadInteractButton.onClick.AddListener(() => { RebindBinding(GameInput.Binding.Gamepad_Interact); });
+        gamepadInteractAlternateButton.onClick.AddListener(() => { RebindBinding(GameInput.Binding.Gamepad_Interact_Alternate); });
+        gamepadPauseButton.onClick.AddListener(() => { RebindBinding(GameInput.Binding.Gamepad_Pause); });
     }
 
     private void Start()
@@ -60,8 +73,10 @@ public class OptionsUI : MonoBehaviour
         GameManager.Instance.OnGameUnpaused += GameManager_OnGameUnpaused;
 
         UpdateVisual();
-
+        
+        HidePressToRebindKey();
         Hide();
+        
     }
 
     private void GameManager_OnGameUnpaused(object sender, System.EventArgs e)
@@ -81,16 +96,39 @@ public class OptionsUI : MonoBehaviour
         interactText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Interact);
         interactAlternateText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Interact_Alternate);
         pauseText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Pause);
+        gamepadInteractText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Gamepad_Interact);
+        gamepadInteractAlternateText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Gamepad_Interact_Alternate);
+        gamepadPauseText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Gamepad_Pause);
     }
 
     public void Show()
     {
         gameObject.SetActive(true);
+        soundEffectsButton.Select();
     }
 
     private void Hide()
     {
         gameObject.SetActive(false);
     }
+
+    private void ShowPressToRebindKey() {
+
+
+        pressToRebindKeyTransform.gameObject.SetActive(true);
+    }
+    private void HidePressToRebindKey()
+    {
+        pressToRebindKeyTransform.gameObject.SetActive(false);
+    }
+
+    private void RebindBinding(GameInput.Binding binding) {
+        ShowPressToRebindKey();
+        GameInput.Instance.RebindBinding(binding,()=> {
+            HidePressToRebindKey();
+            UpdateVisual();
+        }); 
+    }
+
 }
 
