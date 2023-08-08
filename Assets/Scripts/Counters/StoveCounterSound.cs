@@ -10,7 +10,7 @@ public class StoveCounterSound : MonoBehaviour
     private bool playWarningSound;
 
     private void Awake()
-    {
+    { 
         audioSource = GetComponent<AudioSource>();
     }
     private void Start()
@@ -42,7 +42,7 @@ public class StoveCounterSound : MonoBehaviour
     {
         if (playWarningSound)
         {
-            warningSoundTimer = Time.deltaTime;
+            warningSoundTimer -= Time.deltaTime;
             if (warningSoundTimer <= 0f)
             {
                 float warningSoundTimerMax = .2f;
