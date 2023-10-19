@@ -19,7 +19,9 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     [SerializeField] private LayerMask countersLayerMask;
     [SerializeField] private Transform kitchenObjectHoldPoint;
 
-    private bool isWalking;
+    private bool isRunning;
+    private bool isHolding;
+    //private bool isWalking;
     private Vector3 lastInteractDirection;
     private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
@@ -128,13 +130,23 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             transform.position += moveDirection * moveDistance;
         }
 
-        isWalking = moveDirection != Vector3.zero;
+        isRunning = moveDirection != Vector3.zero;
+        isHolding = HasKitchenObject();
+        //isWalking = moveDirection != Vector3.zero;
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
     }
-    public bool IsWalking()
+    /*public bool IsWalking()
         {
             return isWalking;
-        }
+        }*/
+    public bool IsRunning()
+    {
+        return isRunning;
+    }
+    public bool IsHolding()
+    {
+        return isHolding;
+    }
     private void SetSelectedCounter(BaseCounter selectedCounter)
     {
         this.selectedCounter = selectedCounter;
