@@ -50,7 +50,7 @@ MonoBehaviour:
   speed: 6
   rotateSpeed: 10
   gameInput: {fileID: 0}
-  countersLayerMask:
+  workstationsLayerMask:
     serializedVersion: 2
     m_Bits: 64
   kitchenObjectHoldPoint: {fileID: 5046557500502954688}

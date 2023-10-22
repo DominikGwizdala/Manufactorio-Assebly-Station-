@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e252a903fe25c534eaf26eb9cefed588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCounter: {fileID: 5959914826482400575}
+  baseWorkstation: {fileID: 5959914826482400575}
   visualGameObjectArray:
   - {fileID: 5998782405568714924}
 --- !u!1 &5998782405568714924 stripped
@@ -222,10 +222,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262135285964825528, guid: 08948c55bcdc243408065c7cebf6908a,
+        type: 3}
+      propertyPath: m_Name
+      value: WorkstationTopPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 4145637903280035628, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
       propertyPath: m_Name
-      value: ClearCounter
+      value: TableWorkstation
       objectReference: {fileID: 0}
     - target: {fileID: 4145637903280035628, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
@@ -329,5 +334,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a8f15cb57d1f64a94507c49a2a2b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 306657628068915482}
+  workstationTopPoint: {fileID: 306657628068915482}
   kitchenObjectSO: {fileID: 11400000, guid: 09f38833050ddf6458621a929622e26c, type: 2}

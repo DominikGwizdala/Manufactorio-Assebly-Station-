@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeliveryCounter : BaseCounter
+public class DeliveryWorkstation : BaseWorkstation
 {
-    public static DeliveryCounter Instance { get; private set; }
+    public static DeliveryWorkstation Instance { get; private set; }
 
     private void Awake()
     {

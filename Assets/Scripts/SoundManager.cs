@@ -19,23 +19,23 @@ public class SoundManager : MonoBehaviour
     {
         DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
         DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
-        CuttingCounter.OnAnyCut += CuttingCounter_OnAnyCut;
+        LogCutterWorkstation.OnAnyCut += LogCutterWorkstation_OnAnyCut;
         Player.Instance.OnPickedSomething += Player_OnPickedSomething;
-        BaseCounter.OnAnyObjectPlacedHere += BaseCounter_OnAnyObjectPlacedHere;
-        TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;         
+        BaseWorkstation.OnAnyObjectPlacedHere += BaseWorkstation_OnAnyObjectPlacedHere;
+        TrashWorkstation.OnAnyObjectTrashed += TrashWorkstation_OnAnyObjectTrashed;         
 
     }
 
-    private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e)
+    private void TrashWorkstation_OnAnyObjectTrashed(object sender, System.EventArgs e)
     {
-        TrashCounter trashCounter = sender as TrashCounter;
-        PlaySound(audioClipRefsSO.trash, trashCounter.transform.position);
+        TrashWorkstation trashWorkstation = sender as TrashWorkstation;
+        PlaySound(audioClipRefsSO.trash, trashWorkstation.transform.position);
 
     }
-    private void BaseCounter_OnAnyObjectPlacedHere(object sender, System.EventArgs e)
+    private void BaseWorkstation_OnAnyObjectPlacedHere(object sender, System.EventArgs e)
     {
-        BaseCounter baseCounter = sender as BaseCounter;
-        PlaySound(audioClipRefsSO.objectDrop, baseCounter.transform.position);
+        BaseWorkstation baseWorkstation = sender as BaseWorkstation;
+        PlaySound(audioClipRefsSO.objectDrop, baseWorkstation.transform.position);
     
     }
 
@@ -44,23 +44,23 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipRefsSO.objectPickup,Player.Instance.transform.position);
     }
 
-    private void CuttingCounter_OnAnyCut(object sender, System.EventArgs e)
+    private void LogCutterWorkstation_OnAnyCut(object sender, System.EventArgs e)
     {
-        CuttingCounter cuttingCounter = sender as CuttingCounter;
-        PlaySound(audioClipRefsSO.chop, cuttingCounter.transform.position);
+        LogCutterWorkstation logCutterWorkstation = sender as LogCutterWorkstation;
+        PlaySound(audioClipRefsSO.chop, logCutterWorkstation.transform.position);
     }
 
     private void DeliveryManager_OnRecipeFailed(object sender, System.EventArgs e)
     {
-        DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        PlaySound(audioClipRefsSO.deliveryFail,deliveryCounter.transform.position);
+        DeliveryWorkstation deliveryWorkstation = DeliveryWorkstation.Instance;
+        PlaySound(audioClipRefsSO.deliveryFail, deliveryWorkstation.transform.position);
     
     }   
 
     private void DeliveryManager_OnRecipeSuccess(object sender, System.EventArgs e)
     {
-        DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        PlaySound(audioClipRefsSO.deliverySuccess,deliveryCounter.transform.position);
+        DeliveryWorkstation deliveryWorkstation = DeliveryWorkstation.Instance;
+        PlaySound(audioClipRefsSO.deliverySuccess, deliveryWorkstation.transform.position);
     }
     private void PlaySound(AudioClip[] audioClipArray,Vector3 position,float volume = 1f )
     {

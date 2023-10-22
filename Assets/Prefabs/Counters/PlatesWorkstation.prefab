@@ -8,10 +8,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262135285964825528, guid: 08948c55bcdc243408065c7cebf6908a,
+        type: 3}
+      propertyPath: m_Name
+      value: WorkstationTopPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 4145637903280035628, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
       propertyPath: m_Name
-      value: PlatesCounter
+      value: PlatesWorkstation
       objectReference: {fileID: 0}
     - target: {fileID: 5875839680263466205, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
@@ -98,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1558febc5a1af94db64dc8d5bd3fcbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 9098217164192433620}
+  workstationTopPoint: {fileID: 9098217164192433620}
   plateKitchenObjectSO: {fileID: 11400000, guid: 9b6079bffe734b747bda7bbfc420c65e,
     type: 2}
   spawnPlateTimerMax: 4
@@ -251,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e252a903fe25c534eaf26eb9cefed588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCounter: {fileID: 7103287666972698377}
+  baseWorkstation: {fileID: 7103287666972698377}
   visualGameObjectArray:
   - {fileID: 3452336640557040493}
   - {fileID: 1728275637361771471}
@@ -357,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e9db47949eecea44a47093721575744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platesCounter: {fileID: 7103287666972698377}
-  counterTopPoint: {fileID: 9098217164192433620}
+  platesWorkstation: {fileID: 7103287666972698377}
+  workstationTopPoint: {fileID: 9098217164192433620}
   plateVisualPrefab: {fileID: 1081354090152448444, guid: ac6d5fd58a7923f4cbb526ec95f53843,
     type: 3}

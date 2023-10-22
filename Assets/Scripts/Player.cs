@@ -8,22 +8,21 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 {
     public event EventHandler OnPickedSomething;
     public static Player Instance { get; private set; }  
-    public event EventHandler<OnSelectedCounterChangedEventArgs> OnselectedCounterChanged;
-    public class OnSelectedCounterChangedEventArgs : EventArgs {
-        public BaseCounter selectedCounter;
+    public event EventHandler<OnSelectedWorkstationChangedEventArgs> OnSelectedWorkstationChanged;
+    public class OnSelectedWorkstationChangedEventArgs : EventArgs {
+        public BaseWorkstation selectedWorkstation;
     }
 
     [SerializeField] private float speed;
     [SerializeField] private float rotateSpeed=10f;
     [SerializeField] private GameInput gameInput;
-    [SerializeField] private LayerMask countersLayerMask;
+    [SerializeField] private LayerMask workstationsLayerMask;
     [SerializeField] private Transform kitchenObjectHoldPoint;
 
     private bool isRunning;
     private bool isHolding;
-    //private bool isWalking;
     private Vector3 lastInteractDirection;
-    private BaseCounter selectedCounter;
+    private BaseWorkstation selectedWorkstation;
     private KitchenObject kitchenObject;
 
     private void Awake()
@@ -44,9 +43,9 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     {
         if (!GameManager.Instance.IsGamePlaying()) return;
 
-        if (selectedCounter != null)
+        if (selectedWorkstation != null)
         {
-            selectedCounter.InteractAlternate(this);
+            selectedWorkstation.InteractAlternate(this);
         }
     }
 
@@ -54,46 +53,50 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     {
         if (!GameManager.Instance.IsGamePlaying()) return;
 
-        if (selectedCounter != null)
+        if (selectedWorkstation != null)
         {
-            selectedCounter.Interact(this);
+            selectedWorkstation.Interact(this);
         }       
     }
 
     private void Update()
     {
-        HandleMovment();
+        HandleMovement();
         HandleInteractions();     
     }
     private void HandleInteractions() 
     {
-        Vector2 inputVector = gameInput.GetMovmentVectorNormalized();
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
-        if(moveDirection != Vector3.zero )
+        if (moveDirection != Vector3.zero )
         {
             lastInteractDirection = moveDirection;
         }
         float interactDistance = 2f;
-        if(Physics.Raycast(transform.position,lastInteractDirection,out RaycastHit raycastHit, interactDistance,countersLayerMask))
+        if (Physics.Raycast(transform.position,lastInteractDirection,out RaycastHit raycastHit, interactDistance, workstationsLayerMask))
         {
-            if(raycastHit.transform.TryGetComponent(out BaseCounter baseCounter)){
-
-                //clearCounter.Interact();
-                if(baseCounter != selectedCounter) { 
-                    SetSelectedCounter(baseCounter); 
-                }
-            }else{
-                SetSelectedCounter(null);
-            }
-        }else
+            if (raycastHit.transform.TryGetComponent(out BaseWorkstation baseWorkstation))
             {
-            SetSelectedCounter(null);
+                //clearWorkstation.Interact();
+                if (baseWorkstation != selectedWorkstation) 
+                {
+                    SetSelectedWorkstation(baseWorkstation); 
+                }
+            }
+            else
+            {
+                SetSelectedWorkstation(null);
+            }
         }
-        //Debug.Log(selectedCounter);
+        else
+        {
+            SetSelectedWorkstation(null);
+        }
+        //Debug.Log(selectedWorkstation);
     }
-    private void HandleMovment() 
+    private void HandleMovement() 
     {
-        Vector2 inputVector = gameInput.GetMovmentVectorNormalized();
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
 
         float moveDistance = speed * Time.deltaTime;
@@ -132,13 +135,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
         isRunning = moveDirection != Vector3.zero;
         isHolding = HasKitchenObject();
-        //isWalking = moveDirection != Vector3.zero;
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
     }
-    /*public bool IsWalking()
-        {
-            return isWalking;
-        }*/
     public bool IsRunning()
     {
         return isRunning;
@@ -147,13 +145,13 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     {
         return isHolding;
     }
-    private void SetSelectedCounter(BaseCounter selectedCounter)
+    private void SetSelectedWorkstation(BaseWorkstation selectedWorkstation)
     {
-        this.selectedCounter = selectedCounter;
+        this.selectedWorkstation = selectedWorkstation;
 
-        OnselectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
+        OnSelectedWorkstationChanged?.Invoke(this, new OnSelectedWorkstationChangedEventArgs
         {
-            selectedCounter = this.selectedCounter
+            selectedWorkstation = this.selectedWorkstation
         });
 
     }

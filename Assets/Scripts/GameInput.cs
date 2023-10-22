@@ -43,8 +43,6 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Interaction.performed += Interaction_performed;
         playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
         playerInputActions.Player.Pause.performed += Pause_performed;
-
-       
     }
 
     private void OnDestroy()
@@ -69,7 +67,7 @@ public class GameInput : MonoBehaviour
     {
         OnInteractAlternateAction?.Invoke(this, EventArgs.Empty);
     }
-    public Vector2 GetMovmentVectorNormalized()
+    public Vector2 GetMovementVectorNormalized()
     {
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
         inputVector = inputVector.normalized;

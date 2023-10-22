@@ -833,7 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e252a903fe25c534eaf26eb9cefed588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCounter: {fileID: 7877823141406409565}
+  baseWorkstation: {fileID: 7877823141406409565}
   visualGameObjectArray:
   - {fileID: 5333901123855645847}
 --- !u!4 &9044110317013411093 stripped
@@ -850,10 +850,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262135285964825528, guid: 08948c55bcdc243408065c7cebf6908a,
+        type: 3}
+      propertyPath: m_Name
+      value: WorkstationTopPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 4145637903280035628, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
       propertyPath: m_Name
-      value: DeliveryCounter
+      value: DeliveryWorkstation
       objectReference: {fileID: 0}
     - target: {fileID: 5875839680263466205, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
@@ -960,4 +965,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dea44295d5215140a9f8a2526008cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 4327373081586456237}
+  workstationTopPoint: {fileID: 4327373081586456237}

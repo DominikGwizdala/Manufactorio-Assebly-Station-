@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoveCounterSound : MonoBehaviour
+public class FurnaceWorkstationSound : MonoBehaviour
 {
-    [SerializeField] private StoveCounter stoveCounter;
+    [SerializeField] private FurnaceWorkstation furnaceWorkstation;
     private AudioSource audioSource;
     private float warningSoundTimer;
     private bool playWarningSound;
@@ -15,19 +15,19 @@ public class StoveCounterSound : MonoBehaviour
     }
     private void Start()
     {
-        stoveCounter.OnStateChanged += StoveCounter_OnStateChanged;
-        stoveCounter.OnProgressChanged += StoveCounter_OnProgressChanged;
+        furnaceWorkstation.OnStateChanged += FurnaceWorkstation_OnStateChanged;
+        furnaceWorkstation.OnProgressChanged += FurnaceWorkstation_OnProgressChanged;
     }
 
-    private void StoveCounter_OnProgressChanged(object sender, IHasProgress.OnProgressChangedEventArgs e)
+    private void FurnaceWorkstation_OnProgressChanged(object sender, IHasProgress.OnProgressChangedEventArgs e)
     {
         float burnShowProgressAmount = .5f;
-        playWarningSound = stoveCounter.IsFried() && e.progressNormalized >= burnShowProgressAmount;
+        playWarningSound = furnaceWorkstation.IsFried() && e.progressNormalized >= burnShowProgressAmount;
     }
 
-    private void StoveCounter_OnStateChanged(object sender, StoveCounter.OnStateChangedEventArgs e)
+    private void FurnaceWorkstation_OnStateChanged(object sender, FurnaceWorkstation.OnStateChangedEventArgs e)
     {
-        bool playSound = e.state == StoveCounter.State.Frying || e.state == StoveCounter.State.Fried;
+        bool playSound = e.state == FurnaceWorkstation.State.Frying || e.state == FurnaceWorkstation.State.Fried;
         if (playSound)
         {
             audioSource.Play();
@@ -48,7 +48,7 @@ public class StoveCounterSound : MonoBehaviour
                 float warningSoundTimerMax = .2f;
                 warningSoundTimer = warningSoundTimerMax;
 
-                SoundManager.Instance.PlayWarningSound(stoveCounter.transform.position);
+                SoundManager.Instance.PlayWarningSound(furnaceWorkstation.transform.position);
             }
         }
     }

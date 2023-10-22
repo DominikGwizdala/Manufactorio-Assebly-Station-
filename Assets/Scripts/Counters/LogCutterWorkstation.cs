@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CuttingCounter : BaseCounter, IHasProgress
+public class LogCutterWorkstation : BaseWorkstation, IHasProgress
 {
     public static event EventHandler OnAnyCut;
   new public static void ResetStaticData()

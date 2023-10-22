@@ -8,10 +8,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262135285964825528, guid: 08948c55bcdc243408065c7cebf6908a,
+        type: 3}
+      propertyPath: m_Name
+      value: WorkstationTopPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 4145637903280035628, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
       propertyPath: m_Name
-      value: CuttingCounter
+      value: LogCutterWorkstation
       objectReference: {fileID: 0}
     - target: {fileID: 5875839680263466205, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
@@ -106,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef4afe1cf8738446a78c512e1722c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 8287762726512817239}
+  workstationTopPoint: {fileID: 8287762726512817239}
   cuttingRecipeSOArray:
   - {fileID: 11400000, guid: a0e8c513aabbd3448bfc580518a1d73d, type: 2}
   - {fileID: 11400000, guid: 880942e3639517c49a33dff90b4a77af, type: 2}
@@ -463,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e252a903fe25c534eaf26eb9cefed588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCounter: {fileID: 6372721301688816354}
+  baseWorkstation: {fileID: 6372721301688816354}
   visualGameObjectArray:
   - {fileID: 1900689220791676818}
   - {fileID: 2490395797881965435}
@@ -563,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c343a72b11e6374daff4446d4a95674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuttingCounter: {fileID: 6372721301688816354}
+  logCutterWorkstation: {fileID: 6372721301688816354}
 --- !u!4 &5802530525634044927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589716710238282923, guid: d72bee846803d074784ffb8f64e993ca,

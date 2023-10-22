@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38353a0c84d60c14a96badac00aadf2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoveCounter: {fileID: 5884975722643823156}
+  furnaceWorkstation: {fileID: 5884975722643823156}
 --- !u!1 &4155979693179877118
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 4656800054327981382}
   - component: {fileID: 5389144594443404746}
   m_Layer: 5
-  m_Name: StoveBurnWarningUI
+  m_Name: FurnaceBurnWarningUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f1ca9174137b24bb5827bc6e0f4b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoveCounter: {fileID: 5884975722643823156}
+  furnaceWorkstation: {fileID: 5884975722643823156}
 --- !u!95 &4656800054327981382
 Animator:
   serializedVersion: 5
@@ -482,18 +482,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2920a2ec7fa2243b67139789c157ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoveCounter: {fileID: 5884975722643823156}
-  stoveOnGameObject: {fileID: 3445199403256351565}
+  furnaceWorkstation: {fileID: 5884975722643823156}
+  furnaceOnGameObject: {fileID: 6371060164339945272}
   particlesGameObject: {fileID: 7458166860371025092}
 --- !u!4 &1171912013704423041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589716710238282923, guid: 93af8b85a17635f40a5b76ed82a86c18,
-    type: 3}
-  m_PrefabInstance: {fileID: 3454969839912747562}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3445199403256351565 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 17251720544094567, guid: 93af8b85a17635f40a5b76ed82a86c18,
     type: 3}
   m_PrefabInstance: {fileID: 3454969839912747562}
   m_PrefabAsset: {fileID: 0}
@@ -637,6 +631,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6365775606760883807}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6371060164339945272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 17251720544094567, guid: 93af8b85a17635f40a5b76ed82a86c18,
+    type: 3}
+  m_PrefabInstance: {fileID: 6365775606760883807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7244246492668132016 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4386361873462607087, guid: 93af8b85a17635f40a5b76ed82a86c18,
@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e252a903fe25c534eaf26eb9cefed588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCounter: {fileID: 5884975722643823156}
+  baseWorkstation: {fileID: 5884975722643823156}
   visualGameObjectArray:
   - {fileID: 2092432672392890702}
   - {fileID: 7244246492668132016}
@@ -680,10 +680,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262135285964825528, guid: 08948c55bcdc243408065c7cebf6908a,
+        type: 3}
+      propertyPath: m_Name
+      value: WorkstationTopPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 4145637903280035628, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
       propertyPath: m_Name
-      value: StoveCounter
+      value: FurnaceWorkstation
       objectReference: {fileID: 0}
     - target: {fileID: 5875839680263466205, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
@@ -809,7 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a52f5eaf2bdb574b9ecc994a74f221f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 1550536702857819134}
+  workstationTopPoint: {fileID: 1550536702857819134}
   fryingRecipeSOArray:
   - {fileID: 11400000, guid: 685c97e41f0f65c40af014ad9613a88a, type: 2}
   burningRecipeSOArray:
@@ -995,4 +1000,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce18be07eaca234ea269e9e82058f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoveCounter: {fileID: 5884975722643823156}
+  furnaceWorkstation: {fileID: 5884975722643823156}

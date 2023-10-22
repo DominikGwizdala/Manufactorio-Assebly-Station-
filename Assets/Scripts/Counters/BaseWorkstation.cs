@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseCounter : MonoBehaviour, IKitchenObjectParent
+public class BaseWorkstation : MonoBehaviour, IKitchenObjectParent
 {
     public static event EventHandler OnAnyObjectPlacedHere;
 
@@ -11,21 +11,21 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
     {
         OnAnyObjectPlacedHere = null;
     }
-    [SerializeField] private Transform counterTopPoint;
+    [SerializeField] private Transform workstationTopPoint;
 
     private KitchenObject kitchenObject;
 
     public virtual void Interact(Player player)
     {
-        Debug.LogError("BaseCounter interaction");
+        Debug.LogError("BaseWorkstation interaction");
     }
     public virtual void InteractAlternate(Player player)
     {
-        //Debug.LogError("BaseCounter interactionAlternate");
+        //Debug.LogError("BaseWorkstation interactionAlternate");
     }
     public Transform GetKitchenObjectFollowTransform()
     {
-        return counterTopPoint;
+        return workstationTopPoint;
     }
     public void SetKitchenObject(KitchenObject kitchenObject)
     {

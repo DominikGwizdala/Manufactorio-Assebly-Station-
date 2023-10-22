@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 7197882692059279935, guid: 50f9a37b1680dac44a4af3dc88b54a19,
         type: 3}
       propertyPath: m_Name
-      value: ContainerCounter
+      value: ContainerWorkstation_CheeseBlock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

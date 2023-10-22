@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatesCounterVisual : MonoBehaviour
+public class PlatesWorkstationVisual : MonoBehaviour
 {
-    [SerializeField] private PlatesCounter platesCounter;
-    [SerializeField] private Transform counterTopPoint;
+    [SerializeField] private PlatesWorkstation platesWorkstation;
+    [SerializeField] private Transform workstationTopPoint;
     [SerializeField] private Transform plateVisualPrefab;
 
     private List<GameObject> plateVisualGameObjectList;
@@ -17,26 +17,24 @@ public class PlatesCounterVisual : MonoBehaviour
 
     private void Start()
     {
-        platesCounter.OnPlateSpawned += PlatesCounter_OnPlateSpawned;
-        platesCounter.OnPlateRemoved += PlatesCounter_OnPlateRemoved;
+        platesWorkstation.OnPlateSpawned += PlatesWorkstation_OnPlateSpawned;
+        platesWorkstation.OnPlateRemoved += PlatesWorkstation_OnPlateRemoved;
     }
 
-    private void PlatesCounter_OnPlateRemoved(object sender, System.EventArgs e)
+    private void PlatesWorkstation_OnPlateRemoved(object sender, System.EventArgs e)
     {
         GameObject plateGameObject = plateVisualGameObjectList[plateVisualGameObjectList.Count - 1];
         plateVisualGameObjectList.Remove(plateGameObject);
         Destroy(plateGameObject);
     }
 
-    private void PlatesCounter_OnPlateSpawned(object sender, System.EventArgs e)
+    private void PlatesWorkstation_OnPlateSpawned(object sender, System.EventArgs e)
     {
-        Transform plateVisualTransform = Instantiate(plateVisualPrefab, counterTopPoint);
+        Transform plateVisualTransform = Instantiate(plateVisualPrefab, workstationTopPoint);
 
         float plateOffsetY = .1f;
         plateVisualTransform.localPosition = new Vector3(0, plateOffsetY * plateVisualGameObjectList.Count, 0);
 
         plateVisualGameObjectList.Add(plateVisualTransform.gameObject);
     }
-
-
 }

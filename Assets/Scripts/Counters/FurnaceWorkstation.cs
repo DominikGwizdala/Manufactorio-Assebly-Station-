@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static CuttingCounter;
+using static LogCutterWorkstation;
 
-public class StoveCounter : BaseCounter, IHasProgress
+public class FurnaceWorkstation : BaseWorkstation, IHasProgress
 {
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler<OnStateChangedEventArgs> OnStateChanged;

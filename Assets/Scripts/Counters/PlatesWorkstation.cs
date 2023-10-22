@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatesCounter : BaseCounter
+public class PlatesWorkstation : BaseWorkstation
 {
     public event EventHandler OnPlateSpawned;
     public event EventHandler OnPlateRemoved;

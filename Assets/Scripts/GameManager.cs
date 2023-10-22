@@ -113,7 +113,5 @@ public class GameManager : MonoBehaviour
 
             OnGameUnpaused?.Invoke(this,EventArgs.Empty);
         }
-         
-
     }
 }

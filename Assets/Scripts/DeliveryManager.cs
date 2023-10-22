@@ -24,7 +24,6 @@ public class DeliveryManager : MonoBehaviour
     {
         Instance = this;
 
-
         waitingRecipeSOList = new List<RecipeSO>();
     }
     private void Update()

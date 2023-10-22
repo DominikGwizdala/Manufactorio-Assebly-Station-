@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e252a903fe25c534eaf26eb9cefed588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCounter: {fileID: 6286988895311076159}
+  baseWorkstation: {fileID: 6286988895311076159}
   visualGameObjectArray:
   - {fileID: 5217279817056870401}
 --- !u!4 &1911970188568855863 stripped
@@ -143,10 +143,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262135285964825528, guid: 08948c55bcdc243408065c7cebf6908a,
+        type: 3}
+      propertyPath: m_Name
+      value: WorkstationTopPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 4145637903280035628, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
       propertyPath: m_Name
-      value: TrashCounter
+      value: TrashWorkstation
       objectReference: {fileID: 0}
     - target: {fileID: 5875839680263466205, guid: 08948c55bcdc243408065c7cebf6908a,
         type: 3}
@@ -233,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad87552ce0da1a4683b84a1447b3798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 6786653399308347936}
+  workstationTopPoint: {fileID: 6786653399308347936}
 --- !u!4 &6786653399308347936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8917169073473579119, guid: 08948c55bcdc243408065c7cebf6908a,

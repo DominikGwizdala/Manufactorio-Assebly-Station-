@@ -18,7 +18,6 @@ public class PlayerSounds : MonoBehaviour
         footstepsTimer -= Time.deltaTime;
         if (footstepsTimer < 0f) { 
             footstepsTimer = footstepsTimerMax;
-            //if(player.IsWalking())
             if (player.IsRunning())
             {
                 float volume = 1f;

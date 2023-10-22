@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuttingCounterVisual : MonoBehaviour
+public class LogCutterWorkstationVisual : MonoBehaviour
 {
     private const string CUT = "Cut";
 
-    [SerializeField] private CuttingCounter cuttingCounter;
+    [SerializeField] private LogCutterWorkstation logCutterWorkstation;
 
     private Animator animator;
 
@@ -17,11 +17,10 @@ public class CuttingCounterVisual : MonoBehaviour
 
     private void Start()
     {
-        cuttingCounter.OnCut += CuttingCounter_OnCut;
-       
+        logCutterWorkstation.OnCut += logCutterWorkstation_OnCut;
     }
 
-    private void CuttingCounter_OnCut(object sender, System.EventArgs e)
+    private void logCutterWorkstation_OnCut(object sender, System.EventArgs e)
     {
         animator.SetTrigger(CUT);
     }

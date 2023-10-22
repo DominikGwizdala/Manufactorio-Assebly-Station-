@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectedCounterVisual : MonoBehaviour
+public class SelectedWorkstationVisual : MonoBehaviour
 {
-    [SerializeField] private BaseCounter baseCounter;
+    [SerializeField] private BaseWorkstation baseWorkstation;
     [SerializeField] private GameObject[] visualGameObjectArray;
     private void Start()
     {
-        Player.Instance.OnselectedCounterChanged += Player_OnselectedCounterChanged;
+        Player.Instance.OnSelectedWorkstationChanged += Player_OnSelectedWorkstationChanged;
     }
 
-    private void Player_OnselectedCounterChanged(object sender, Player.OnSelectedCounterChangedEventArgs e)
+    private void Player_OnSelectedWorkstationChanged(object sender, Player.OnSelectedWorkstationChangedEventArgs e)
     {
-        if(e.selectedCounter == baseCounter) {
+        if (e.selectedWorkstation == baseWorkstation) 
+        {
             Show();
-        }else{
+        }
+        else
+        {
             Hide();
         }
     }
