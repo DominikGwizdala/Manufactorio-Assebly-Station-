@@ -24,5 +24,4 @@ public class LogCutterWorkstationVisual : MonoBehaviour
     {
         animator.SetTrigger(CUT);
     }
-
 }

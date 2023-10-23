@@ -8,7 +8,6 @@ public class OptionsUI : MonoBehaviour
 {
     public static OptionsUI Instance { get; private set; }
 
-
     [SerializeField] private Button soundEffectsButton;
     [SerializeField] private Button musicButton;
     [SerializeField] private Button moveUpButton;
@@ -76,7 +75,6 @@ public class OptionsUI : MonoBehaviour
         
         HidePressToRebindKey();
         Hide();
-        
     }
 
     private void GameManager_OnGameUnpaused(object sender, System.EventArgs e)
@@ -112,9 +110,8 @@ public class OptionsUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void ShowPressToRebindKey() {
-
-
+    private void ShowPressToRebindKey() 
+    {
         pressToRebindKeyTransform.gameObject.SetActive(true);
     }
     private void HidePressToRebindKey()
@@ -129,6 +126,5 @@ public class OptionsUI : MonoBehaviour
             UpdateVisual();
         }); 
     }
-
 }
 

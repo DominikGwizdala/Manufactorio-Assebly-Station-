@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workstationTopPoint: {fileID: 9098217164192433620}
-  plateKitchenObjectSO: {fileID: 11400000, guid: 9b6079bffe734b747bda7bbfc420c65e,
+  plateWorkshopObjectSO: {fileID: 11400000, guid: 9b6079bffe734b747bda7bbfc420c65e,
     type: 2}
   spawnPlateTimerMax: 4
 --- !u!4 &6055185658237878630 stripped

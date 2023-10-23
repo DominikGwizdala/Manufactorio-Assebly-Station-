@@ -8,7 +8,7 @@ public class PlatesWorkstation : BaseWorkstation
     public event EventHandler OnPlateSpawned;
     public event EventHandler OnPlateRemoved;
 
-    [SerializeField] private KitchenObjectSO plateKitchenObjectSO;
+    [SerializeField] private WorkshopObjectSO plateWorkshopObjectSO;
 
     private float spawnPlateTimer;
     [SerializeField] private float spawnPlateTimerMax;
@@ -33,13 +33,13 @@ public class PlatesWorkstation : BaseWorkstation
 
     public override void Interact(Player player)
     {
-        if (!player.HasKitchenObject())
+        if (!player.HasWorkshopObject())
         {
             if(platesSpawnedAmount > 0)
             {
                 platesSpawnedAmount--;
 
-                KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, player);
+                WorkshopObject.SpawnWorkshopObject(plateWorkshopObjectSO, player);
 
                 OnPlateRemoved?.Invoke(this, EventArgs.Empty);
             }

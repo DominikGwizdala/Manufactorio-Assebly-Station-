@@ -42,24 +42,24 @@ public class DeliveryManager : MonoBehaviour
             }
         }
     }
-    public void DeliverRecipe(PlateKitchenObject plateKitchenObject)
+    public void DeliverRecipe(PlateWorkshopObject plateWorkshopObject)
     {
         for(int i = 0; i < waitingRecipeSOList.Count; i++)
         {
             RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
 
-            if (waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
+            if (waitingRecipeSO.workshopObjectSOList.Count == plateWorkshopObject.GetWorkshopObjectSOList().Count)
             {
                 //Ma tak¹ sam¹ liczbê sk³adników
                 bool plateContentsMatchesRecipe = true;
-                foreach(KitchenObjectSO recipeKitchenObjectSO in waitingRecipeSO.kitchenObjectSOList)
+                foreach(WorkshopObjectSO recipeWorkshopObjectSO in waitingRecipeSO.workshopObjectSOList)
                 {
                     //Pêtla przez wszystkie sk³adniki w Przepisie 
                     bool ingredientFound = false;
-                    foreach (KitchenObjectSO plateKitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList())
+                    foreach (WorkshopObjectSO plateWorkshopObjectSO in plateWorkshopObject.GetWorkshopObjectSOList())
                     {
                         //Pêtla przez wszystkie skadniki na talerzu\
-                        if(plateKitchenObjectSO == recipeKitchenObjectSO)
+                        if(plateWorkshopObjectSO == recipeWorkshopObjectSO)
                         {
                             //Sk³adniki siê zgadzaj¹
                             ingredientFound = true;
@@ -87,7 +87,6 @@ public class DeliveryManager : MonoBehaviour
         //Brak zamówienia
         //Gracz dostarczy³ z³e zamówienie
         OnRecipeFailed?.Invoke(this, EventArgs.Empty);
-
     }
 
     public List<RecipeSO> GetWaitingRecipeSOList()

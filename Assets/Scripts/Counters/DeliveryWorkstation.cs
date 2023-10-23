@@ -13,12 +13,12 @@ public class DeliveryWorkstation : BaseWorkstation
 
     public override void Interact(Player player)
     {
-        if (player.HasKitchenObject()) 
+        if (player.HasWorkshopObject()) 
         {
-            if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+            if (player.GetWorkshopObject().TryGetPlate(out PlateWorkshopObject plateWorkshopObject))
             {
-                DeliveryManager.Instance.DeliverRecipe(plateKitchenObject);
-                player.GetKitchenObject().DestroySelf();
+                DeliveryManager.Instance.DeliverRecipe(plateWorkshopObject);
+                player.GetWorkshopObject().DestroySelf();
             }
         }
     }

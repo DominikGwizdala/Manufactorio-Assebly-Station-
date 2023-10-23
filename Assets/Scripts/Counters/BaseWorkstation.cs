@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseWorkstation : MonoBehaviour, IKitchenObjectParent
+public class BaseWorkstation : MonoBehaviour, IWorkshopObjectParent
 {
     public static event EventHandler OnAnyObjectPlacedHere;
 
@@ -13,7 +13,7 @@ public class BaseWorkstation : MonoBehaviour, IKitchenObjectParent
     }
     [SerializeField] private Transform workstationTopPoint;
 
-    private KitchenObject kitchenObject;
+    private WorkshopObject workshopObject;
 
     public virtual void Interact(Player player)
     {
@@ -23,28 +23,28 @@ public class BaseWorkstation : MonoBehaviour, IKitchenObjectParent
     {
         //Debug.LogError("BaseWorkstation interactionAlternate");
     }
-    public Transform GetKitchenObjectFollowTransform()
+    public Transform GetWorkshopObjectFollowTransform()
     {
         return workstationTopPoint;
     }
-    public void SetKitchenObject(KitchenObject kitchenObject)
+    public void SetWorkshopObject(WorkshopObject workshopObject)
     {
-        this.kitchenObject = kitchenObject;
-        if (kitchenObject != null )
+        this.workshopObject = workshopObject;
+        if (workshopObject != null )
         {
             OnAnyObjectPlacedHere?.Invoke(this, EventArgs.Empty);
         }
     }
-    public KitchenObject GetKitchenObject()
+    public WorkshopObject GetWorkshopObject()
     {
-        return kitchenObject;
+        return workshopObject;
     }
-    public void ClearKitchenObject()
+    public void ClearWorkshopObject()
     {
-        kitchenObject = null;
+        workshopObject = null;
     }
-    public bool HasKitchenObject()
+    public bool HasWorkshopObject()
     {
-        return kitchenObject != null;
+        return workshopObject != null;
     }
 }

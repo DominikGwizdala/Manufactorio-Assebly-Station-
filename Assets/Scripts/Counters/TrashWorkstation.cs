@@ -6,15 +6,15 @@ using UnityEngine;
 public class TrashWorkstation : BaseWorkstation
 {
     public static EventHandler OnAnyObjectTrashed;
-   new public static void ResetStaticData()
+    new public static void ResetStaticData()
     {
         OnAnyObjectTrashed = null;
     }
     public override void Interact(Player player)
     {
-        if (player.HasKitchenObject())
+        if (player.HasWorkshopObject())
         {
-            player.GetKitchenObject().DestroySelf();
+            player.GetWorkshopObject().DestroySelf();
             OnAnyObjectTrashed?.Invoke(this, EventArgs.Empty);
         }
     }

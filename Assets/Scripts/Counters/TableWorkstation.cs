@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class TableWorkstation : BaseWorkstation
 {
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
+    [SerializeField] private WorkshopObjectSO workshopObjectSO;
 
     public override void Interact(Player player)
     {
-        if (!HasKitchenObject())
+        if (!HasWorkshopObject())
         {
-            if (player.HasKitchenObject()) {
-                player.GetKitchenObject().SetKitchenObjectParent(this);
+            if (player.HasWorkshopObject()) {
+                player.GetWorkshopObject().SetWorkshopObjectParent(this);
             }
         }
         else
         {
-            if (!player.HasKitchenObject())
+            if (!player.HasWorkshopObject())
             {
-                GetKitchenObject().SetKitchenObjectParent(player);
+                GetWorkshopObject().SetWorkshopObjectParent(player);
             }
             else
             {
-                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) 
+                if (player.GetWorkshopObject().TryGetPlate(out PlateWorkshopObject plateWorkshopObject)) 
                 {
-                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    if (plateWorkshopObject.TryAddIngredient(GetWorkshopObject().GetWorkshopObjectSO()))
                     {
-                        GetKitchenObject().DestroySelf();
+                        GetWorkshopObject().DestroySelf();
                     }
                 }
                 else
                 {
-                    if (GetKitchenObject().TryGetPlate(out plateKitchenObject))
+                    if (GetWorkshopObject().TryGetPlate(out plateWorkshopObject))
                     {
-                        if (plateKitchenObject.TryAddIngredient(player.GetKitchenObject().GetKitchenObjectSO()))
+                        if (plateWorkshopObject.TryAddIngredient(player.GetWorkshopObject().GetWorkshopObjectSO()))
                         {
-                            player.GetKitchenObject().DestroySelf();
+                            player.GetWorkshopObject().DestroySelf();
                         }
                     }
                 }

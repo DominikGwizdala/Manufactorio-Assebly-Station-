@@ -36,5 +36,4 @@ public class GameOverUI : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    
 }

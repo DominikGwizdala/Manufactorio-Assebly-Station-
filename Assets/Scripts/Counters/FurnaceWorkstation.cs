@@ -38,7 +38,7 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
 
     private void Update()
     {
-        if (HasKitchenObject())
+        if (HasWorkshopObject())
         {
             switch (state)
             {
@@ -54,11 +54,11 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
 
                     if (fryingTimer > fryingRecipeSO.fryingTimerMax)
                     {
-                        GetKitchenObject().DestroySelf();
-                        KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
+                        GetWorkshopObject().DestroySelf();
+                        WorkshopObject.SpawnWorkshopObject(fryingRecipeSO.output, this);
                         state = State.Fried;
                         burningTimer = 0f;
-                        burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                        burningRecipeSO = GetBurningRecipeSOWithInput(GetWorkshopObject().GetWorkshopObjectSO());
 
                         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
                         {
@@ -76,8 +76,8 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
 
                     if (burningTimer > burningRecipeSO.burningTimerMax)
                     {
-                        GetKitchenObject().DestroySelf();
-                        KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
+                        GetWorkshopObject().DestroySelf();
+                        WorkshopObject.SpawnWorkshopObject(burningRecipeSO.output, this);
                         state = State.Burned;
 
                         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
@@ -98,15 +98,15 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
     }
     public override void Interact(Player player)
     {
-        if (!HasKitchenObject())
+        if (!HasWorkshopObject())
         {
-            if (player.HasKitchenObject())
+            if (player.HasWorkshopObject())
             {
-                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
+                if (HasRecipeWithInput(player.GetWorkshopObject().GetWorkshopObjectSO()))
                 {
-                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                    player.GetWorkshopObject().SetWorkshopObjectParent(this);
 
-                    fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                    fryingRecipeSO = GetFryingRecipeSOWithInput(GetWorkshopObject().GetWorkshopObjectSO());
                     state = State.Frying;
                     fryingTimer = 0f;
 
@@ -124,9 +124,9 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
         }
         else
         {
-            if (!player.HasKitchenObject())
+            if (!player.HasWorkshopObject())
             {
-                GetKitchenObject().SetKitchenObjectParent(player);
+                GetWorkshopObject().SetWorkshopObjectParent(player);
 
                 state = State.Idle;
 
@@ -142,11 +142,11 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
             }
             else
             {
-                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                if (player.GetWorkshopObject().TryGetPlate(out PlateWorkshopObject plateWorkshopObject))
                 {
-                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    if (plateWorkshopObject.TryAddIngredient(GetWorkshopObject().GetWorkshopObjectSO()))
                     {
-                        GetKitchenObject().DestroySelf();
+                        GetWorkshopObject().DestroySelf();
 
                         state = State.Idle;
 
@@ -164,14 +164,14 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
             }
         }
     }
-    private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO)
+    private bool HasRecipeWithInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
-        FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(inputKitchenObjectSO);
+        FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(inputWorkshopObjectSO);
         return fryingRecipeSO != null;
     }
-    private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO)
+    private WorkshopObjectSO GetOutputForInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
-        FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(inputKitchenObjectSO);
+        FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(inputWorkshopObjectSO);
         if (fryingRecipeSO != null)
         {
             return fryingRecipeSO.output;
@@ -181,22 +181,22 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
             return null;
         }
     }
-    private FryingRecipeSO GetFryingRecipeSOWithInput(KitchenObjectSO inputKitchenObjectSO)
+    private FryingRecipeSO GetFryingRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
         foreach (FryingRecipeSO fryingRecipeSO in fryingRecipeSOArray)
         {
-            if (fryingRecipeSO.input == inputKitchenObjectSO)
+            if (fryingRecipeSO.input == inputWorkshopObjectSO)
             {
                 return fryingRecipeSO;
             }
         }
         return null;
     }
-    private BurningRecipeSO GetBurningRecipeSOWithInput(KitchenObjectSO inputKitchenObjectSO)
+    private BurningRecipeSO GetBurningRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
         foreach (BurningRecipeSO burningRecipeSO in burningRecipeSOArray)
         {
-            if (burningRecipeSO.input == inputKitchenObjectSO)
+            if (burningRecipeSO.input == inputWorkshopObjectSO)
             {
                 return burningRecipeSO;
             }

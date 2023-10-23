@@ -2,35 +2,36 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlateCompleteVisual;
 
 public class PlateCompleteVisual : MonoBehaviour
 {
-    [Serializable] public struct KitchenObjectSO_GameObject
+    [Serializable] public struct WorkshopObjectSO_GameObject
     {
-        public KitchenObjectSO kitchenObjectSO;
+        public WorkshopObjectSO workshopObjectSO;
         public GameObject gameObject;
     }
 
-    [SerializeField] private PlateKitchenObject plateKitchenObject;
-    [SerializeField] private List<KitchenObjectSO_GameObject> kitchenObjectSOGameObjectList;
+    [SerializeField] private PlateWorkshopObject plateWorkshopObject;
+    [SerializeField] private List<WorkshopObjectSO_GameObject> workshopObjectSOGameObjectList;
 
     private void Start()
     {
-        plateKitchenObject.OnIngredientAdded += PlateKitchenObject_OnIngredientAdded;
+        plateWorkshopObject.OnIngredientAdded += PlateWorkshopObject_OnIngredientAdded;
 
-        foreach (KitchenObjectSO_GameObject kitchenObjectSOGameObject in kitchenObjectSOGameObjectList)
+        foreach (WorkshopObjectSO_GameObject workshopObjectSOGameObject in workshopObjectSOGameObjectList)
         {
-            kitchenObjectSOGameObject.gameObject.SetActive(false);
+            workshopObjectSOGameObject.gameObject.SetActive(false);
         }
     }
 
-    private void PlateKitchenObject_OnIngredientAdded(object sender, PlateKitchenObject.OnIngredientAddedEventArgs e)
+    private void PlateWorkshopObject_OnIngredientAdded(object sender, PlateWorkshopObject.OnIngredientAddedEventArgs e)
     {
-        foreach (KitchenObjectSO_GameObject kitchenObjectSOGameObject in kitchenObjectSOGameObjectList)
+        foreach (WorkshopObjectSO_GameObject workshopObjectSOGameObject in workshopObjectSOGameObjectList)
         {
-            if (kitchenObjectSOGameObject.kitchenObjectSO == e.kitchenObjectSO)
+            if (workshopObjectSOGameObject.workshopObjectSO == e.workshopObjectSO)
             {
-                kitchenObjectSOGameObject.gameObject.SetActive(true);
+                workshopObjectSOGameObject.gameObject.SetActive(true);
             }
         }
     }

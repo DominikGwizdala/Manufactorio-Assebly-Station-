@@ -54,7 +54,7 @@ MonoBehaviour:
   workstationsLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  kitchenObjectHoldPoint: {fileID: 5408645068243781538}
+  workshopObjectHoldPoint: {fileID: 5408645068243781538}
 --- !u!114 &698077275647385779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408645068243781538}
   m_Layer: 0
-  m_Name: KitchenObjectHoldPoint
+  m_Name: WorkshopObjectHoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

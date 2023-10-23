@@ -20,13 +20,13 @@ public class LogCutterWorkstation : BaseWorkstation, IHasProgress
 
     public override void Interact(Player player)
     {
-        if (!HasKitchenObject())
+        if (!HasWorkshopObject())
         {
-            if (player.HasKitchenObject())
+            if (player.HasWorkshopObject())
             {
-                player.GetKitchenObject().SetKitchenObjectParent(this);
+                player.GetWorkshopObject().SetWorkshopObjectParent(this);
                 cuttingProgress = 0;
-                CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetWorkshopObject().GetWorkshopObjectSO());
                 OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                 {
                     progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
@@ -35,9 +35,9 @@ public class LogCutterWorkstation : BaseWorkstation, IHasProgress
         }
         else
         {
-            if (!player.HasKitchenObject())
+            if (!player.HasWorkshopObject())
             {
-                GetKitchenObject().SetKitchenObjectParent(player);
+                GetWorkshopObject().SetWorkshopObjectParent(player);
 
                 OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                 {
@@ -46,11 +46,11 @@ public class LogCutterWorkstation : BaseWorkstation, IHasProgress
             }
             else
             {
-                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                if (player.GetWorkshopObject().TryGetPlate(out PlateWorkshopObject plateWorkshopObject))
                 {
-                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    if (plateWorkshopObject.TryAddIngredient(GetWorkshopObject().GetWorkshopObjectSO()))
                     {
-                        GetKitchenObject().DestroySelf();
+                        GetWorkshopObject().DestroySelf();
                     }
                 }
             }
@@ -58,35 +58,35 @@ public class LogCutterWorkstation : BaseWorkstation, IHasProgress
     }
     public override void InteractAlternate(Player player)
     {
-        if (HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
+        if (HasWorkshopObject() && HasRecipeWithInput(GetWorkshopObject().GetWorkshopObjectSO()))
         {
             cuttingProgress++;
             OnCut?.Invoke(this, EventArgs.Empty);
             Debug.Log(OnAnyCut.GetInvocationList().Length);
             OnAnyCut?.Invoke(this, EventArgs.Empty);
 
-            CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+            CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetWorkshopObject().GetWorkshopObjectSO());
             OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
             {
                 progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
             });
             if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
             {
-                KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
-                GetKitchenObject().DestroySelf();
+                WorkshopObjectSO outputWorkshopObjectSO = GetOutputForInput(GetWorkshopObject().GetWorkshopObjectSO());
+                GetWorkshopObject().DestroySelf();
 
-                KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
+                WorkshopObject.SpawnWorkshopObject(outputWorkshopObjectSO, this);
             }
         }
     }
-    private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO)
+    private bool HasRecipeWithInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
-        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(inputKitchenObjectSO);
+        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(inputWorkshopObjectSO);
         return cuttingRecipeSO != null;
     }
-    private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO)
+    private WorkshopObjectSO GetOutputForInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
-        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(inputKitchenObjectSO);
+        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(inputWorkshopObjectSO);
         if(cuttingRecipeSO != null)
         {
             return cuttingRecipeSO.output;
@@ -96,11 +96,11 @@ public class LogCutterWorkstation : BaseWorkstation, IHasProgress
             return null;
         }
     }
-    private CuttingRecipeSO GetCuttingRecipeSOWithInput(KitchenObjectSO inputKitchenObjectSO) {
+    private CuttingRecipeSO GetCuttingRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO) {
         foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray)
         {
 
-            if (cuttingRecipeSO.input == inputKitchenObjectSO)
+            if (cuttingRecipeSO.input == inputWorkshopObjectSO)
             {
                 return cuttingRecipeSO;
             }

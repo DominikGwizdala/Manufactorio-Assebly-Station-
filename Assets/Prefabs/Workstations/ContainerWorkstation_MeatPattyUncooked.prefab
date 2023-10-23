@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7459695417788897967
+--- !u!1001 &8471720790432547575
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -58,10 +58,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 996541206601974902, guid: 50f9a37b1680dac44a4af3dc88b54a19,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f1a1878e1f50a748b4c196e215a9ede,
+        type: 2}
+    - target: {fileID: 996541206601974902, guid: 50f9a37b1680dac44a4af3dc88b54a19,
+        type: 3}
+      propertyPath: workshopObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f1a1878e1f50a748b4c196e215a9ede,
+        type: 2}
+    - target: {fileID: 4697915734740752537, guid: 50f9a37b1680dac44a4af3dc88b54a19,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aa1bacc24dde76e47b2ec0dd4e82385b,
+        type: 3}
     - target: {fileID: 7197882692059279935, guid: 50f9a37b1680dac44a4af3dc88b54a19,
         type: 3}
       propertyPath: m_Name
-      value: ContainerWorkstation_CheeseBlock
+      value: ContainerWorkstation_MeatPattyUncooked
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

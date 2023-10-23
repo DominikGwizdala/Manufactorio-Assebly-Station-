@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4943716467431559673
+--- !u!1001 &7459695417788897967
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -60,20 +60,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 996541206601974902, guid: 50f9a37b1680dac44a4af3dc88b54a19,
         type: 3}
-      propertyPath: kitchenObjectSO
+      propertyPath: workshopObjectSO
       value: 
-      objectReference: {fileID: 11400000, guid: 09f38833050ddf6458621a929622e26c,
+      objectReference: {fileID: 11400000, guid: c9539600c8c64cf49924b554a71a9e15,
         type: 2}
-    - target: {fileID: 4697915734740752537, guid: 50f9a37b1680dac44a4af3dc88b54a19,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 91e8fe3de9249fc44b7bdd8050062896,
-        type: 3}
     - target: {fileID: 7197882692059279935, guid: 50f9a37b1680dac44a4af3dc88b54a19,
         type: 3}
       propertyPath: m_Name
-      value: ContainerWorkstation_Tomato
+      value: ContainerWorkstation_CheeseBlock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

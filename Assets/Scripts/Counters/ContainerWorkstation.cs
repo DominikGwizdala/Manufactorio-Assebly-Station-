@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class ContainerWorkstation : BaseWorkstation
 {
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
+    [SerializeField] private WorkshopObjectSO workshopObjectSO;
 
     public event EventHandler OnPlayerGrabbedObject;
 
     public override void Interact(Player player)
     {
-        if (!player.HasKitchenObject())
+        if (!player.HasWorkshopObject())
         {
-            KitchenObject.SpawnKitchenObject(kitchenObjectSO, player);
+            WorkshopObject.SpawnWorkshopObject(workshopObjectSO, player);
 
             OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
         }

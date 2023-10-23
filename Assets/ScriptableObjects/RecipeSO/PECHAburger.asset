@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e15dad9043973f458d6436dc4a89d8d, type: 3}
   m_Name: PECHAburger
   m_EditorClassIdentifier: 
-  kitchenObjectSOList:
-  - {fileID: 11400000, guid: 24ee529e8c0778643969c35777edee02, type: 2}
+  workshopObjectSOList:
   - {fileID: 11400000, guid: 56cfe4e6ac1547a4683d317646e6f3d8, type: 2}
+  - {fileID: 11400000, guid: 24ee529e8c0778643969c35777edee02, type: 2}
   - {fileID: 11400000, guid: a5dbcfb31a7ebcc4180a5443f26b0207, type: 2}
-  - {fileID: 11400000, guid: 0e1911b415a88a041b7a05120c41afa4, type: 2}
   - {fileID: 11400000, guid: 8049469f93299334093a0544736c0e13, type: 2}
+  - {fileID: 11400000, guid: 0e1911b415a88a041b7a05120c41afa4, type: 2}
   recipeName: PECHAburger

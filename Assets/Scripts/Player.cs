@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Player : MonoBehaviour, IKitchenObjectParent  
+public class Player : MonoBehaviour, IWorkshopObjectParent
 {
     public event EventHandler OnPickedSomething;
     public static Player Instance { get; private set; }  
@@ -17,13 +17,13 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     [SerializeField] private float rotateSpeed=10f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask workstationsLayerMask;
-    [SerializeField] private Transform kitchenObjectHoldPoint;
+    [SerializeField] private Transform workshopObjectHoldPoint;
 
     private bool isRunning;
     private bool isHolding;
     private Vector3 lastInteractDirection;
     private BaseWorkstation selectedWorkstation;
-    private KitchenObject kitchenObject;
+    private WorkshopObject workshopObject;
 
     private void Awake()
     {
@@ -134,7 +134,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         }
 
         isRunning = moveDirection != Vector3.zero;
-        isHolding = HasKitchenObject();
+        isHolding = HasWorkshopObject();
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
     }
     public bool IsRunning()
@@ -156,28 +156,28 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     }
 
-    public Transform GetKitchenObjectFollowTransform()
+    public Transform GetWorkshopObjectFollowTransform()
     {
-        return kitchenObjectHoldPoint;
+        return workshopObjectHoldPoint;
     }
-    public void SetKitchenObject(KitchenObject kitchenObject)
+    public void SetWorkshopObject(WorkshopObject workshopObject)
     {
-        this.kitchenObject = kitchenObject;
-        if(kitchenObject !=null)
+        this.workshopObject = workshopObject;
+        if(workshopObject != null)
         {
             OnPickedSomething?.Invoke(this,EventArgs.Empty);
         }
     }
-    public KitchenObject GetKitchenObject()
+    public WorkshopObject GetWorkshopObject()
     {
-        return kitchenObject;
+        return workshopObject;
     }
-    public void ClearKitchenObject()
+    public void ClearWorkshopObject()
     {
-        kitchenObject = null;
+        workshopObject = null;
     }
-    public bool HasKitchenObject()
+    public bool HasWorkshopObject()
     {
-        return kitchenObject != null;
+        return workshopObject != null;
     }
 }
