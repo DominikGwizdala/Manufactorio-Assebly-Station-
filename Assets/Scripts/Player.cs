@@ -73,7 +73,7 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
             lastInteractDirection = moveDirection;
         }
         float interactDistance = 2f;
-        if (Physics.Raycast(transform.position,lastInteractDirection,out RaycastHit raycastHit, interactDistance, workstationsLayerMask))
+        if (Physics.Raycast(transform.position, lastInteractDirection, out RaycastHit raycastHit, interactDistance, workstationsLayerMask))
         {
             if (raycastHit.transform.TryGetComponent(out BaseWorkstation baseWorkstation))
             {

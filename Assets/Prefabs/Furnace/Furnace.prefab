@@ -10262,7 +10262,7 @@ GameObject:
   - component: {fileID: 6181945385034567291}
   - component: {fileID: 251771156970255765}
   m_Layer: 6
-  m_Name: Furance
+  m_Name: Furnace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10277,7 +10277,7 @@ Transform:
   m_GameObject: {fileID: 8503991994364123926}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.78, y: 2.25, z: -19.69}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10308,8 +10308,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.2004607, y: 1.5958406, z: 2.1479123}
-  m_Center: {x: -0.015413762, y: -0.07269943, z: -0.29154256}
+  m_Size: {x: 2.2004607, y: 4.9118977, z: 1.8994887}
+  m_Center: {x: 0, y: 1.9659586, z: -0.3030491}
 --- !u!114 &251771156970255765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10323,7 +10323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workstationTopPoint: {fileID: 3650834783905127981}
-  fryingRecipeSOArray: []
+  fryingRecipeSOArray:
+  - {fileID: 11400000, guid: 685c97e41f0f65c40af014ad9613a88a, type: 2}
   burningRecipeSOArray: []
 --- !u!1 &8724558530332957911
 GameObject:
@@ -10432,52 +10433,52 @@ PrefabInstance:
     - target: {fileID: 4931339219622546551, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.033926595
+      value: -0.228
       objectReference: {fileID: 0}
     - target: {fileID: 4931339219622546551, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5552351
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4931339219622546551, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.008636009
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4931339219622546551, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8316472
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4931339219622546551, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0015371355
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4931339219622546551, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.2826723
+      value: -1.114
       objectReference: {fileID: 0}
     - target: {fileID: 4931339219622546551, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.20007694
+      value: 1.514
       objectReference: {fileID: 0}
     - target: {fileID: 4931339219622546551, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.403
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4931339219622546551, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 112.546
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4931339219622546551, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.921
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5820497100943799131, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
@@ -10574,7 +10575,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2f62939cdc9e90b41a72fbac91225ffc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f62939cdc9e90b41a72fbac91225ffc,
         type: 3}
@@ -10623,6 +10624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8391222552659086748, guid: 2f62939cdc9e90b41a72fbac91225ffc,
         type: 3}
+      propertyPath: m_Name
+      value: Furnace
+      objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 2f62939cdc9e90b41a72fbac91225ffc,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -10641,6 +10647,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 1a0afd856a35421469b28b916116fd9c, type: 2}
+    - target: {fileID: -1688617927700330159, guid: 2f62939cdc9e90b41a72fbac91225ffc,
+        type: 3}
+      propertyPath: m_Name
+      value: Pipe
+      objectReference: {fileID: 0}
     - target: {fileID: -1688617927700330159, guid: 2f62939cdc9e90b41a72fbac91225ffc,
         type: 3}
       propertyPath: m_IsActive
@@ -10764,7 +10775,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2f62939cdc9e90b41a72fbac91225ffc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f62939cdc9e90b41a72fbac91225ffc,
         type: 3}
@@ -10809,7 +10820,7 @@ PrefabInstance:
     - target: {fileID: -8391222552659086748, guid: 2f62939cdc9e90b41a72fbac91225ffc,
         type: 3}
       propertyPath: m_Name
-      value: Furance
+      value: Furnace
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 2f62939cdc9e90b41a72fbac91225ffc,
         type: 3}
@@ -10824,7 +10835,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2f62939cdc9e90b41a72fbac91225ffc,
         type: 3}
       propertyPath: m_Name
-      value: piec
+      value: Furnace
       objectReference: {fileID: 0}
     - target: {fileID: 9078949020938347583, guid: 2f62939cdc9e90b41a72fbac91225ffc,
         type: 3}
