@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c697d7b9a167b147a69113144c6cf35, type: 3}
   m_Name: MeatPattyCooked-MeatPattyBurned
   m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: 24ee529e8c0778643969c35777edee02, type: 2}
-  output: {fileID: 11400000, guid: c6df34395d6fe5844bbeee0ad341f64c, type: 2}
+  input: {fileID: 11400000, guid: 5fa1216105fbfa54f9fa7162d3f1f0e8, type: 2}
+  output: {fileID: 11400000, guid: c9539600c8c64cf49924b554a71a9e15, type: 2}
   burningTimerMax: 5
