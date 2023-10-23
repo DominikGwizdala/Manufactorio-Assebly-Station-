@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContainerCounter_Visual
       objectReference: {fileID: 0}
+    - target: {fileID: 4589716710238282922, guid: 9a9137fa2b035d34e881701d2c178192,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4589716710238282923, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -217,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workstationTopPoint: {fileID: 2426421637746986364}
-  kitchenObjectSO: {fileID: 11400000, guid: c9539600c8c64cf49924b554a71a9e15, type: 2}
+  workshopObjectSO: {fileID: 0}
 --- !u!95 &3695187197277184525
 Animator:
   serializedVersion: 5
