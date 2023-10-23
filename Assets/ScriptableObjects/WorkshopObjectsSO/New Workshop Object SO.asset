@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e15dad9043973f458d6436dc4a89d8d, type: 3}
-  m_Name: Burger
+  m_Script: {fileID: 11500000, guid: 159f2b17023279045b835eb5bc5915a2, type: 3}
+  m_Name: New Workshop Object SO
   m_EditorClassIdentifier: 
-  workshopObjectSOList:
-  - {fileID: 11400000, guid: 56cfe4e6ac1547a4683d317646e6f3d8, type: 2}
-  - {fileID: 11400000, guid: 24ee529e8c0778643969c35777edee02, type: 2}
-  recipeName: Burger
+  prefab: {fileID: 0}
+  sprite: {fileID: 0}
+  objectName: 
