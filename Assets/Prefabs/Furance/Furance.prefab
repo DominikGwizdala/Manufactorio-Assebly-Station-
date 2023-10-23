@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 382511668939651695}
   m_Layer: 0
-  m_Name: Piec
+  m_Name: Furance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
