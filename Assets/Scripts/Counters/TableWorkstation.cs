@@ -22,18 +22,18 @@ public class TableWorkstation : BaseWorkstation
             }
             else
             {
-                if (player.GetWorkshopObject().TryGetPlate(out PlateWorkshopObject plateWorkshopObject)) 
+                if (player.GetWorkshopObject().TryGetPackage(out PackageWorkshopObject packageWorkshopObject)) 
                 {
-                    if (plateWorkshopObject.TryAddIngredient(GetWorkshopObject().GetWorkshopObjectSO()))
+                    if (packageWorkshopObject.TryAddPart(GetWorkshopObject().GetWorkshopObjectSO()))
                     {
                         GetWorkshopObject().DestroySelf();
                     }
                 }
                 else
                 {
-                    if (GetWorkshopObject().TryGetPlate(out plateWorkshopObject))
+                    if (GetWorkshopObject().TryGetPackage(out packageWorkshopObject))
                     {
-                        if (plateWorkshopObject.TryAddIngredient(player.GetWorkshopObject().GetWorkshopObjectSO()))
+                        if (packageWorkshopObject.TryAddPart(player.GetWorkshopObject().GetWorkshopObjectSO()))
                         {
                             player.GetWorkshopObject().DestroySelf();
                         }

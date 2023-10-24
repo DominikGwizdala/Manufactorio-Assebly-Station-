@@ -42,37 +42,37 @@ public class DeliveryManager : MonoBehaviour
             }
         }
     }
-    public void DeliverRecipe(PlateWorkshopObject plateWorkshopObject)
+    public void DeliverRecipe(PackageWorkshopObject packageWorkshopObject)
     {
-        for(int i = 0; i < waitingRecipeSOList.Count; i++)
+        for (int i = 0; i < waitingRecipeSOList.Count; i++)
         {
             RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
 
-            if (waitingRecipeSO.workshopObjectSOList.Count == plateWorkshopObject.GetWorkshopObjectSOList().Count)
+            if (waitingRecipeSO.workshopObjectSOList.Count == packageWorkshopObject.GetWorkshopObjectSOList().Count)
             {
-                //Ma tak¹ sam¹ liczbê sk³adników
-                bool plateContentsMatchesRecipe = true;
+                //Ma tak¹ sam¹ liczbê czêœci
+                bool packageContentsMatchesRecipe = true;
                 foreach(WorkshopObjectSO recipeWorkshopObjectSO in waitingRecipeSO.workshopObjectSOList)
                 {
-                    //Pêtla przez wszystkie sk³adniki w Przepisie 
-                    bool ingredientFound = false;
-                    foreach (WorkshopObjectSO plateWorkshopObjectSO in plateWorkshopObject.GetWorkshopObjectSOList())
+                    //Pêtla przez wszystkie czêœci w przepisie 
+                    bool partFound = false;
+                    foreach (WorkshopObjectSO packageWorkshopObjectSO in packageWorkshopObject.GetWorkshopObjectSOList())
                     {
-                        //Pêtla przez wszystkie skadniki na talerzu\
-                        if(plateWorkshopObjectSO == recipeWorkshopObjectSO)
+                        //Pêtla przez wszystkie czêœci w paczce
+                        if(packageWorkshopObjectSO == recipeWorkshopObjectSO)
                         {
-                            //Sk³adniki siê zgadzaj¹
-                            ingredientFound = true;
+                            //Czêœci siê zgadzaj¹
+                            partFound = true;
                             break;
                         }
                     }
-                    if (!ingredientFound)
+                    if (!partFound)
                     {
-                        //Sk³adnik przepisu nie zosta³ znaleziony na talerzu
-                        plateContentsMatchesRecipe = false;
+                        //Czêœæ z przepisu nie zosta³a znaleziona w paczce
+                        packageContentsMatchesRecipe = false;
                     }
                 }
-                if(plateContentsMatchesRecipe) 
+                if(packageContentsMatchesRecipe) 
                 {
                     //W³aœciwe zamówienie
                     successfulRecipesAmount++;

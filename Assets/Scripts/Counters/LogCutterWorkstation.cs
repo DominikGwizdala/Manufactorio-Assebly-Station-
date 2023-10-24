@@ -46,9 +46,9 @@ public class LogCutterWorkstation : BaseWorkstation, IHasProgress
             }
             else
             {
-                if (player.GetWorkshopObject().TryGetPlate(out PlateWorkshopObject plateWorkshopObject))
+                if (player.GetWorkshopObject().TryGetPackage(out PackageWorkshopObject packageWorkshopObject))
                 {
-                    if (plateWorkshopObject.TryAddIngredient(GetWorkshopObject().GetWorkshopObjectSO()))
+                    if (packageWorkshopObject.TryAddPart(GetWorkshopObject().GetWorkshopObjectSO()))
                     {
                         GetWorkshopObject().DestroySelf();
                     }

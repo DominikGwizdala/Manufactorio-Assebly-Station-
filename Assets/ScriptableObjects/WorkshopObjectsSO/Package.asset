@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b413fdbd40dfd4746b8d5806dfca0b50, type: 3}
-  m_Name: GoldOre-GoldBar
+  m_Script: {fileID: 11500000, guid: 159f2b17023279045b835eb5bc5915a2, type: 3}
+  m_Name: Package
   m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: 5404581e61aa36145ac7b7dcb1d699a4, type: 2}
-  output: {fileID: 11400000, guid: 5fa1216105fbfa54f9fa7162d3f1f0e8, type: 2}
-  smeltingTimerMax: 3
+  prefab: {fileID: 1081354090152448444, guid: ac6d5fd58a7923f4cbb526ec95f53843, type: 3}
+  sprite: {fileID: 21300000, guid: 7bd90b658eb20b44f874cede8273da02, type: 3}
+  objectName: Package

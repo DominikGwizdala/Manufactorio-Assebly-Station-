@@ -34,7 +34,7 @@ public class DeliveryResultUI : MonoBehaviour
     {
         gameObject.SetActive(true);
         animator.SetTrigger(POPUP);
-        backgroundImage.color =failedColor;
+        backgroundImage.color = failedColor;
         iconImage.sprite = failedSprite;
         messageText.text = "DELIVERY\nFAILED";
         

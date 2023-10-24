@@ -21,13 +21,13 @@ public class FurnaceWorkstationSound : MonoBehaviour
 
     private void FurnaceWorkstation_OnProgressChanged(object sender, IHasProgress.OnProgressChangedEventArgs e)
     {
-        float burnShowProgressAmount = .5f;
-        playWarningSound = furnaceWorkstation.IsFried() && e.progressNormalized >= burnShowProgressAmount;
+        float oversmeltingShowProgressAmount = .5f;
+        playWarningSound = furnaceWorkstation.IsSmelted() && e.progressNormalized >= oversmeltingShowProgressAmount;
     }
 
     private void FurnaceWorkstation_OnStateChanged(object sender, FurnaceWorkstation.OnStateChangedEventArgs e)
     {
-        bool playSound = e.state == FurnaceWorkstation.State.Frying || e.state == FurnaceWorkstation.State.Fried;
+        bool playSound = e.state == FurnaceWorkstation.State.Smelting || e.state == FurnaceWorkstation.State.Smelted;
         if (playSound)
         {
             audioSource.Play();

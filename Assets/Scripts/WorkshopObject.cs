@@ -39,16 +39,16 @@ public class WorkshopObject : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public bool TryGetPlate(out PlateWorkshopObject plateWorkshopObject)
+    public bool TryGetPackage(out PackageWorkshopObject packageWorkshopObject)
     {
-        if (this is PlateWorkshopObject)
+        if (this is PackageWorkshopObject)
         {
-            plateWorkshopObject = this as PlateWorkshopObject;
+            packageWorkshopObject = this as PackageWorkshopObject;
             return true;
         } 
         else
         {
-            plateWorkshopObject = null;
+            packageWorkshopObject = null;
             return false;
         }
     }

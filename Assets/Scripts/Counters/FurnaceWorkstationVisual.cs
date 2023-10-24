@@ -15,7 +15,7 @@ public class FurnaceWorkstationVisual : MonoBehaviour
 
     private void FurnaceWorkstation_OnStateChanged(object sender, FurnaceWorkstation.OnStateChangedEventArgs e)
     {
-        bool showVisual = e.state == FurnaceWorkstation.State.Frying || e.state == FurnaceWorkstation.State.Fried;
+        bool showVisual = e.state == FurnaceWorkstation.State.Smelting || e.state == FurnaceWorkstation.State.Smelted;
         furnaceOnGameObject.SetActive(showVisual);
         particlesGameObject.SetActive(showVisual);
     }

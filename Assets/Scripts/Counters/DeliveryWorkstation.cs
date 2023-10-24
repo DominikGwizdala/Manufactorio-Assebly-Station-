@@ -15,9 +15,9 @@ public class DeliveryWorkstation : BaseWorkstation
     {
         if (player.HasWorkshopObject()) 
         {
-            if (player.GetWorkshopObject().TryGetPlate(out PlateWorkshopObject plateWorkshopObject))
+            if (player.GetWorkshopObject().TryGetPackage(out PackageWorkshopObject packageWorkshopObject))
             {
-                DeliveryManager.Instance.DeliverRecipe(plateWorkshopObject);
+                DeliveryManager.Instance.DeliverRecipe(packageWorkshopObject);
                 player.GetWorkshopObject().DestroySelf();
             }
         }

@@ -22,14 +22,16 @@ public class SelectedWorkstationVisual : MonoBehaviour
             Hide();
         }
     }
-    private void Show() {
+    private void Show() 
+    {
         foreach (GameObject visualGameObject in visualGameObjectArray)
         {
             visualGameObject.SetActive(true);
         }
     }
 
-    private void Hide() {
+    private void Hide() 
+    {
         foreach (GameObject visualGameObject in visualGameObjectArray)
         {
             visualGameObject.SetActive(false);

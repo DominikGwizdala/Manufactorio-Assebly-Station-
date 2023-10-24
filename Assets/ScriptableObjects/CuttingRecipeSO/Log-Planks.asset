@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b413fdbd40dfd4746b8d5806dfca0b50, type: 3}
-  m_Name: GoldOre-GoldBar
+  m_Script: {fileID: 11500000, guid: 8e62690a3a93ae84083c23467fab5616, type: 3}
+  m_Name: Log-Planks
   m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: 5404581e61aa36145ac7b7dcb1d699a4, type: 2}
-  output: {fileID: 11400000, guid: 5fa1216105fbfa54f9fa7162d3f1f0e8, type: 2}
-  smeltingTimerMax: 3
+  input: {fileID: 11400000, guid: 5fa1216105fbfa54f9fa7162d3f1f0e8, type: 2}
+  output: {fileID: 11400000, guid: 5404581e61aa36145ac7b7dcb1d699a4, type: 2}
+  cuttingProgressMax: 5

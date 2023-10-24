@@ -17,19 +17,19 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
     public enum State
     {
         Idle,
-        Frying,
-        Fried,
-        Burned,
+        Smelting,
+        Smelted,
+        Oversmelted,
     }
 
-    [SerializeField] private FryingRecipeSO[] fryingRecipeSOArray;
-    [SerializeField] private BurningRecipeSO[] burningRecipeSOArray;
+    [SerializeField] private SmeltingRecipeSO[] smeltingRecipeSOArray;
+    [SerializeField] private OversmeltingRecipeSO[] oversmeltingRecipeSOArray;
 
     private State state;
-    private float fryingTimer;
-    private float burningTimer;
-    private FryingRecipeSO fryingRecipeSO;
-    private BurningRecipeSO burningRecipeSO;
+    private float smeltingTimer;
+    private float oversmeltingTimer;
+    private SmeltingRecipeSO smeltingRecipeSO;
+    private OversmeltingRecipeSO oversmeltingRecipeSO;
 
     private void Start()
     {
@@ -44,21 +44,21 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
             {
                 case State.Idle:
                     break;
-                case State.Frying:
-                    fryingTimer += Time.deltaTime;
+                case State.Smelting:
+                    smeltingTimer += Time.deltaTime;
 
                     OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                     {
-                        progressNormalized = fryingTimer / fryingRecipeSO.fryingTimerMax
+                        progressNormalized = smeltingTimer / smeltingRecipeSO.smeltingTimerMax
                     });
 
-                    if (fryingTimer > fryingRecipeSO.fryingTimerMax)
+                    if (smeltingTimer > smeltingRecipeSO.smeltingTimerMax)
                     {
                         GetWorkshopObject().DestroySelf();
-                        WorkshopObject.SpawnWorkshopObject(fryingRecipeSO.output, this);
-                        state = State.Fried;
-                        burningTimer = 0f;
-                        burningRecipeSO = GetBurningRecipeSOWithInput(GetWorkshopObject().GetWorkshopObjectSO());
+                        WorkshopObject.SpawnWorkshopObject(smeltingRecipeSO.output, this);
+                        state = State.Smelted;
+                        oversmeltingTimer = 0f;
+                        oversmeltingRecipeSO = GetOversmeltingRecipeSOWithInput(GetWorkshopObject().GetWorkshopObjectSO());
 
                         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
                         {
@@ -66,19 +66,19 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
                         });
                     }
                     break;
-                case State.Fried:
-                    burningTimer += Time.deltaTime;
+                case State.Smelted:
+                    oversmeltingTimer += Time.deltaTime;
 
                     OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                     {
-                        progressNormalized = burningTimer / burningRecipeSO.burningTimerMax
+                        progressNormalized = oversmeltingTimer / oversmeltingRecipeSO.oversmeltingTimerMax
                     });
 
-                    if (burningTimer > burningRecipeSO.burningTimerMax)
+                    if (oversmeltingTimer > oversmeltingRecipeSO.oversmeltingTimerMax)
                     {
                         GetWorkshopObject().DestroySelf();
-                        WorkshopObject.SpawnWorkshopObject(burningRecipeSO.output, this);
-                        state = State.Burned;
+                        WorkshopObject.SpawnWorkshopObject(oversmeltingRecipeSO.output, this);
+                        state = State.Oversmelted;
 
                         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
                         {
@@ -91,7 +91,7 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
                         });
                     }
                     break;
-                case State.Burned:
+                case State.Oversmelted:
                     break;
             }
         }
@@ -106,9 +106,9 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
                 {
                     player.GetWorkshopObject().SetWorkshopObjectParent(this);
 
-                    fryingRecipeSO = GetFryingRecipeSOWithInput(GetWorkshopObject().GetWorkshopObjectSO());
-                    state = State.Frying;
-                    fryingTimer = 0f;
+                    smeltingRecipeSO = GetSmeltingRecipeSOWithInput(GetWorkshopObject().GetWorkshopObjectSO());
+                    state = State.Smelting;
+                    smeltingTimer = 0f;
 
                     OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
                     {
@@ -117,7 +117,7 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
 
                     OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                     {
-                        progressNormalized = fryingTimer / fryingRecipeSO.fryingTimerMax
+                        progressNormalized = smeltingTimer / smeltingRecipeSO.smeltingTimerMax
                     });
                 }
             }
@@ -142,9 +142,9 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
             }
             else
             {
-                if (player.GetWorkshopObject().TryGetPlate(out PlateWorkshopObject plateWorkshopObject))
+                if (player.GetWorkshopObject().TryGetPackage(out PackageWorkshopObject packageWorkshopObject))
                 {
-                    if (plateWorkshopObject.TryAddIngredient(GetWorkshopObject().GetWorkshopObjectSO()))
+                    if (packageWorkshopObject.TryAddPart(GetWorkshopObject().GetWorkshopObjectSO()))
                     {
                         GetWorkshopObject().DestroySelf();
 
@@ -166,46 +166,46 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
     }
     private bool HasRecipeWithInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
-        FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(inputWorkshopObjectSO);
-        return fryingRecipeSO != null;
+        SmeltingRecipeSO smeltingRecipeSO = GetSmeltingRecipeSOWithInput(inputWorkshopObjectSO);
+        return smeltingRecipeSO != null;
     }
     private WorkshopObjectSO GetOutputForInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
-        FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(inputWorkshopObjectSO);
-        if (fryingRecipeSO != null)
+        SmeltingRecipeSO smeltingRecipeSO = GetSmeltingRecipeSOWithInput(inputWorkshopObjectSO);
+        if (smeltingRecipeSO != null)
         {
-            return fryingRecipeSO.output;
+            return smeltingRecipeSO.output;
         }
         else
         {
             return null;
         }
     }
-    private FryingRecipeSO GetFryingRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO)
+    private SmeltingRecipeSO GetSmeltingRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
-        foreach (FryingRecipeSO fryingRecipeSO in fryingRecipeSOArray)
+        foreach (SmeltingRecipeSO smeltingRecipeSO in smeltingRecipeSOArray)
         {
-            if (fryingRecipeSO.input == inputWorkshopObjectSO)
+            if (smeltingRecipeSO.input == inputWorkshopObjectSO)
             {
-                return fryingRecipeSO;
+                return smeltingRecipeSO;
             }
         }
         return null;
     }
-    private BurningRecipeSO GetBurningRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO)
+    private OversmeltingRecipeSO GetOversmeltingRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
-        foreach (BurningRecipeSO burningRecipeSO in burningRecipeSOArray)
+        foreach (OversmeltingRecipeSO oversmeltingRecipeSO in oversmeltingRecipeSOArray)
         {
-            if (burningRecipeSO.input == inputWorkshopObjectSO)
+            if (oversmeltingRecipeSO.input == inputWorkshopObjectSO)
             {
-                return burningRecipeSO;
+                return oversmeltingRecipeSO;
             }
         }
         return null;
     }
 
-    public bool IsFried()
+    public bool IsSmelted()
     {
-        return state == State.Fried;
+        return state == State.Smelted;
     }
 }
