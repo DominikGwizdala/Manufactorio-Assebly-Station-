@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef4afe1cf8738446a78c512e1722c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  workstationTopPoint: {fileID: 0}
+  workstationTopPoint: {fileID: 3418617643166361276}
   cuttingRecipeSOArray: []
   cuttingProgress: 0
 --- !u!65 &5775585863597579122
