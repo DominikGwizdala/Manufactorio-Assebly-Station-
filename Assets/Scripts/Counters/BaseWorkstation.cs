@@ -23,6 +23,10 @@ public class BaseWorkstation : MonoBehaviour, IWorkshopObjectParent
     {
         //Debug.LogError("BaseWorkstation interactionAlternate");
     }
+    public virtual void InteractAnvil(Player player)
+    {
+        //Debug.LogError("BaseWorkstation interactionAnvil");
+    }
     public Transform GetWorkshopObjectFollowTransform()
     {
         return workstationTopPoint;
