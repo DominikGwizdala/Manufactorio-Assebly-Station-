@@ -68,7 +68,6 @@ public class GameInput : MonoBehaviour
     }
     private void Interaction_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-
         OnInteractAction?.Invoke(this, EventArgs.Empty);
     }
     private void InteractAlternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -170,16 +169,12 @@ public class GameInput : MonoBehaviour
                 inputAction = playerInputActions.Player.AnviInteract;
                 bindingIndex = 1;
                 break;
-
-
         }
         inputAction.PerformInteractiveRebinding(bindingIndex).OnComplete(callback =>
         {
-
             callback.Dispose();
             playerInputActions.Player.Enable();
             onActionRebound();
-
 
             PlayerPrefs.SetString(PLAYER_PREFS_BINDINGS, playerInputActions.SaveBindingOverridesAsJson());
             PlayerPrefs.Save();

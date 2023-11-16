@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1852357670305394782}
   - component: {fileID: 7695304920433628393}
   m_Layer: 5
-  m_Name: SelectButton
+  m_Name: SelectPickaxeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 318898257705891790}
   - component: {fileID: 6101733930089425288}
   m_Layer: 5
-  m_Name: SelectButton
+  m_Name: SelectHoeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1457,9 +1457,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6374f2fed842cbb4187b748bc2d61fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickaxebutton: {fileID: 7695304920433628393}
-  axebutton: {fileID: 6636752141742297926}
-  hoebutton: {fileID: 6101733930089425288}
+  pickaxeButton: {fileID: 7695304920433628393}
+  axeButton: {fileID: 6636752141742297926}
+  hoeButton: {fileID: 6101733930089425288}
 --- !u!223 &-6753560899766271770
 Canvas:
   m_ObjectHideFlags: 0
@@ -1478,7 +1478,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

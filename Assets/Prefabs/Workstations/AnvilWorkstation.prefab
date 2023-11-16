@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1207598401920950757}
   m_Layer: 0
-  m_Name: Toppoint
+  m_Name: WorkstationTopPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff13f246fcd8a64db27b1454fc6955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  workstationTopPoint: {fileID: 0}
+  workstationTopPoint: {fileID: 1207598401920950757}
   forgeProgress: 0
 --- !u!1001 &17261684728302631
 PrefabInstance:
@@ -168,18 +168,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
       propertyPath: m_Name
-      value: "kowad\u0142o"
+      value: AnvilWorkstationVisual
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: 157a734e7f6e2ed41b42c0b6a2120e60, type: 3}
     - {fileID: -8700617353114198275, guid: 157a734e7f6e2ed41b42c0b6a2120e60, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5769612860945027300}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157a734e7f6e2ed41b42c0b6a2120e60, type: 3}
 --- !u!4 &556170452046310348 stripped
 Transform:
@@ -187,33 +183,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 17261684728302631}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &842508366205337155 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
-    type: 3}
-  m_PrefabInstance: {fileID: 17261684728302631}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &935687387998695798 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
-    type: 3}
-  m_PrefabInstance: {fileID: 17261684728302631}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5769612860945027300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935687387998695798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e252a903fe25c534eaf26eb9cefed588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseWorkstation: {fileID: 6444162218470294347}
-  visualGameObjectArray:
-  - {fileID: 842508366205337155}
 --- !u!1001 &2578996041099463559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,6 +191,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2338132881234387107}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.01
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -272,6 +256,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8391222552659086748, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
       propertyPath: m_IsActive
@@ -280,17 +269,22 @@ PrefabInstance:
     - target: {fileID: -5477749408508380018, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 101
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 101
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 101
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
@@ -300,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
       propertyPath: m_Name
-      value: "kowad\u0142o Selected"
+      value: Selected
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}

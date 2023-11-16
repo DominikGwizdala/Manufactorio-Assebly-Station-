@@ -7,26 +7,25 @@ public class AnvilManagerUI : MonoBehaviour
 {
     public static AnvilManagerUI Instance { get; private set; }
 
-    [SerializeField] private Button pickaxebutton;
-    [SerializeField] private Button axebutton;
-    [SerializeField] private Button hoebutton;
+    [SerializeField] private Button pickaxeButton;
+    [SerializeField] private Button axeButton;
+    [SerializeField] private Button hoeButton;
 
     private void Awake()
     {
         Instance = this;
 
-        pickaxebutton.onClick.AddListener(() => {
+        pickaxeButton.onClick.AddListener(() => {
            
         });
-        axebutton.onClick.AddListener(() => {
+        axeButton.onClick.AddListener(() => {
            
         });
-        hoebutton.onClick.AddListener(() => {
+        hoeButton.onClick.AddListener(() => {
             
         });
     }
     private void Start()
-
     {
         GameManager.Instance.OnAnvilUsed += GameManager_OnAnvilUsed; 
         GameManager.Instance.OnAnvilUnused += GameManager_OnAnvilUnused;
@@ -45,8 +44,7 @@ public class AnvilManagerUI : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
-        pickaxebutton.Select();
-
+        pickaxeButton.Select();
     }
 
     private void Hide()
