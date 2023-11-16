@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnStateChanged;
     public event EventHandler OnGamePaused;
     public event EventHandler OnGameUnpaused;
+    public event EventHandler OnAnvilUnused;
+    public event EventHandler OnAnvilUsed;
 
     private enum State
     {
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     private float gamePlayingTimer;
     private float gamePlayingTimerMax = 180f;
     private bool isGamePaused = false;
+    private bool isAnvilUsed = false;
 
     private void Awake()
     {
@@ -93,13 +96,16 @@ public class GameManager : MonoBehaviour
     {
         return countdownToStartTimer;
     }
-    public bool IsGameOver() {
+    public bool IsGameOver()
+    {
         return state == State.GameOver;
     }
-    public float GetGamePlayTimerNormalized() {
+    public float GetGamePlayTimerNormalized()
+    {
         return 1 - (gamePlayingTimer / gamePlayingTimerMax);
     }
-    public void TogglePauseGame(){
+    public void TogglePauseGame()
+    {
         isGamePaused = !isGamePaused;
         if (isGamePaused)
         {
@@ -111,7 +117,24 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1f;
 
-            OnGameUnpaused?.Invoke(this,EventArgs.Empty);
+            OnGameUnpaused?.Invoke(this, EventArgs.Empty);
         }
+    }
+    public void ToggleUsingAnvil()
+    {
+        isAnvilUsed = !isAnvilUsed;
+        if (isAnvilUsed)
+        {
+            Time.timeScale = 0f;
+
+            OnAnvilUsed?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+
+            OnAnvilUnused?.Invoke(this, EventArgs.Empty);
+        }
+;
     }
 }
