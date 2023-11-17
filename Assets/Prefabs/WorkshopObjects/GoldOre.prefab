@@ -107,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 45a1871b4132c814a927970d7d16c842,
         type: 3}
       propertyPath: m_Name
-      value: "z\u0142oto"
+      value: GoldOreModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

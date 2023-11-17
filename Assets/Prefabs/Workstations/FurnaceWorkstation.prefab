@@ -10325,6 +10325,7 @@ MonoBehaviour:
   workstationTopPoint: {fileID: 3650834783905127981}
   smeltingRecipeSOArray:
   - {fileID: 11400000, guid: 685c97e41f0f65c40af014ad9613a88a, type: 2}
+  - {fileID: 11400000, guid: 80baea886a97cf842880cfbdb7422929, type: 2}
   oversmeltingRecipeSOArray: []
 --- !u!1 &8724558530332957911
 GameObject:
