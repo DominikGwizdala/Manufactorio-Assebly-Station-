@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
-        GameInput.Instance.OnAnvilAction += GameInput_OnAnvilAction;
+        //GameInput.Instance.OnAnvilAction += GameInput_OnAnvilAction;
         GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
     }
 
@@ -54,10 +54,10 @@ public class GameManager : MonoBehaviour
         TogglePauseGame();
     }
 
-    private void GameInput_OnAnvilAction(object sender, EventArgs e)
+    /*private void GameInput_OnAnvilAction(object sender, EventArgs e)
     {
         ToggleUsingAnvil();
-    }
+    }*/
   
     private void Update()
     {

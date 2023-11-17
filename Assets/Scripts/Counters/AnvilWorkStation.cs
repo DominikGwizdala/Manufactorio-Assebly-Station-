@@ -20,11 +20,13 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
         {
             Show();
             isUsing = true;
+            GameManager.Instance.ToggleUsingAnvil();
         }
         else if (isUsing == true)
         {
             Hide();
             isUsing = false;
+            GameManager.Instance.ToggleUsingAnvil();
         }
     }
     public void Show()
