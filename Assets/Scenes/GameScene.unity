@@ -12689,7 +12689,7 @@ PrefabInstance:
     - target: {fileID: 2338132881234387107, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 2338132881234387107, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
         type: 3}
@@ -12738,6 +12738,11 @@ PrefabInstance:
       objectReference: {fileID: 1655377720}
     - target: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
         type: 3}
+      propertyPath: pickaxeButton
+      value: 
+      objectReference: {fileID: 353426789}
+    - target: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
+        type: 3}
       propertyPath: workstationTopPoint
       value: 
       objectReference: {fileID: 1138700249}
@@ -12750,6 +12755,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147081716847003191, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147081716847003191, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147081716847003191, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147081716847003191, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

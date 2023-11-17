@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class AnvilWorkstation : BaseWorkstation, IHasProgress
 {
     [SerializeField] GameObject AnvilCanvas;
+    [SerializeField] private Button pickaxeButton;
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler OnCut;
     public int forgeProgress;
@@ -31,6 +32,7 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     public void Show()
     {
         AnvilCanvas.SetActive(true);
+        pickaxeButton.Select();
     }
 
     private void Hide()
