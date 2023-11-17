@@ -16,13 +16,13 @@ public class AnvilManagerUI : MonoBehaviour
         Instance = this;
 
         pickaxeButton.onClick.AddListener(() => {
-           
+            Debug.Log("Wybrano kilof");
         });
         axeButton.onClick.AddListener(() => {
-           
+            Debug.Log("Wybrano Siekiere");
         });
         hoeButton.onClick.AddListener(() => {
-            
+            Debug.Log("Wybrano motyke");
         });
     }
     private void Start()
@@ -51,4 +51,5 @@ public class AnvilManagerUI : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    public Button getbuttons() { return pickaxeButton; }
 }
