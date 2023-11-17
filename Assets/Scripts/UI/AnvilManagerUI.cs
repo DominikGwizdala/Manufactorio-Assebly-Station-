@@ -34,12 +34,12 @@ public class AnvilManagerUI : MonoBehaviour
     }
     private void GameManager_OnAnvilUnused(object sender, System.EventArgs e)
     {
-        Hide();
+        //Hide();
     }
 
     private void GameManager_OnAnvilUsed(object sender, System.EventArgs e)
     {
-        Show();
+        //Show();
     }
     public void Show()
     {
@@ -51,5 +51,5 @@ public class AnvilManagerUI : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    public Button getbuttons() { return pickaxeButton; }
+    public Button GetButtons() { return pickaxeButton; }
 }

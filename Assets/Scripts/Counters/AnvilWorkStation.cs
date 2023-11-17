@@ -12,18 +12,16 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler OnCut;
     public int forgeProgress;
-    public bool isUsing=false;
+    public bool isUsing = false;
 
-    private void Update()
+    public override void InteractAnvil(Player player)
     {
-        if (isUsing==false && Input.GetKeyDown(KeyCode.F))
+        if (isUsing == false)
         {
-            
             Show();
             isUsing = true;
-
         }
-        else if (isUsing==true && Input.GetKeyDown(KeyCode.F))
+        else if (isUsing == true)
         {
             Hide();
             isUsing = false;

@@ -54,12 +54,11 @@ public class GameManager : MonoBehaviour
         TogglePauseGame();
     }
 
-    private void GameInput_OnAnvilAction (object sender, EventArgs e)
+    private void GameInput_OnAnvilAction(object sender, EventArgs e)
     {
         ToggleUsingAnvil();
     }
   
-
     private void Update()
     {
         switch (state)
@@ -128,7 +127,7 @@ public class GameManager : MonoBehaviour
         }
     }
    public void ToggleUsingAnvil()
-    {
+   {
         isAnvilUsed = !isAnvilUsed;
         if (isAnvilUsed)
         {
@@ -142,6 +141,5 @@ public class GameManager : MonoBehaviour
 
             OnAnvilUnused?.Invoke(this, EventArgs.Empty);
         }
-
-    }
+   }
 }
