@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1810,6 +1810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908869fb3bcc1314cb92641be758ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGamePaused: 0
 --- !u!4 &312896540
 Transform:
   m_ObjectHideFlags: 0
@@ -6303,7 +6304,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kilof
+  m_text: Hoe
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8830,6 +8831,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1574310529}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1366947526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1872875404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff13f246fcd8a64db27b1454fc6955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1367942061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 295829089101997623, guid: b26af2f205324454ebd75a30ca848df1,
@@ -10790,7 +10803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kilof
+  m_text: Axe
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11195,7 +11208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kilof
+  m_text: Pickaxe
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11710,6 +11723,7 @@ MonoBehaviour:
   pickaxeButton: {fileID: 353426789}
   axeButton: {fileID: 1044817042}
   hoeButton: {fileID: 1966911717}
+  anvilWorkstation: {fileID: 1366947526}
 --- !u!224 &1655377722
 RectTransform:
   m_ObjectHideFlags: 0

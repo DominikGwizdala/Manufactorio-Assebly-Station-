@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TableWorkstation : BaseWorkstation
 {
-    [SerializeField] private WorkshopObjectSO workshopObjectSO;
+    //[SerializeField] private WorkshopObjectSO workshopObjectSO;
 
     public override void Interact(Player player)
     {

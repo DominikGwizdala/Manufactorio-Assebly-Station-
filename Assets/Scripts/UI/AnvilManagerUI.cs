@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class AnvilManagerUI : MonoBehaviour
     [SerializeField] private Button pickaxeButton;
     [SerializeField] private Button axeButton;
     [SerializeField] private Button hoeButton;
+    [SerializeField] private AnvilWorkstation anvilWorkstation;
 
     private void Awake()
     {
@@ -17,29 +19,26 @@ public class AnvilManagerUI : MonoBehaviour
 
         pickaxeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano kilof");
+            anvilWorkstation.isUsing = false;
+            Hide();
+            GameManager.Instance.ToggleUsingAnvil();
         });
         axeButton.onClick.AddListener(() => {
-            Debug.Log("Wybrano Siekiere");
+            Debug.Log("Wybrano siekiere");
+            anvilWorkstation.isUsing = false;
+            Hide();
+            GameManager.Instance.ToggleUsingAnvil();
         });
         hoeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano motyke");
+            anvilWorkstation.isUsing = false;
+            Hide();
+            GameManager.Instance.ToggleUsingAnvil();
         });
     }
     private void Start()
     {
-        GameManager.Instance.OnAnvilUsed += GameManager_OnAnvilUsed; 
-        GameManager.Instance.OnAnvilUnused += GameManager_OnAnvilUnused;
-
         Hide();
-    }
-    private void GameManager_OnAnvilUnused(object sender, System.EventArgs e)
-    {
-        //Hide();
-    }
-
-    private void GameManager_OnAnvilUsed(object sender, System.EventArgs e)
-    {
-        //Show();
     }
     public void Show()
     {
