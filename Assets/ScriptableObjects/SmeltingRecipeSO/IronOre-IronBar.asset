@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b413fdbd40dfd4746b8d5806dfca0b50, type: 3}
   m_Name: IronOre-IronBar
   m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: 5404581e61aa36145ac7b7dcb1d699a4, type: 2}
-  output: {fileID: 11400000, guid: 5fa1216105fbfa54f9fa7162d3f1f0e8, type: 2}
+  input: {fileID: 11400000, guid: 65715e0fb78cc924cb5bee433d7f1508, type: 2}
+  output: {fileID: 11400000, guid: 3164bc0369829d44c91f01ad390d80ff, type: 2}
   smeltingTimerMax: 3
