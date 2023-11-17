@@ -16,17 +16,20 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
 
     public override void InteractAnvil(Player player)
     {
-        if (isUsing == false)
+        if (GameManager.Instance.isGamePaused == false)
         {
-            Show();
-            isUsing = true;
-            GameManager.Instance.ToggleUsingAnvil();
-        }
-        else if (isUsing == true)
-        {
-            Hide();
-            isUsing = false;
-            GameManager.Instance.ToggleUsingAnvil();
+            if (isUsing == false)
+            {
+                Show();
+                isUsing = true;
+                GameManager.Instance.ToggleUsingAnvil();
+            }
+            else if (isUsing == true)
+            {
+                Hide();
+                isUsing = false;
+                GameManager.Instance.ToggleUsingAnvil();
+            }
         }
     }
     public void Show()

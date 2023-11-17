@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private float countdownToStartTimer = 3f;
     private float gamePlayingTimer;
     private float gamePlayingTimerMax = 180f;
-    private bool isGamePaused = false;
+    public bool isGamePaused = false;
     private bool isAnvilUsed = false;
 
     private void Awake()
@@ -133,21 +133,18 @@ public class GameManager : MonoBehaviour
     }
    public void ToggleUsingAnvil()
    {
-        if (isGamePaused == false)
+        isAnvilUsed = !isAnvilUsed;
+        if (isAnvilUsed)
         {
-            isAnvilUsed = !isAnvilUsed;
-            if (isAnvilUsed)
-            {
-                Time.timeScale = 0f;
+            Time.timeScale = 0f;
 
-                OnAnvilUsed?.Invoke(this, EventArgs.Empty);
-            }
-            else
-            {
-                Time.timeScale = 1f;
+            OnAnvilUsed?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            Time.timeScale = 1f;
 
-                OnAnvilUnused?.Invoke(this, EventArgs.Empty);
-            }
+            OnAnvilUnused?.Invoke(this, EventArgs.Empty);
         }
    }
 }
