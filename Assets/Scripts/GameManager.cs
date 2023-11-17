@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
   
     private void Update()
     {
+        Debug.Log("Pauza = "+isGamePaused+" Kowad³o = "+isAnvilUsed);
+
         switch (state)
         {
             case State.WaitingToStart:
@@ -112,34 +114,40 @@ public class GameManager : MonoBehaviour
     }
     public void TogglePauseGame()
     {
-        isGamePaused = !isGamePaused;
-        if (isGamePaused)
+        if (isAnvilUsed == false)
         {
-            Time.timeScale = 0f;
+            isGamePaused = !isGamePaused;
+            if (isGamePaused)
+            {
+                Time.timeScale = 0f;
 
-            OnGamePaused?.Invoke(this, EventArgs.Empty);
-        }
-        else
-        {
-            Time.timeScale = 1f;
+                OnGamePaused?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                Time.timeScale = 1f;
 
-            OnGameUnpaused?.Invoke(this, EventArgs.Empty);
+                OnGameUnpaused?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
    public void ToggleUsingAnvil()
    {
-        isAnvilUsed = !isAnvilUsed;
-        if (isAnvilUsed)
+        if (isGamePaused == false)
         {
-            Time.timeScale = 0f;
+            isAnvilUsed = !isAnvilUsed;
+            if (isAnvilUsed)
+            {
+                Time.timeScale = 0f;
 
-            OnAnvilUsed?.Invoke(this, EventArgs.Empty);
-        }
-        else
-        {
-            Time.timeScale = 1f;
+                OnAnvilUsed?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                Time.timeScale = 1f;
 
-            OnAnvilUnused?.Invoke(this, EventArgs.Empty);
+                OnAnvilUnused?.Invoke(this, EventArgs.Empty);
+            }
         }
    }
 }
