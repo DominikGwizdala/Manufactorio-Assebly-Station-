@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce502018bd4a0354f952817a85a96b79, type: 3}
   m_Name: TestAxe
   m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: c700cf4c2bfbde14ab273c4b0443557e, type: 2}
-  output: {fileID: 11400000, guid: 3164bc0369829d44c91f01ad390d80ff, type: 2}
+  input: {fileID: 11400000, guid: 3164bc0369829d44c91f01ad390d80ff, type: 2}
+  output: {fileID: 11400000, guid: d8186ead3039c754d89b490cb6166186, type: 2}
   forgingProgressMax: 5

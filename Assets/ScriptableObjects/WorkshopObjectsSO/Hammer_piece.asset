@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce502018bd4a0354f952817a85a96b79, type: 3}
-  m_Name: TestPickaxe
+  m_Script: {fileID: 11500000, guid: 159f2b17023279045b835eb5bc5915a2, type: 3}
+  m_Name: Hammer_piece
   m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: 3164bc0369829d44c91f01ad390d80ff, type: 2}
-  output: {fileID: 11400000, guid: f72e8d7496cf2b2419927f2fcbd3081c, type: 2}
-  forgingProgressMax: 5
+  prefab: {fileID: 4756812470049452345, guid: 3ecf4ee2a8d7944458d8475c3069451c, type: 3}
+  sprite: {fileID: 21300000, guid: 7bd90b658eb20b44f874cede8273da02, type: 3}
+  objectName: Hammer_piece
