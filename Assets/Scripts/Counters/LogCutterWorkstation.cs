@@ -96,7 +96,8 @@ public class LogCutterWorkstation : BaseWorkstation, IHasProgress
             return null;
         }
     }
-    private CuttingRecipeSO GetCuttingRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO) {
+    private CuttingRecipeSO GetCuttingRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO) 
+    {
         foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray)
         {
 

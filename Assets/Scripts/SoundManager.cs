@@ -20,6 +20,7 @@ public class SoundManager : MonoBehaviour
         DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
         DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
         LogCutterWorkstation.OnAnyCut += LogCutterWorkstation_OnAnyCut;
+        AnvilWorkstation.OnAnyForge += AnvilWorkstation_OnAnyForge;
         Player.Instance.OnPickedSomething += Player_OnPickedSomething;
         BaseWorkstation.OnAnyObjectPlacedHere += BaseWorkstation_OnAnyObjectPlacedHere;
         TrashWorkstation.OnAnyObjectTrashed += TrashWorkstation_OnAnyObjectTrashed;         
@@ -50,11 +51,16 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipRefsSO.chop, logCutterWorkstation.transform.position);
     }
 
+    private void AnvilWorkstation_OnAnyForge(object sender, System.EventArgs e)
+    {
+        AnvilWorkstation anvilWorkstation = sender as AnvilWorkstation;
+        PlaySound(audioClipRefsSO.chop, anvilWorkstation.transform.position);
+    }
+
     private void DeliveryManager_OnRecipeFailed(object sender, System.EventArgs e)
     {
         DeliveryWorkstation deliveryWorkstation = DeliveryWorkstation.Instance;
         PlaySound(audioClipRefsSO.deliveryFail, deliveryWorkstation.transform.position);
-    
     }   
 
     private void DeliveryManager_OnRecipeSuccess(object sender, System.EventArgs e)
