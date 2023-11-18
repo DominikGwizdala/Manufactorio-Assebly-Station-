@@ -37,16 +37,16 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
     {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
         gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
-        gameInput.OnAnvilAction += GameInput_OnAnvilAction;
+        gameInput.OnCraftingAction += GameInput_OnCraftingAction;
     }
 
-    private void GameInput_OnAnvilAction(object sender, EventArgs e)
+    private void GameInput_OnCraftingAction(object sender, EventArgs e)
     {
         if (!GameManager.Instance.IsGamePlaying()) return;
 
         if (selectedWorkstation != null)
         {
-            selectedWorkstation.InteractAnvil(this);
+            selectedWorkstation.InteractCrafting(this);
         }
     }
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)

@@ -94,7 +94,7 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
         }
     }
 
-    public override void InteractAnvil(Player player)
+    public override void InteractCrafting(Player player)
     {
         if (GameManager.Instance.isGamePaused == false)
         {
@@ -102,13 +102,13 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
             {
                 Show();
                 isUsing = true;
-                GameManager.Instance.ToggleUsingAnvil();
+                GameManager.Instance.ToggleUsingCrafting();
             }
             else if (isUsing == true)
             {
                 Hide();
                 isUsing = false;
-                GameManager.Instance.ToggleUsingAnvil();
+                GameManager.Instance.ToggleUsingCrafting();
             }
         }
     }

@@ -11,7 +11,7 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
     public event EventHandler OnPauseAction;
-    public event EventHandler OnAnvilAction;
+    public event EventHandler OnCraftingAction;
     public event EventHandler OnBindingRebind;
 
     public enum Binding
@@ -23,11 +23,11 @@ public class GameInput : MonoBehaviour
         Interact, 
         Interact_Alternate, 
         Pause,
-        AnviInteract,
+        CraftingInteract,
         Gamepad_Interact,
         Gamepad_Interact_Alternate,
         Gamepad_Pause,
-        Gamepad_AnviInteract
+        Gamepad_CraftingInteract
     }
 
     private PlayerInputActions playerInputActions;
@@ -46,7 +46,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Interaction.performed += Interaction_performed;
         playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
         playerInputActions.Player.Pause.performed += Pause_performed;
-        playerInputActions.Player.AnviInteract.performed += Anvil_performed;
+        playerInputActions.Player.CraftingInteract.performed += Crafting_performed;
     }
 
     private void OnDestroy()
@@ -54,7 +54,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Interaction.performed -= Interaction_performed;
         playerInputActions.Player.InteractAlternate.performed -= InteractAlternate_performed;
         playerInputActions.Player.Pause.performed -= Pause_performed;
-        playerInputActions.Player.AnviInteract.performed -= Anvil_performed;
+        playerInputActions.Player.CraftingInteract.performed -= Crafting_performed;
 
         playerInputActions.Dispose();
     }
@@ -62,9 +62,9 @@ public class GameInput : MonoBehaviour
     {
         OnPauseAction?.Invoke(this, EventArgs.Empty);
     }
-    private void Anvil_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void Crafting_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        OnAnvilAction?.Invoke(this, EventArgs.Empty);
+        OnCraftingAction?.Invoke(this, EventArgs.Empty);
     }
     private void Interaction_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
@@ -100,16 +100,16 @@ public class GameInput : MonoBehaviour
                 return playerInputActions.Player.InteractAlternate.bindings[0].ToDisplayString();
             case Binding.Pause:
                 return playerInputActions.Player.Pause.bindings[0].ToDisplayString();
-            case Binding.AnviInteract:
-                return playerInputActions.Player.AnviInteract.bindings[0].ToDisplayString();
+            case Binding.CraftingInteract:
+                return playerInputActions.Player.CraftingInteract.bindings[0].ToDisplayString();
             case Binding.Gamepad_Interact:
                 return playerInputActions.Player.Interaction.bindings[1].ToDisplayString();
             case Binding.Gamepad_Interact_Alternate:
                 return playerInputActions.Player.InteractAlternate.bindings[1].ToDisplayString();
             case Binding.Gamepad_Pause:
                 return playerInputActions.Player.Pause.bindings[1].ToDisplayString();
-            case Binding.Gamepad_AnviInteract:
-                return playerInputActions.Player.AnviInteract.bindings[1].ToDisplayString();
+            case Binding.Gamepad_CraftingInteract:
+                return playerInputActions.Player.CraftingInteract.bindings[1].ToDisplayString();
         }
     }
 
@@ -149,8 +149,8 @@ public class GameInput : MonoBehaviour
                 inputAction = playerInputActions.Player.Pause;
                 bindingIndex = 0;
                 break;
-            case Binding.AnviInteract:
-                inputAction = playerInputActions.Player.AnviInteract;
+            case Binding.CraftingInteract:
+                inputAction = playerInputActions.Player.CraftingInteract;
                 bindingIndex = 0;
                 break;
             case Binding.Gamepad_Interact:
@@ -165,8 +165,8 @@ public class GameInput : MonoBehaviour
                 inputAction = playerInputActions.Player.Pause;
                 bindingIndex = 1;
                 break;
-            case Binding.Gamepad_AnviInteract:
-                inputAction = playerInputActions.Player.AnviInteract;
+            case Binding.Gamepad_CraftingInteract:
+                inputAction = playerInputActions.Player.CraftingInteract;
                 bindingIndex = 1;
                 break;
         }

@@ -64,7 +64,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""AnviInteract"",
+                    ""name"": ""CraftingInteract"",
                     ""type"": ""Button"",
                     ""id"": ""c49e14d2-9e38-4938-a7da-1861941f33a9"",
                     ""expectedControlType"": ""Button"",
@@ -264,11 +264,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""35deefe3-abbf-4388-b347-35f6e0eef5dc"",
-                    ""path"": ""<Keyboard>/g"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""AnviInteract"",
+                    ""action"": ""CraftingInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -279,7 +279,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""AnviInteract"",
+                    ""action"": ""CraftingInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -294,7 +294,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
         m_Player_InteractAlternate = m_Player.FindAction("InteractAlternate", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
-        m_Player_AnviInteract = m_Player.FindAction("AnviInteract", throwIfNotFound: true);
+        m_Player_CraftingInteract = m_Player.FindAction("CraftingInteract", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -360,7 +360,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interaction;
     private readonly InputAction m_Player_InteractAlternate;
     private readonly InputAction m_Player_Pause;
-    private readonly InputAction m_Player_AnviInteract;
+    private readonly InputAction m_Player_CraftingInteract;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -369,7 +369,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
         public InputAction @InteractAlternate => m_Wrapper.m_Player_InteractAlternate;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
-        public InputAction @AnviInteract => m_Wrapper.m_Player_AnviInteract;
+        public InputAction @CraftingInteract => m_Wrapper.m_Player_CraftingInteract;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -391,9 +391,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
-            @AnviInteract.started += instance.OnAnviInteract;
-            @AnviInteract.performed += instance.OnAnviInteract;
-            @AnviInteract.canceled += instance.OnAnviInteract;
+            @CraftingInteract.started += instance.OnCraftingInteract;
+            @CraftingInteract.performed += instance.OnCraftingInteract;
+            @CraftingInteract.canceled += instance.OnCraftingInteract;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -410,9 +410,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
-            @AnviInteract.started -= instance.OnAnviInteract;
-            @AnviInteract.performed -= instance.OnAnviInteract;
-            @AnviInteract.canceled -= instance.OnAnviInteract;
+            @CraftingInteract.started -= instance.OnCraftingInteract;
+            @CraftingInteract.performed -= instance.OnCraftingInteract;
+            @CraftingInteract.canceled -= instance.OnCraftingInteract;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -436,6 +436,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnInteraction(InputAction.CallbackContext context);
         void OnInteractAlternate(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
-        void OnAnviInteract(InputAction.CallbackContext context);
+        void OnCraftingInteract(InputAction.CallbackContext context);
     }
 }

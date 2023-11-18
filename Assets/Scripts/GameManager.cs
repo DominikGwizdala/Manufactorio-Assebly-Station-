@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnStateChanged;
     public event EventHandler OnGamePaused;
     public event EventHandler OnGameUnpaused;
-    public event EventHandler OnAnvilUnused;
-    public event EventHandler OnAnvilUsed;
+    public event EventHandler OnCraftingUnused;
+    public event EventHandler OnCraftingUsed;
 
     private enum State
     {
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private float gamePlayingTimer;
     private float gamePlayingTimerMax = 180f;
     public bool isGamePaused = false;
-    private bool isAnvilUsed = false;
+    private bool isCraftingUsed = false;
 
     private void Awake()
     {
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
   
     private void Update()
     {
-        Debug.Log("Pauza = "+isGamePaused+" Kowad³o = "+isAnvilUsed);
+        Debug.Log("Pauza = "+isGamePaused+" Kowad³o = "+ isCraftingUsed);
 
         switch (state)
         {
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
     }
     public void TogglePauseGame()
     {
-        if (isAnvilUsed == false)
+        if (isCraftingUsed == false)
         {
             isGamePaused = !isGamePaused;
             if (isGamePaused)
@@ -131,20 +131,20 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-   public void ToggleUsingAnvil()
+   public void ToggleUsingCrafting()
    {
-        isAnvilUsed = !isAnvilUsed;
-        if (isAnvilUsed)
+        isCraftingUsed = !isCraftingUsed;
+        if (isCraftingUsed)
         {
             Time.timeScale = 0f;
 
-            OnAnvilUsed?.Invoke(this, EventArgs.Empty);
+            OnCraftingUsed?.Invoke(this, EventArgs.Empty);
         }
         else
         {
             Time.timeScale = 1f;
 
-            OnAnvilUnused?.Invoke(this, EventArgs.Empty);
+            OnCraftingUnused?.Invoke(this, EventArgs.Empty);
         }
    }
 }

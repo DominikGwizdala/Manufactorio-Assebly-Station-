@@ -4,14 +4,14 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AnvilManagerUI : MonoBehaviour
+public class CraftingManagerUI : MonoBehaviour
 {
-    public static AnvilManagerUI Instance { get; private set; }
+    public static CraftingManagerUI Instance { get; private set; }
 
     [SerializeField] private Button pickaxeButton;
     [SerializeField] private Button axeButton;
     [SerializeField] private Button hoeButton;
-    [SerializeField] private AnvilWorkstation anvilWorkstation;
+    [SerializeField] private CraftingWorkstation craftingWorkstation;
 
     private void Awake()
     {
@@ -19,22 +19,22 @@ public class AnvilManagerUI : MonoBehaviour
 
         pickaxeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano kilof");
-            anvilWorkstation.selectedRecipe = AnvilWorkstation.SelectedRecipe.Pickaxe;
-            anvilWorkstation.isUsing = false;
+            craftingWorkstation.selectedRecipe = CraftingWorkstation.SelectedRecipe.Pickaxe;
+            craftingWorkstation.isUsing = false;
             Hide();
             GameManager.Instance.ToggleUsingCrafting();
         });
         axeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano siekiere");
-            anvilWorkstation.selectedRecipe = AnvilWorkstation.SelectedRecipe.Axe;
-            anvilWorkstation.isUsing = false;
+            craftingWorkstation.selectedRecipe = CraftingWorkstation.SelectedRecipe.Axe;
+            craftingWorkstation.isUsing = false;
             Hide();
             GameManager.Instance.ToggleUsingCrafting();
         });
         hoeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano motyke");
-            anvilWorkstation.selectedRecipe = AnvilWorkstation.SelectedRecipe.Hoe;
-            anvilWorkstation.isUsing = false;
+            craftingWorkstation.selectedRecipe = CraftingWorkstation.SelectedRecipe.Hoe;
+            craftingWorkstation.isUsing = false;
             Hide();
             GameManager.Instance.ToggleUsingCrafting();
         });

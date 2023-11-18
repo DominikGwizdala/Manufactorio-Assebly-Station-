@@ -23,9 +23,9 @@ public class BaseWorkstation : MonoBehaviour, IWorkshopObjectParent
     {
         //Debug.LogError("BaseWorkstation interactionAlternate");
     }
-    public virtual void InteractAnvil(Player player)
+    public virtual void InteractCrafting(Player player)
     {
-        //Debug.LogError("BaseWorkstation interactionAnvil");
+        //Debug.LogError("BaseWorkstation interactionCrafting");
     }
     public Transform GetWorkshopObjectFollowTransform()
     {
