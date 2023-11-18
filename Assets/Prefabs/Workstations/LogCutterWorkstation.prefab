@@ -81,7 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workstationTopPoint: {fileID: 3418617643166361276}
-  cuttingRecipeSOArray: []
+  cuttingRecipeSOArray:
+  - {fileID: 11400000, guid: a0e8c513aabbd3448bfc580518a1d73d, type: 2}
   cuttingProgress: 0
 --- !u!65 &5775585863597579122
 BoxCollider:
@@ -315,6 +316,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 0843daffb96ffbf47a2b5b720f391b68,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 0843daffb96ffbf47a2b5b720f391b68,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 0843daffb96ffbf47a2b5b720f391b68,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 0843daffb96ffbf47a2b5b720f391b68,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.23
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 0843daffb96ffbf47a2b5b720f391b68,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.97
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 0843daffb96ffbf47a2b5b720f391b68,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 0843daffb96ffbf47a2b5b720f391b68,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 0843daffb96ffbf47a2b5b720f391b68,
         type: 3}

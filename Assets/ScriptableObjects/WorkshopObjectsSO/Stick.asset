@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Stick
   m_EditorClassIdentifier: 
   prefab: {fileID: 2171539851180002260, guid: 5a9271fcdd60a2a468dc5bead1f86e57, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 7bd90b658eb20b44f874cede8273da02, type: 3}
   objectName: Stick

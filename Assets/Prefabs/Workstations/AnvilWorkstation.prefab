@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2320791058757566982}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.36400008, y: 1.481, z: 0.01999998}
+  m_LocalPosition: {x: -0.36400008, y: 1.481, z: 0.304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2338132881234387107}
   - component: {fileID: 7147081716847003191}
   - component: {fileID: 6444162218470294347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AnvilWorkstation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 6544481917021694877}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4865155, y: 0, z: -1.7986665}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -86,8 +86,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8775933, y: 1.7270528, z: 2.6814244}
-  m_Center: {x: -0.43879664, y: 0.36352652, z: 0.8407122}
+  m_Size: {x: 1.6784517, y: 2.1746, z: 3.006776}
+  m_Center: {x: -0.33922583, y: 0.13975301, z: 0.2658249}
 --- !u!114 &6444162218470294347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workstationTopPoint: {fileID: 1207598401920950757}
+  AnvilCanvas: {fileID: 0}
+  pickaxeButton: {fileID: 0}
   forgeProgress: 0
+  isUsing: 0
 --- !u!1001 &17261684728302631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,7 +121,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.425
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
@@ -214,7 +217,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.425
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 157a734e7f6e2ed41b42c0b6a2120e60,
         type: 3}
