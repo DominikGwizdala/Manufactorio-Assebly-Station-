@@ -145,7 +145,10 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
 
         isRunning = moveDirection != Vector3.zero;
         isHolding = HasWorkshopObject();
-        transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
+        if (moveDirection != Vector3.zero)
+        {
+            transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
+        }
     }
     public bool IsRunning()
     {
