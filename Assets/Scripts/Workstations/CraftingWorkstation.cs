@@ -210,10 +210,6 @@ public class CraftingWorkstation : BaseWorkstation
             }
         }
         return false;
-        // Sprawdzenie, czy elementy list s¹ identyczne
-        //list1.OrderBy(t => t);
-        //list2.OrderBy(t => t);
-        //return list1.SequenceEqual(list2);
     }
    
     private CraftingRecipeSO GetCraftingRecipeSOWithInput(List<WorkshopObjectSO> inputWorkshopObjectSOArray)
