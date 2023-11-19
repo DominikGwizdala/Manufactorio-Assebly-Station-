@@ -82,12 +82,12 @@ public class CraftingWorkstation : BaseWorkstation
                         {
                             // WorkshopObject.SpawnWorkshopObject(craftingRecipeSO.output, player);
 
-                            // Dodaj ten fragment kodu, aby obiekt pojawi³ siê w d³oni gracza
-                            Transform handTransform = player.GetWorkshopObjectFollowTransform();
+                            
+                            Transform handTransform = this.GetWorkshopObjectFollowTransform();
                             if (handTransform != null)
                             {
-                                WorkshopObject spawnedObject = WorkshopObject.SpawnWorkshopObject(craftingRecipeSO.output, player);
-                                spawnedObject.SetWorkshopObjectParent(player);
+                                WorkshopObject spawnedObject = WorkshopObject.SpawnWorkshopObject(craftingRecipeSO.output, this);
+                                spawnedObject.SetWorkshopObjectParent(this);
                             }
                         }
                         else
@@ -101,10 +101,10 @@ public class CraftingWorkstation : BaseWorkstation
 
         if (HasWorkshopObject())
         {
-            GetWorkshopObject().SetWorkshopObjectParent(player);
+            GetWorkshopObject().SetWorkshopObjectParent(this);
         }
 
-        WorkshopObject workshopObject = player.GetWorkshopObject();
+        WorkshopObject workshopObject = this.GetWorkshopObject();
         if (workshopObject != null && workshopObject.TryGetPackage(out PackageWorkshopObject packageWorkshopObject))
         {
             if (packageWorkshopObject.TryAddPart(GetWorkshopObject().GetWorkshopObjectSO()))
