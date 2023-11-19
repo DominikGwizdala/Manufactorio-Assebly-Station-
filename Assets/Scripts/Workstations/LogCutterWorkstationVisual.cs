@@ -22,6 +22,6 @@ public class LogCutterWorkstationVisual : MonoBehaviour
 
     private void logCutterWorkstation_OnCut(object sender, System.EventArgs e)
     {
-        animator.SetTrigger(CUT);
+        //animator.SetTrigger(CUT);
     }
 }
