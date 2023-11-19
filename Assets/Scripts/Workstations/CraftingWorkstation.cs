@@ -76,17 +76,19 @@ public class CraftingWorkstation : BaseWorkstation
                     if (contentsMatchesRecipe)
                     {
                         recipeCompleted = true;
-                        /*WorkshopObjectSO outputWorkshopObjectSO = GetOutputForInput(workshopObjectSOList);
-                        GetWorkshopObject().DestroySelf();
-
-                        WorkshopObject.SpawnWorkshopObject(outputWorkshopObjectSO, this);*/
-                      
-                                
-                            craftingRecipeSO = GetCraftingRecipeSOWithInput(workshopObjectSOList);
+                        craftingRecipeSO = GetCraftingRecipeSOWithInput(workshopObjectSOList);
 
                         if (craftingRecipeSO != null && craftingRecipeSO.output != null)
                         {
-                            WorkshopObject.SpawnWorkshopObject(craftingRecipeSO.output, player);
+                            // WorkshopObject.SpawnWorkshopObject(craftingRecipeSO.output, player);
+
+                            // Dodaj ten fragment kodu, aby obiekt pojawi³ siê w d³oni gracza
+                            Transform handTransform = player.GetWorkshopObjectFollowTransform();
+                            if (handTransform != null)
+                            {
+                                WorkshopObject spawnedObject = WorkshopObject.SpawnWorkshopObject(craftingRecipeSO.output, player);
+                                spawnedObject.SetWorkshopObjectParent(player);
+                            }
                         }
                         else
                         {
@@ -196,7 +198,7 @@ public class CraftingWorkstation : BaseWorkstation
         // Sprawdzenie, czy elementy list s¹ identyczne
         return list1.SequenceEqual(list2);
     }
-
+   
     private CraftingRecipeSO GetCraftingRecipeSOWithInput(List<WorkshopObjectSO> inputWorkshopObjectSOArray)
     {
         switch (selectedRecipe)

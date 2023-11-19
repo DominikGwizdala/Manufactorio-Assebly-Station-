@@ -181,6 +181,7 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
             OnPickedSomething?.Invoke(this,EventArgs.Empty);
         }
     }
+
     public WorkshopObject GetWorkshopObject()
     {
         return workshopObject;
