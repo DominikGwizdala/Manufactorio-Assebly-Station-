@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +13,6 @@ public class CraftingWorkstation : BaseWorkstation
     {
         public WorkshopObjectSO workshopObjectSO;
     }
-
-    [SerializeField] private List<WorkshopObjectSO> validWorkshopObjectSOList;
 
     private List<WorkshopObjectSO> workshopObjectSOList;
 
@@ -45,41 +45,6 @@ public class CraftingWorkstation : BaseWorkstation
     }
     public override void Interact(Player player)
     {
-        /*if (!HasWorkshopObject())
-        {
-            if (player.HasWorkshopObject())
-            {
-                player.GetWorkshopObject().SetWorkshopObjectParent(this);
-            }
-        }
-        else
-        {
-            if (!player.HasWorkshopObject())
-            {
-                GetWorkshopObject().SetWorkshopObjectParent(player);
-            }
-            else
-            {
-                if (player.GetWorkshopObject().TryGetPackage(out PackageWorkshopObject packageWorkshopObject))
-                {
-                    if (packageWorkshopObject.TryAddPart(GetWorkshopObject().GetWorkshopObjectSO()))
-                    {
-                        GetWorkshopObject().DestroySelf();
-                    }
-                }
-                else
-                {
-                    if (GetWorkshopObject().TryGetPackage(out packageWorkshopObject))
-                    {
-                        if (packageWorkshopObject.TryAddPart(player.GetWorkshopObject().GetWorkshopObjectSO()))
-                        {
-                            player.GetWorkshopObject().DestroySelf();
-                        }
-                    }
-                }
-            }
-        }*/
-
         if (player.HasWorkshopObject())
         {
             if (TryAddPart(player.GetWorkshopObject().GetWorkshopObjectSO()))
@@ -115,8 +80,18 @@ public class CraftingWorkstation : BaseWorkstation
                         GetWorkshopObject().DestroySelf();
 
                         WorkshopObject.SpawnWorkshopObject(outputWorkshopObjectSO, this);*/
-                        craftingRecipeSO = GetCraftingRecipeSOWithInput(workshopObjectSOList);
-                        WorkshopObject.SpawnWorkshopObject(craftingRecipeSO.output, player);
+                      
+                                
+                            craftingRecipeSO = GetCraftingRecipeSOWithInput(workshopObjectSOList);
+
+                        if (craftingRecipeSO != null && craftingRecipeSO.output != null)
+                        {
+                            WorkshopObject.SpawnWorkshopObject(craftingRecipeSO.output, player);
+                        }
+                        else
+                        {
+                            Debug.LogError("Crafting recipe or output is null. Unable to spawn workshop object.");
+                        }
                     }
                 }
             }
@@ -127,7 +102,8 @@ public class CraftingWorkstation : BaseWorkstation
             GetWorkshopObject().SetWorkshopObjectParent(player);
         }
 
-        if (player.GetWorkshopObject().TryGetPackage(out PackageWorkshopObject packageWorkshopObject))
+        WorkshopObject workshopObject = player.GetWorkshopObject();
+        if (workshopObject != null && workshopObject.TryGetPackage(out PackageWorkshopObject packageWorkshopObject))
         {
             if (packageWorkshopObject.TryAddPart(GetWorkshopObject().GetWorkshopObjectSO()))
             {
@@ -209,6 +185,18 @@ public class CraftingWorkstation : BaseWorkstation
             return null;
         }
     }
+    private bool ListsAreEqual(List<WorkshopObjectSO> list1, List<WorkshopObjectSO> list2)
+    {
+        // Sprawdzenie, czy listy maj¹ tak¹ sam¹ d³ugoœæ
+        if (list1.Count != list2.Count)
+        {
+            return false;
+        }
+
+        // Sprawdzenie, czy elementy list s¹ identyczne
+        return list1.SequenceEqual(list2);
+    }
+
     private CraftingRecipeSO GetCraftingRecipeSOWithInput(List<WorkshopObjectSO> inputWorkshopObjectSOArray)
     {
         switch (selectedRecipe)
@@ -216,7 +204,7 @@ public class CraftingWorkstation : BaseWorkstation
             case SelectedRecipe.Pickaxe:
                 foreach (CraftingRecipeSO craftingRecipeSO in craftingPickaxeRecipeSOArray)
                 {
-                    if (craftingRecipeSO.inputSOList == inputWorkshopObjectSOArray)
+                    if (ListsAreEqual(craftingRecipeSO.inputSOList, inputWorkshopObjectSOArray))
                     {
                         return craftingRecipeSO;
                     }
@@ -225,7 +213,7 @@ public class CraftingWorkstation : BaseWorkstation
             case SelectedRecipe.Axe:
                 foreach (CraftingRecipeSO craftingRecipeSO in craftingAxeRecipeSOArray)
                 {
-                    if (craftingRecipeSO.inputSOList == inputWorkshopObjectSOArray)
+                    if (ListsAreEqual(craftingRecipeSO.inputSOList, inputWorkshopObjectSOArray))
                     {
                         return craftingRecipeSO;
                     }
@@ -234,7 +222,7 @@ public class CraftingWorkstation : BaseWorkstation
             case SelectedRecipe.Hoe:
                 foreach (CraftingRecipeSO craftingRecipeSO in craftingHoeRecipeSOArray)
                 {
-                    if (craftingRecipeSO.inputSOList == inputWorkshopObjectSOArray)
+                    if (ListsAreEqual(craftingRecipeSO.inputSOList, inputWorkshopObjectSOArray))
                     {
                         return craftingRecipeSO;
                     }

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a940f4a3311b80f409361ed854f00725, type: 3}
-  m_Name: _RecipeListSO
+  m_Script: {fileID: 11500000, guid: 2e15dad9043973f458d6436dc4a89d8d, type: 3}
+  m_Name: Pickaxe
   m_EditorClassIdentifier: 
-  recipeSOList:
-  - {fileID: 11400000, guid: d0295e36ecf50b043a769f82249d3d16, type: 2}
-  - {fileID: 11400000, guid: 80ce411bc9070a44b8769668aa21d997, type: 2}
+  workshopObjectSOList:
+  - {fileID: 11400000, guid: 4b691f9bebab1ed4c8dd1e30480e6bbe, type: 2}
+  recipeName: Pickaxe

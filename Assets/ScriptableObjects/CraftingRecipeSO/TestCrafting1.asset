@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestCrafting1
   m_EditorClassIdentifier: 
   inputSOList:
-  - {fileID: 11400000, guid: 5404581e61aa36145ac7b7dcb1d699a4, type: 2}
-  - {fileID: 11400000, guid: 65715e0fb78cc924cb5bee433d7f1508, type: 2}
-  output: {fileID: 11400000, guid: 5fa1216105fbfa54f9fa7162d3f1f0e8, type: 2}
+  - {fileID: 11400000, guid: 7d141809f7f23ee458053f031ca90576, type: 2}
+  - {fileID: 11400000, guid: f72e8d7496cf2b2419927f2fcbd3081c, type: 2}
+  output: {fileID: 11400000, guid: 4b691f9bebab1ed4c8dd1e30480e6bbe, type: 2}
   recipeName: Test1
