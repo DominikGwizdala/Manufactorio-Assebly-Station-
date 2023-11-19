@@ -194,9 +194,27 @@ public class CraftingWorkstation : BaseWorkstation
         {
             return false;
         }
-
+        int checkListCountMax = list1.Count;
+        int checkListCount = 0;
+        foreach (WorkshopObjectSO item in list1)
+        {
+            foreach (WorkshopObjectSO item2 in list2)
+            {
+                if (item == item2)
+                {
+                    checkListCount++;
+                    if (checkListCount == checkListCountMax)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
         // Sprawdzenie, czy elementy list s¹ identyczne
-        return list1.SequenceEqual(list2);
+        //list1.OrderBy(t => t);
+        //list2.OrderBy(t => t);
+        //return list1.SequenceEqual(list2);
     }
    
     private CraftingRecipeSO GetCraftingRecipeSOWithInput(List<WorkshopObjectSO> inputWorkshopObjectSOArray)
