@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12479,6 +12479,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1820436340}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1586538958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1820436340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe37337dd7f8554b80ed692bcb179e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1612706148
 GameObject:
   m_ObjectHideFlags: 0
@@ -13416,6 +13428,67 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: pickaxeButton
+      value: 
+      objectReference: {fileID: 579284290}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: CraftingCanvas
+      value: 
+      objectReference: {fileID: 2097685970}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: craftingAxeRecipeSO
+      value: 
+      objectReference: {fileID: 11400000, guid: a59a63ad13651aa428c1f42aa28c7dc9,
+        type: 2}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: craftingHoeRecipeSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 541081c5619415a4da01aa002e9e7481,
+        type: 2}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: craftingPickaxeRecipeSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f0736b9397423704db96de25b9ae7c97,
+        type: 2}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: craftingAxeRecipeSOArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: craftingHoeRecipeSOArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: craftingAxeRecipeSOArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a59a63ad13651aa428c1f42aa28c7dc9,
+        type: 2}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: craftingHoeRecipeSOArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 541081c5619415a4da01aa002e9e7481,
+        type: 2}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: craftingPickaxeRecipeSOArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: craftingPickaxeRecipeSOArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f0736b9397423704db96de25b9ae7c97,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15722,13 +15795,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2097685970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6374f2fed842cbb4187b748bc2d61fab, type: 3}
+  m_Script: {fileID: 11500000, guid: fb80c0e53b53aef4aa07ca6de52e1466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickaxeButton: {fileID: 579284290}
   axeButton: {fileID: 845693450}
   hoeButton: {fileID: 983159170}
-  anvilWorkstation: {fileID: 6025504}
+  craftingWorkstation: {fileID: 1586538958}
 --- !u!4 &2136953582 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5296284420837258791, guid: b5b7a98f41f13bf429096a8fc813dbd0,
