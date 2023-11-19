@@ -98,10 +98,9 @@ public class CraftingWorkstation : BaseWorkstation
                 }
             }
         }
-
-        if (HasWorkshopObject())
+        else if (HasWorkshopObject())
         {
-            GetWorkshopObject().SetWorkshopObjectParent(this);
+            GetWorkshopObject().SetWorkshopObjectParent(player);
         }
 
         WorkshopObject workshopObject = this.GetWorkshopObject();
