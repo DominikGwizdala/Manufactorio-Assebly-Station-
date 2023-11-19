@@ -88,6 +88,7 @@ public class CraftingWorkstation : BaseWorkstation
                             {
                                 WorkshopObject spawnedObject = WorkshopObject.SpawnWorkshopObject(craftingRecipeSO.output, this);
                                 spawnedObject.SetWorkshopObjectParent(this);
+                                workshopObjectSOList = new List<WorkshopObjectSO>();
                             }
                         }
                         else
