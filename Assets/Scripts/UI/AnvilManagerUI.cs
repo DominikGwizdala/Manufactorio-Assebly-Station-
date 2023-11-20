@@ -10,7 +10,7 @@ public class AnvilManagerUI : MonoBehaviour
 
     [SerializeField] private Button pickaxeButton;
     [SerializeField] private Button axeButton;
-    [SerializeField] private Button hoeButton;
+    [SerializeField] private Button hammerButton;
     [SerializeField] private AnvilWorkstation anvilWorkstation;
 
     private void Awake()
@@ -31,9 +31,9 @@ public class AnvilManagerUI : MonoBehaviour
             Hide();
             GameManager.Instance.ToggleUsingCrafting();
         });
-        hoeButton.onClick.AddListener(() => {
+        hammerButton.onClick.AddListener(() => {
             Debug.Log("Wybrano motyke");
-            anvilWorkstation.selectedRecipe = AnvilWorkstation.SelectedRecipe.Hoe;
+            anvilWorkstation.selectedRecipe = AnvilWorkstation.SelectedRecipe.Hammer;
             anvilWorkstation.isUsing = false;
             Hide();
             GameManager.Instance.ToggleUsingCrafting();

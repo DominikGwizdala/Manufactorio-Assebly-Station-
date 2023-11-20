@@ -125,6 +125,9 @@ MonoBehaviour:
   workshopObjectSO: {fileID: 11400000, guid: 9b6079bffe734b747bda7bbfc420c65e, type: 2}
   validWorkshopObjectSOList:
   - {fileID: 11400000, guid: 5fa1216105fbfa54f9fa7162d3f1f0e8, type: 2}
+  - {fileID: 11400000, guid: 4b691f9bebab1ed4c8dd1e30480e6bbe, type: 2}
+  - {fileID: 11400000, guid: ad57335fcebefb44cb4359337553f6ea, type: 2}
+  - {fileID: 11400000, guid: 3199e210aa77ff449a1ff01878eee7b5, type: 2}
 --- !u!1 &4049304450498575817
 GameObject:
   m_ObjectHideFlags: 0

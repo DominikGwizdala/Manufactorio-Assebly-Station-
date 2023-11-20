@@ -18,6 +18,7 @@ public class TableWorkstation : BaseWorkstation
         {
             if (!player.HasWorkshopObject())
             {
+                GetWorkshopObject().transform.rotation = GetWorkshopObject().transform.parent.rotation;
                 GetWorkshopObject().SetWorkshopObjectParent(player);
             }
             else

@@ -14,7 +14,7 @@ public class CraftingWorkstation : BaseWorkstation
         public WorkshopObjectSO workshopObjectSO;
     }
 
-    private List<WorkshopObjectSO> workshopObjectSOList;
+    public List<WorkshopObjectSO> workshopObjectSOList;
 
     private void Awake()
     {
@@ -25,16 +25,17 @@ public class CraftingWorkstation : BaseWorkstation
     [SerializeField] private Button pickaxeButton;
     [SerializeField] private CraftingRecipeSO[] craftingPickaxeRecipeSOArray;
     [SerializeField] private CraftingRecipeSO[] craftingAxeRecipeSOArray;
-    [SerializeField] private CraftingRecipeSO[] craftingHoeRecipeSOArray;
+    [SerializeField] private CraftingRecipeSO[] craftingHammerRecipeSOArray;
     public bool isUsing = false;
     private bool recipeCompleted = false;
     private CraftingRecipeSO craftingRecipeSO;
+    private CraftingRecipeSO selectedCraftingRecipeSO;
 
     public enum SelectedRecipe
     {
         Pickaxe,
         Axe,
-        Hoe,
+        Hammer,
     }
     public SelectedRecipe selectedRecipe;
 
@@ -45,19 +46,32 @@ public class CraftingWorkstation : BaseWorkstation
     }
     public override void Interact(Player player)
     {
+        switch (selectedRecipe)
+        {
+            case SelectedRecipe.Pickaxe:
+                selectedCraftingRecipeSO = craftingPickaxeRecipeSOArray[0];
+                break;
+            case SelectedRecipe.Axe:
+                selectedCraftingRecipeSO = craftingAxeRecipeSOArray[0];
+                break; 
+            case SelectedRecipe.Hammer:
+                selectedCraftingRecipeSO = craftingHammerRecipeSOArray[0];
+                break;
+        }
+
         if (player.HasWorkshopObject())
         {
             if (TryAddPart(player.GetWorkshopObject().GetWorkshopObjectSO()))
             {
                 player.GetWorkshopObject().DestroySelf();
-                if (workshopObjectSOList.Count == craftingPickaxeRecipeSOArray[0].inputSOList.Count)
+                if (workshopObjectSOList.Count == selectedCraftingRecipeSO.inputSOList.Count)
                 {
                     bool contentsMatchesRecipe = true;
                     foreach (WorkshopObjectSO recipeWorkshopObjectSO in workshopObjectSOList)
                     {
                         //Pêtla przez wszystkie czêœci w przepisie 
                         bool partFound = false;
-                        foreach (WorkshopObjectSO craftingWorkshopObjectSO in craftingPickaxeRecipeSOArray[0].inputSOList)
+                        foreach (WorkshopObjectSO craftingWorkshopObjectSO in selectedCraftingRecipeSO.inputSOList)
                         {
                             //Pêtla przez wszystkie czêœci
                             if (craftingWorkshopObjectSO == recipeWorkshopObjectSO)
@@ -145,7 +159,7 @@ public class CraftingWorkstation : BaseWorkstation
 
     public bool TryAddPart(WorkshopObjectSO workshopObjectSO)
     {
-        if (!craftingPickaxeRecipeSOArray[0].inputSOList.Contains(workshopObjectSO))
+        if (!selectedCraftingRecipeSO.inputSOList.Contains(workshopObjectSO))
         {
             return false;
         }
@@ -235,8 +249,8 @@ public class CraftingWorkstation : BaseWorkstation
                     }
                 }
                 return null;
-            case SelectedRecipe.Hoe:
-                foreach (CraftingRecipeSO craftingRecipeSO in craftingHoeRecipeSOArray)
+            case SelectedRecipe.Hammer:
+                foreach (CraftingRecipeSO craftingRecipeSO in craftingHammerRecipeSOArray)
                 {
                     if (ListsAreEqual(craftingRecipeSO.inputSOList, inputWorkshopObjectSOArray))
                     {

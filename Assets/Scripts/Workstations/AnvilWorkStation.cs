@@ -17,7 +17,7 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     [SerializeField] private Button pickaxeButton;
     [SerializeField] private ForgingRecipeSO[] forgingPickaxeRecipeSOArray;
     [SerializeField] private ForgingRecipeSO[] forgingAxeRecipeSOArray;
-    [SerializeField] private ForgingRecipeSO[] forgingHoeRecipeSOArray;
+    [SerializeField] private ForgingRecipeSO[] forgingHammerRecipeSOArray;
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler OnForge;
     public bool isUsing = false;
@@ -25,7 +25,7 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     {
         Pickaxe,
         Axe,
-        Hoe,
+        Hammer,
     }
     public SelectedRecipe selectedRecipe;
 
@@ -162,8 +162,8 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
                     }
                 }
                 return null;
-            case SelectedRecipe.Hoe:
-                foreach (ForgingRecipeSO forgingRecipeSO in forgingHoeRecipeSOArray)
+            case SelectedRecipe.Hammer:
+                foreach (ForgingRecipeSO forgingRecipeSO in forgingHammerRecipeSOArray)
                 {
                     if (forgingRecipeSO.input == inputWorkshopObjectSO)
                     {

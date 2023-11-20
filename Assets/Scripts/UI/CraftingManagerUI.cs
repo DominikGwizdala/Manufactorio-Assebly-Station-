@@ -10,7 +10,7 @@ public class CraftingManagerUI : MonoBehaviour
 
     [SerializeField] private Button pickaxeButton;
     [SerializeField] private Button axeButton;
-    [SerializeField] private Button hoeButton;
+    [SerializeField] private Button hammerButton;
     [SerializeField] private CraftingWorkstation craftingWorkstation;
 
     private void Awake()
@@ -19,6 +19,7 @@ public class CraftingManagerUI : MonoBehaviour
 
         pickaxeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano kilof");
+            craftingWorkstation.workshopObjectSOList = new List<WorkshopObjectSO>();
             craftingWorkstation.selectedRecipe = CraftingWorkstation.SelectedRecipe.Pickaxe;
             craftingWorkstation.isUsing = false;
             Hide();
@@ -26,14 +27,16 @@ public class CraftingManagerUI : MonoBehaviour
         });
         axeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano siekiere");
+            craftingWorkstation.workshopObjectSOList = new List<WorkshopObjectSO>();
             craftingWorkstation.selectedRecipe = CraftingWorkstation.SelectedRecipe.Axe;
             craftingWorkstation.isUsing = false;
             Hide();
             GameManager.Instance.ToggleUsingCrafting();
         });
-        hoeButton.onClick.AddListener(() => {
+        hammerButton.onClick.AddListener(() => {
             Debug.Log("Wybrano motyke");
-            craftingWorkstation.selectedRecipe = CraftingWorkstation.SelectedRecipe.Hoe;
+            craftingWorkstation.workshopObjectSOList = new List<WorkshopObjectSO>();
+            craftingWorkstation.selectedRecipe = CraftingWorkstation.SelectedRecipe.Hammer;
             craftingWorkstation.isUsing = false;
             Hide();
             GameManager.Instance.ToggleUsingCrafting();
