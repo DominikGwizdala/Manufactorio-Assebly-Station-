@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   workshopObjectSOList:
-  - {fileID: 11400000, guid: 4b691f9bebab1ed4c8dd1e30480e6bbe, type: 2}
-  recipeName: Pickaxe
+  - {fileID: 11400000, guid: 3199e210aa77ff449a1ff01878eee7b5, type: 2}
+  recipeName: Hammer

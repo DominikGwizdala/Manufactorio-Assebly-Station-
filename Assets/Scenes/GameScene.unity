@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5371,6 +5371,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
         type: 3}
+      propertyPath: forgingHammerRecipeSOArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
+        type: 3}
       propertyPath: forgingHoeRecipeSOArray.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: d85697a507ba71145827a09435528b51,
@@ -5386,6 +5391,12 @@ PrefabInstance:
       propertyPath: forgingPickaxeRecipeSOArray.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
+        type: 3}
+      propertyPath: forgingHammerRecipeSOArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d85697a507ba71145827a09435528b51,
+        type: 2}
     - target: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
         type: 3}
       propertyPath: forgingPickaxeRecipeSOArray.Array.data[0]
@@ -6642,7 +6653,7 @@ GameObject:
   - component: {fileID: 983159171}
   - component: {fileID: 983159170}
   m_Layer: 5
-  m_Name: hoeButton
+  m_Name: hammerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7075,7 +7086,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hoe
+  m_text: Hammer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8940,7 +8951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hoe
+  m_text: Hammer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9375,7 +9386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1287465651}
   m_Layer: 5
-  m_Name: Hoe
+  m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12501,7 +12512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1612706149}
   m_Layer: 5
-  m_Name: Hoe
+  m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12770,7 +12781,7 @@ PrefabInstance:
     - target: {fileID: 3317600916893625768, guid: 81b079afaaff06b4c8bdc4a07bd814e6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.5
+      value: -4.52
       objectReference: {fileID: 0}
     - target: {fileID: 3317600916893625768, guid: 81b079afaaff06b4c8bdc4a07bd814e6,
         type: 3}
@@ -12860,7 +12871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickaxeButton: {fileID: 353426789}
   axeButton: {fileID: 1044817042}
-  hoeButton: {fileID: 1966911717}
+  hammerButton: {fileID: 1966911717}
   anvilWorkstation: {fileID: 6025504}
 --- !u!224 &1655377722
 RectTransform:
@@ -13474,6 +13485,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
         type: 3}
+      propertyPath: craftingHammerRecipeSOArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
       propertyPath: craftingHoeRecipeSOArray.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 541081c5619415a4da01aa002e9e7481,
@@ -13483,6 +13499,12 @@ PrefabInstance:
       propertyPath: craftingPickaxeRecipeSOArray.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: craftingHammerRecipeSOArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 541081c5619415a4da01aa002e9e7481,
+        type: 2}
     - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
         type: 3}
       propertyPath: craftingPickaxeRecipeSOArray.Array.data[0]
@@ -14815,7 +14837,7 @@ GameObject:
   - component: {fileID: 1966911718}
   - component: {fileID: 1966911717}
   m_Layer: 5
-  m_Name: hoeButton
+  m_Name: hammerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15805,7 +15827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickaxeButton: {fileID: 579284290}
   axeButton: {fileID: 845693450}
-  hoeButton: {fileID: 983159170}
+  hammerButton: {fileID: 983159170}
   craftingWorkstation: {fileID: 1586538958}
 --- !u!4 &2136953582 stripped
 Transform:

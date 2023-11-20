@@ -15,3 +15,5 @@ MonoBehaviour:
   recipeSOList:
   - {fileID: 11400000, guid: d0295e36ecf50b043a769f82249d3d16, type: 2}
   - {fileID: 11400000, guid: 80ce411bc9070a44b8769668aa21d997, type: 2}
+  - {fileID: 11400000, guid: 2298cb5330b70144e88baf94b79bb42e, type: 2}
+  - {fileID: 11400000, guid: 2bfec5e7b42b8a34fb097c7ff71944db, type: 2}
