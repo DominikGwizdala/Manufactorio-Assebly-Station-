@@ -19,27 +19,18 @@ public class CraftingManagerUI : MonoBehaviour
 
         pickaxeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano kilof");
-            craftingWorkstation.workshopObjectSOList = new List<WorkshopObjectSO>();
             craftingWorkstation.selectedRecipe = CraftingWorkstation.SelectedRecipe.Pickaxe;
-            craftingWorkstation.isUsing = false;
-            Hide();
-            GameManager.Instance.ToggleUsingCrafting();
+            OnClickActions();
         });
         axeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano siekiere");
-            craftingWorkstation.workshopObjectSOList = new List<WorkshopObjectSO>();
             craftingWorkstation.selectedRecipe = CraftingWorkstation.SelectedRecipe.Axe;
-            craftingWorkstation.isUsing = false;
-            Hide();
-            GameManager.Instance.ToggleUsingCrafting();
+            OnClickActions();
         });
         hammerButton.onClick.AddListener(() => {
             Debug.Log("Wybrano motyke");
-            craftingWorkstation.workshopObjectSOList = new List<WorkshopObjectSO>();
             craftingWorkstation.selectedRecipe = CraftingWorkstation.SelectedRecipe.Hammer;
-            craftingWorkstation.isUsing = false;
-            Hide();
-            GameManager.Instance.ToggleUsingCrafting();
+            OnClickActions();
         });
     }
     private void Start()
@@ -49,12 +40,19 @@ public class CraftingManagerUI : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
-        pickaxeButton.Select();
     }
 
     private void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnClickActions()
+    {
+        craftingWorkstation.isUsing = false;
+        craftingWorkstation.SelectRecipe();
+        Hide();
+        GameManager.Instance.ToggleUsingCrafting();
     }
     public Button GetButtons() { return pickaxeButton; }
 }

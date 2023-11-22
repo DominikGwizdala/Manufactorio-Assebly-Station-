@@ -13451,6 +13451,16 @@ PrefabInstance:
       objectReference: {fileID: 2097685970}
     - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
         type: 3}
+      propertyPath: craftingCanvas
+      value: 
+      objectReference: {fileID: 2097685970}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: selectedButton
+      value: 
+      objectReference: {fileID: 579284290}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
       propertyPath: craftingAxeRecipeSO
       value: 
       objectReference: {fileID: 11400000, guid: a59a63ad13651aa428c1f42aa28c7dc9,

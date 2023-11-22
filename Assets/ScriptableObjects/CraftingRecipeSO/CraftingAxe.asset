@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92d2008714408ef4bb43d5194bfcc7e1, type: 3}
-  m_Name: TestCrafting2
+  m_Name: CraftingAxe
   m_EditorClassIdentifier: 
   inputSOList:
   - {fileID: 11400000, guid: 7d141809f7f23ee458053f031ca90576, type: 2}
   - {fileID: 11400000, guid: d8186ead3039c754d89b490cb6166186, type: 2}
   output: {fileID: 11400000, guid: ad57335fcebefb44cb4359337553f6ea, type: 2}
-  recipeName: Test2
+  recipeName: CraftingAxe

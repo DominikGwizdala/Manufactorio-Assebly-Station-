@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce502018bd4a0354f952817a85a96b79, type: 3}
-  m_Name: TestHammer
+  m_Name: ForgingPickaxePiece
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 3164bc0369829d44c91f01ad390d80ff, type: 2}
-  output: {fileID: 11400000, guid: 426a2d1b26bbc5549ad6084fa7ed7b7b, type: 2}
+  output: {fileID: 11400000, guid: f72e8d7496cf2b2419927f2fcbd3081c, type: 2}
   forgingProgressMax: 5
