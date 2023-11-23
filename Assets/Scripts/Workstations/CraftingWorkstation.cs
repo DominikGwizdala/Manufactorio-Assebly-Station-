@@ -26,14 +26,14 @@ public class CraftingWorkstation : BaseWorkstation
             toRemoveObjectSOList.Add(item);
         }
         selectedCraftingRecipeSO = craftingPickaxeRecipeSOArray[0];
-        selectedButton.Select();
+        craftingCanvas.SetActive(false);
     }
 
     [SerializeField] GameObject craftingCanvas;
     [SerializeField] private CraftingRecipeSO[] craftingPickaxeRecipeSOArray;
     [SerializeField] private CraftingRecipeSO[] craftingAxeRecipeSOArray;
     [SerializeField] private CraftingRecipeSO[] craftingHammerRecipeSOArray;
-    [SerializeField] private Button selectedButton;
+    [SerializeField] private Button firstButton;
     public bool isUsing = false;
     private CraftingRecipeSO craftingRecipeSO;
     private CraftingRecipeSO selectedCraftingRecipeSO;
@@ -72,6 +72,7 @@ public class CraftingWorkstation : BaseWorkstation
         }
         else if (HasWorkshopObject())
         {
+            GetWorkshopObject().transform.rotation = player.transform.rotation;
             GetWorkshopObject().SetWorkshopObjectParent(player);
         }
 
@@ -108,6 +109,7 @@ public class CraftingWorkstation : BaseWorkstation
     }
     public void Show()
     {
+        firstButton.Select();
         craftingCanvas.SetActive(true);
     }
 
@@ -150,6 +152,7 @@ public class CraftingWorkstation : BaseWorkstation
         }
         workshopObjectSOList = new List<WorkshopObjectSO>();
         ToRemoveNewList();
+        Hide();
     }
 
     private void ToRemoveNewList()

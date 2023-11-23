@@ -33,26 +33,11 @@ public class CraftingManagerUI : MonoBehaviour
             OnClickActions();
         });
     }
-    private void Start()
-    {
-        Hide();
-    }
-    public void Show()
-    {
-        gameObject.SetActive(true);
-    }
-
-    private void Hide()
-    {
-        gameObject.SetActive(false);
-    }
 
     private void OnClickActions()
     {
         craftingWorkstation.isUsing = false;
         craftingWorkstation.SelectRecipe();
-        Hide();
         GameManager.Instance.ToggleUsingCrafting();
     }
-    public Button GetButtons() { return pickaxeButton; }
 }

@@ -46,7 +46,6 @@ public class AnvilManagerUI : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
-        pickaxeButton.Select();
     }
 
     private void Hide()

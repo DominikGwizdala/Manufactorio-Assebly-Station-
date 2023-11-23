@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private float gamePlayingTimer;
     private float gamePlayingTimerMax = 180f;
     public bool isGamePaused = false;
-    private bool isCraftingUsed = false;
+    public bool isCraftingUsed = false;
 
     private void Awake()
     {
@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
-        //GameInput.Instance.OnAnvilAction += GameInput_OnAnvilAction;
         GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
     }
 
@@ -54,11 +53,6 @@ public class GameManager : MonoBehaviour
         TogglePauseGame();
     }
 
-    /*private void GameInput_OnAnvilAction(object sender, EventArgs e)
-    {
-        ToggleUsingAnvil();
-    }*/
-  
     private void Update()
     {
         Debug.Log("Pauza = "+isGamePaused+" Kowad³o = "+ isCraftingUsed);
@@ -120,13 +114,11 @@ public class GameManager : MonoBehaviour
             if (isGamePaused)
             {
                 Time.timeScale = 0f;
-
                 OnGamePaused?.Invoke(this, EventArgs.Empty);
             }
             else
             {
                 Time.timeScale = 1f;
-
                 OnGameUnpaused?.Invoke(this, EventArgs.Empty);
             }
         }
@@ -136,14 +128,10 @@ public class GameManager : MonoBehaviour
         isCraftingUsed = !isCraftingUsed;
         if (isCraftingUsed)
         {
-            Time.timeScale = 0f;
-
             OnCraftingUsed?.Invoke(this, EventArgs.Empty);
         }
         else
         {
-            Time.timeScale = 1f;
-
             OnCraftingUnused?.Invoke(this, EventArgs.Empty);
         }
    }

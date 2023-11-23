@@ -9,12 +9,13 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
     public event EventHandler OnPickedSomething;
     public static Player Instance { get; private set; }  
     public event EventHandler<OnSelectedWorkstationChangedEventArgs> OnSelectedWorkstationChanged;
-    public class OnSelectedWorkstationChangedEventArgs : EventArgs {
+    public class OnSelectedWorkstationChangedEventArgs : EventArgs 
+    {
         public BaseWorkstation selectedWorkstation;
     }
 
     [SerializeField] private float speed;
-    [SerializeField] private float rotateSpeed=10f;
+    [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask workstationsLayerMask;
     [SerializeField] private Transform workshopObjectHoldPoint;
@@ -71,14 +72,17 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
 
     private void Update()
     {
-        HandleMovement();
-        HandleInteractions();     
+        if (GameManager.Instance.isGamePaused == false && GameManager.Instance.isCraftingUsed == false)
+        {
+            HandleMovement();
+            HandleInteractions();
+        }
     }
     private void HandleInteractions() 
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
-        if (moveDirection != Vector3.zero )
+        if (moveDirection != Vector3.zero)
         {
             lastInteractDirection = moveDirection;
         }
@@ -87,10 +91,9 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
         {
             if (raycastHit.transform.TryGetComponent(out BaseWorkstation baseWorkstation))
             {
-                //clearWorkstation.Interact();
-                if (baseWorkstation != selectedWorkstation) 
+                if (baseWorkstation != selectedWorkstation)
                 {
-                    SetSelectedWorkstation(baseWorkstation); 
+                    SetSelectedWorkstation(baseWorkstation);
                 }
             }
             else
@@ -102,7 +105,6 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
         {
             SetSelectedWorkstation(null);
         }
-        //Debug.Log(selectedWorkstation);
     }
     private void HandleMovement() 
     {

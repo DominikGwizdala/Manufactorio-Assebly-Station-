@@ -1889,6 +1889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGamePaused: 0
+  isCraftingUsed: 0
 --- !u!4 &312896540
 Transform:
   m_ObjectHideFlags: 0
@@ -5331,6 +5332,11 @@ PrefabInstance:
       propertyPath: AnvilCanvas
       value: 
       objectReference: {fileID: 1655377720}
+    - target: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
+        type: 3}
+      propertyPath: firstButton
+      value: 
+      objectReference: {fileID: 353426789}
     - target: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
         type: 3}
       propertyPath: pickaxeButton
@@ -13439,6 +13445,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
+        type: 3}
+      propertyPath: firstButton
+      value: 
+      objectReference: {fileID: 579284290}
     - target: {fileID: 8349115945920567682, guid: a461df0019f61c843be2fe5be9ecdbcf,
         type: 3}
       propertyPath: pickaxeButton

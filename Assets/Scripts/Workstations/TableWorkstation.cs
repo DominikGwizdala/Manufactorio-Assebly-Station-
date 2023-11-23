@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TableWorkstation : BaseWorkstation
 {
-    //[SerializeField] private WorkshopObjectSO workshopObjectSO;
-
     public override void Interact(Player player)
     {
         if (!HasWorkshopObject())
@@ -18,7 +16,7 @@ public class TableWorkstation : BaseWorkstation
         {
             if (!player.HasWorkshopObject())
             {
-                GetWorkshopObject().transform.rotation = GetWorkshopObject().transform.parent.rotation;
+                GetWorkshopObject().transform.rotation = player.transform.rotation;
                 GetWorkshopObject().SetWorkshopObjectParent(player);
             }
             else

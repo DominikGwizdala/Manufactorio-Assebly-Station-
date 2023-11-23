@@ -126,6 +126,7 @@ public class FurnaceWorkstation : BaseWorkstation, IHasProgress
         {
             if (!player.HasWorkshopObject())
             {
+                GetWorkshopObject().transform.rotation = player.transform.rotation;
                 GetWorkshopObject().SetWorkshopObjectParent(player);
 
                 state = State.Idle;

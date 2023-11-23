@@ -14,7 +14,7 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     }
 
     [SerializeField] GameObject AnvilCanvas;
-    [SerializeField] private Button pickaxeButton;
+    [SerializeField] private Button firstButton;
     [SerializeField] private ForgingRecipeSO[] forgingPickaxeRecipeSOArray;
     [SerializeField] private ForgingRecipeSO[] forgingAxeRecipeSOArray;
     [SerializeField] private ForgingRecipeSO[] forgingHammerRecipeSOArray;
@@ -50,6 +50,7 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
         {
             if (!player.HasWorkshopObject())
             {
+                GetWorkshopObject().transform.rotation = player.transform.rotation;
                 GetWorkshopObject().SetWorkshopObjectParent(player);
 
                 OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
@@ -114,8 +115,8 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     }
     public void Show()
     {
+        firstButton.Select();
         AnvilCanvas.SetActive(true);
-        pickaxeButton.Select();
     }
 
     private void Hide()

@@ -37,6 +37,7 @@ public class LogCutterWorkstation : BaseWorkstation, IHasProgress
         {
             if (!player.HasWorkshopObject())
             {
+                GetWorkshopObject().transform.rotation = player.transform.rotation;
                 GetWorkshopObject().SetWorkshopObjectParent(player);
 
                 OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
