@@ -5334,6 +5334,11 @@ PrefabInstance:
       objectReference: {fileID: 1655377720}
     - target: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
         type: 3}
+      propertyPath: anvilCanvas
+      value: 
+      objectReference: {fileID: 1655377720}
+    - target: {fileID: 6444162218470294347, guid: 3d1fbabf4a5f8fd40b30805b757df5d9,
+        type: 3}
       propertyPath: firstButton
       value: 
       objectReference: {fileID: 353426789}

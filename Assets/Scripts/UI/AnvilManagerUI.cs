@@ -20,37 +20,23 @@ public class AnvilManagerUI : MonoBehaviour
         pickaxeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano kilof");
             anvilWorkstation.selectedRecipe = AnvilWorkstation.SelectedRecipe.Pickaxe;
-            anvilWorkstation.isUsing = false;
-            Hide();
-            GameManager.Instance.ToggleUsingCrafting();
+            OnClickActions();
         });
         axeButton.onClick.AddListener(() => {
             Debug.Log("Wybrano siekiere");
             anvilWorkstation.selectedRecipe = AnvilWorkstation.SelectedRecipe.Axe;
-            anvilWorkstation.isUsing = false;
-            Hide();
-            GameManager.Instance.ToggleUsingCrafting();
+            OnClickActions();
         });
         hammerButton.onClick.AddListener(() => {
             Debug.Log("Wybrano motyke");
             anvilWorkstation.selectedRecipe = AnvilWorkstation.SelectedRecipe.Hammer;
-            anvilWorkstation.isUsing = false;
-            Hide();
-            GameManager.Instance.ToggleUsingCrafting();
+            OnClickActions();
         });
     }
-    private void Start()
-    {
-        Hide();
-    }
-    public void Show()
-    {
-        gameObject.SetActive(true);
-    }
 
-    private void Hide()
+    private void OnClickActions()
     {
-        gameObject.SetActive(false);
+        anvilWorkstation.SelectRecipe();
+        GameManager.Instance.ToggleUsingCrafting();
     }
-    public Button GetButtons() { return pickaxeButton; }
 }

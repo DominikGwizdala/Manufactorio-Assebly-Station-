@@ -154,7 +154,15 @@ public class Player : MonoBehaviour, IWorkshopObjectParent
     }
     public bool IsRunning()
     {
-        return isRunning;
+        if (GameManager.Instance.isGamePaused == false && GameManager.Instance.isCraftingUsed == false)
+        {
+            return isRunning;
+        }
+        else
+        {
+            isRunning = false;
+            return isRunning;
+        }
     }
     public bool IsHolding()
     {

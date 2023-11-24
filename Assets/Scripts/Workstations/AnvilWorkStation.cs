@@ -13,14 +13,15 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
         OnAnyForge = null;
     }
 
-    [SerializeField] GameObject AnvilCanvas;
+    [SerializeField] GameObject anvilCanvas;
     [SerializeField] private Button firstButton;
     [SerializeField] private ForgingRecipeSO[] forgingPickaxeRecipeSOArray;
     [SerializeField] private ForgingRecipeSO[] forgingAxeRecipeSOArray;
     [SerializeField] private ForgingRecipeSO[] forgingHammerRecipeSOArray;
+    private ForgingRecipeSO[] selectedForgingRecipeSOArray;
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler OnForge;
-    public bool isUsing = false;
+    private bool isUsing = false;
     public enum SelectedRecipe
     {
         Pickaxe,
@@ -30,6 +31,11 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     public SelectedRecipe selectedRecipe;
 
     public int forgingProgress;
+
+    private void Awake()
+    {
+        anvilCanvas.SetActive(false);
+    }
 
     public override void Interact(Player player)
     {
@@ -116,12 +122,12 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     public void Show()
     {
         firstButton.Select();
-        AnvilCanvas.SetActive(true);
+        anvilCanvas.SetActive(true);
     }
 
     private void Hide()
     {
-        AnvilCanvas.SetActive(false);
+        anvilCanvas.SetActive(false);
     }
 
     private bool HasRecipeWithInput(WorkshopObjectSO inputWorkshopObjectSO)
@@ -143,37 +149,32 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     }
     private ForgingRecipeSO GetForgingRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO)
     {
+        foreach (ForgingRecipeSO forgingRecipeSO in selectedForgingRecipeSOArray)
+        {
+            if (forgingRecipeSO.input == inputWorkshopObjectSO)
+            {
+                return forgingRecipeSO;
+            }
+        }
+        return null;
+    }
+
+    public void SelectRecipe()
+    {
         switch (selectedRecipe)
         {
             case SelectedRecipe.Pickaxe:
-                foreach (ForgingRecipeSO forgingRecipeSO in forgingPickaxeRecipeSOArray)
-                {
-                    if (forgingRecipeSO.input == inputWorkshopObjectSO)
-                    {
-                        return forgingRecipeSO;
-                    }
-                }
-                return null;
+                selectedForgingRecipeSOArray = forgingPickaxeRecipeSOArray;
+                break;
             case SelectedRecipe.Axe:
-                foreach (ForgingRecipeSO forgingRecipeSO in forgingAxeRecipeSOArray)
-                {
-                    if (forgingRecipeSO.input == inputWorkshopObjectSO)
-                    {
-                        return forgingRecipeSO;
-                    }
-                }
-                return null;
+                selectedForgingRecipeSOArray = forgingAxeRecipeSOArray;
+                break;
             case SelectedRecipe.Hammer:
-                foreach (ForgingRecipeSO forgingRecipeSO in forgingHammerRecipeSOArray)
-                {
-                    if (forgingRecipeSO.input == inputWorkshopObjectSO)
-                    {
-                        return forgingRecipeSO;
-                    }
-                }
-                return null;
+                selectedForgingRecipeSOArray = forgingHammerRecipeSOArray;
+                break;
         }
-        return null;
+        Hide();
+        isUsing = false;
     }
 }
 

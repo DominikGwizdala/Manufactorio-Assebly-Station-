@@ -36,7 +36,6 @@ public class CraftingManagerUI : MonoBehaviour
 
     private void OnClickActions()
     {
-        craftingWorkstation.isUsing = false;
         craftingWorkstation.SelectRecipe();
         GameManager.Instance.ToggleUsingCrafting();
     }
