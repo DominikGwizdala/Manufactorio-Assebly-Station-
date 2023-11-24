@@ -7,4 +7,5 @@ public class RecipeSO : ScriptableObject
 {
     public List<WorkshopObjectSO> workshopObjectSOList;
     public string recipeName;
+    public int value;
 }

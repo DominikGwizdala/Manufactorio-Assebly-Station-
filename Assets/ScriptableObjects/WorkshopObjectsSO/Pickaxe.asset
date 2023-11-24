@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 1485666540771733552, guid: ead27cf1094fd2244bd8992b2de71459, type: 3}
   sprite: {fileID: 21300000, guid: 97053b8f0022a64449767f4d27df056b, type: 3}
   objectName: Pickaxe
+  value: 75

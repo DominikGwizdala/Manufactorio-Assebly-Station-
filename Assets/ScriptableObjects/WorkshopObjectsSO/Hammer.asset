@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 510544872749119548, guid: ce3f1ba1bf72dd445bdceb269ab5a89a, type: 3}
   sprite: {fileID: 21300000, guid: 7a2dd58c528addb429bdc684105102d6, type: 3}
   objectName: Hammer
+  value: 150
