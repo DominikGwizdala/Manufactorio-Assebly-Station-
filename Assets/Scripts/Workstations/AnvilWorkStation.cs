@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class AnvilWorkstation : BaseWorkstation, IHasProgress
 {
     public static event EventHandler OnAnyForge;
-  new public static void ResetStaticData()
+    new public static void ResetStaticData()
     {
         OnAnyForge = null;
     }
@@ -177,4 +177,3 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
         isUsing = false;
     }
 }
-

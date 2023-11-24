@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pickaxe_piece
   m_EditorClassIdentifier: 
   prefab: {fileID: 6485193506596765155, guid: 5a5832818ba84b148a506f11c3aeafe1, type: 3}
-  sprite: {fileID: 21300000, guid: 7bd90b658eb20b44f874cede8273da02, type: 3}
+  sprite: {fileID: 21300000, guid: 67cbfd0f030e4d74d8fc7b2f4512077b, type: 3}
   objectName: Pickaxe_piece

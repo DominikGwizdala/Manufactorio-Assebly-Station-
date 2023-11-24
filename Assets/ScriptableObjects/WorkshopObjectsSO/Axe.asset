@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Axe
   m_EditorClassIdentifier: 
   prefab: {fileID: 5376556940992049593, guid: dd96fd327b21afe47a60eb9c7a8713b9, type: 3}
-  sprite: {fileID: 21300000, guid: 7bd90b658eb20b44f874cede8273da02, type: 3}
+  sprite: {fileID: 21300000, guid: fc37f69b0e8c1a741b75e557cd3f0768, type: 3}
   objectName: Axe

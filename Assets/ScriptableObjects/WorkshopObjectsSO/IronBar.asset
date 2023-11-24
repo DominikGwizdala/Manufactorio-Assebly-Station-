@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: IronBar
   m_EditorClassIdentifier: 
   prefab: {fileID: 6126908473549082006, guid: f77de34b2861b184db3ad97fe8012afd, type: 3}
-  sprite: {fileID: 21300000, guid: 7bd90b658eb20b44f874cede8273da02, type: 3}
+  sprite: {fileID: 21300000, guid: 65bf23ce9ae10b940b7a00684c2c382c, type: 3}
   objectName: IronBar

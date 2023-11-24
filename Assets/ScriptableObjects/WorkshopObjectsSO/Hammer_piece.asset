@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hammer_piece
   m_EditorClassIdentifier: 
   prefab: {fileID: 4756812470049452345, guid: 3ecf4ee2a8d7944458d8475c3069451c, type: 3}
-  sprite: {fileID: 21300000, guid: 7bd90b658eb20b44f874cede8273da02, type: 3}
+  sprite: {fileID: 21300000, guid: 6651c01fe98b84b44ad46466c544341e, type: 3}
   objectName: Hammer_piece

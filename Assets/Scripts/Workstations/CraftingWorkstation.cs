@@ -21,6 +21,7 @@ public class CraftingWorkstation : BaseWorkstation
     [SerializeField] private CraftingRecipeSO[] craftingPickaxeRecipeSOArray;
     [SerializeField] private CraftingRecipeSO[] craftingAxeRecipeSOArray;
     [SerializeField] private CraftingRecipeSO[] craftingHammerRecipeSOArray;
+    [SerializeField] private CraftingIconsUI craftingIconsUI;
     [SerializeField] private Button firstButton;
     private bool isUsing = false;
     private CraftingRecipeSO craftingRecipeSO;
@@ -163,5 +164,11 @@ public class CraftingWorkstation : BaseWorkstation
         {
             toRemoveObjectSOList.Add(item);
         }
+        craftingIconsUI.UpdateVisual();
+    }
+
+    public List<WorkshopObjectSO> GetToRemoveSOList()
+    {
+        return toRemoveObjectSOList;
     }
 }

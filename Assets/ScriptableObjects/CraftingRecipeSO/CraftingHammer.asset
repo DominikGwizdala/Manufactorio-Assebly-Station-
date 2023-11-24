@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92d2008714408ef4bb43d5194bfcc7e1, type: 3}
-  m_Name: CraftingHammer_Test
+  m_Name: CraftingHammer
   m_EditorClassIdentifier: 
   inputSOList:
-  - {fileID: 11400000, guid: 7d141809f7f23ee458053f031ca90576, type: 2}
   - {fileID: 11400000, guid: 7d141809f7f23ee458053f031ca90576, type: 2}
   - {fileID: 11400000, guid: 426a2d1b26bbc5549ad6084fa7ed7b7b, type: 2}
   output: {fileID: 11400000, guid: 3199e210aa77ff449a1ff01878eee7b5, type: 2}
