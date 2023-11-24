@@ -23,11 +23,11 @@ public class GameInput : MonoBehaviour
         Interact, 
         Interact_Alternate, 
         Pause,
-        CraftingInteract,
+        Crafting_Interact,
         Gamepad_Interact,
         Gamepad_Interact_Alternate,
         Gamepad_Pause,
-        Gamepad_CraftingInteract
+        Gamepad_Crafting_Interact
     }
 
     private PlayerInputActions playerInputActions;
@@ -100,7 +100,7 @@ public class GameInput : MonoBehaviour
                 return playerInputActions.Player.InteractAlternate.bindings[0].ToDisplayString();
             case Binding.Pause:
                 return playerInputActions.Player.Pause.bindings[0].ToDisplayString();
-            case Binding.CraftingInteract:
+            case Binding.Crafting_Interact:
                 return playerInputActions.Player.CraftingInteract.bindings[0].ToDisplayString();
             case Binding.Gamepad_Interact:
                 return playerInputActions.Player.Interaction.bindings[1].ToDisplayString();
@@ -108,7 +108,7 @@ public class GameInput : MonoBehaviour
                 return playerInputActions.Player.InteractAlternate.bindings[1].ToDisplayString();
             case Binding.Gamepad_Pause:
                 return playerInputActions.Player.Pause.bindings[1].ToDisplayString();
-            case Binding.Gamepad_CraftingInteract:
+            case Binding.Gamepad_Crafting_Interact:
                 return playerInputActions.Player.CraftingInteract.bindings[1].ToDisplayString();
         }
     }
@@ -149,7 +149,7 @@ public class GameInput : MonoBehaviour
                 inputAction = playerInputActions.Player.Pause;
                 bindingIndex = 0;
                 break;
-            case Binding.CraftingInteract:
+            case Binding.Crafting_Interact:
                 inputAction = playerInputActions.Player.CraftingInteract;
                 bindingIndex = 0;
                 break;
@@ -165,7 +165,7 @@ public class GameInput : MonoBehaviour
                 inputAction = playerInputActions.Player.Pause;
                 bindingIndex = 1;
                 break;
-            case Binding.Gamepad_CraftingInteract:
+            case Binding.Gamepad_Crafting_Interact:
                 inputAction = playerInputActions.Player.CraftingInteract;
                 bindingIndex = 1;
                 break;
