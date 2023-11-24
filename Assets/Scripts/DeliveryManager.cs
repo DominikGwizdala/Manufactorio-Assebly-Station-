@@ -77,7 +77,7 @@ public class DeliveryManager : MonoBehaviour
                 {
                     //W³aœciwe zamówienie
                     successfulRecipesAmount++;
-                    scoreGained = scoreGained+waitingRecipeSO.value;
+                    scoreGained += waitingRecipeSO.value;
                     waitingRecipeSOList.RemoveAt(i);
 
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
