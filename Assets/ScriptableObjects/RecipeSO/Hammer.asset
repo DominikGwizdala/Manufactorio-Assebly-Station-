@@ -15,3 +15,4 @@ MonoBehaviour:
   workshopObjectSOList:
   - {fileID: 11400000, guid: 3199e210aa77ff449a1ff01878eee7b5, type: 2}
   recipeName: Hammer
+  value: 3

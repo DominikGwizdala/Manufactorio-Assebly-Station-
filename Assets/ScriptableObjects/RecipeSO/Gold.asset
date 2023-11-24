@@ -15,3 +15,4 @@ MonoBehaviour:
   workshopObjectSOList:
   - {fileID: 11400000, guid: 5fa1216105fbfa54f9fa7162d3f1f0e8, type: 2}
   recipeName: Gold
+  value: 2
