@@ -34,6 +34,7 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
 
     private void Awake()
     {
+        selectedForgingRecipeSOArray = forgingPickaxeRecipeSOArray;
         anvilCanvas.SetActive(false);
     }
 
