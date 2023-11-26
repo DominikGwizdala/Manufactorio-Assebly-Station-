@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IconsUI : MonoBehaviour
+public class CraftingIconsSingleUI : MonoBehaviour
 {
     [SerializeField] private Image image;
 

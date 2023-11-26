@@ -27,7 +27,7 @@ public class CraftingIconsUI : MonoBehaviour
 
     public void UpdateVisual()
     {
-        selectedRecipeText.text = "\nRecipe: " + craftingWorkstation.selectedRecipe;
+        selectedRecipeText.text = "\nRecipe: " + craftingWorkstation.selectedCraftingRecipeSO.output.objectName;
 
         foreach (Transform child in transform)
         {
@@ -39,7 +39,7 @@ public class CraftingIconsUI : MonoBehaviour
         {
             Transform iconTransform = Instantiate(iconTemplate, transform);
             iconTransform.gameObject.SetActive(true);
-            iconTransform.GetComponent<IconsUI>().SetWorkshopObjectSO(workshopObjectSO);
+            iconTransform.GetComponent<CraftingIconsSingleUI>().SetWorkshopObjectSO(workshopObjectSO);
         }
     }
 }

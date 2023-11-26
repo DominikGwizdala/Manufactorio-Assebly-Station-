@@ -18,31 +18,23 @@ public class CraftingWorkstation : BaseWorkstation
     private List<WorkshopObjectSO> toRemoveObjectSOList;
 
     [SerializeField] GameObject craftingCanvas;
-    [SerializeField] private CraftingRecipeSO[] craftingPickaxeRecipeSOArray;
-    [SerializeField] private CraftingRecipeSO[] craftingAxeRecipeSOArray;
-    [SerializeField] private CraftingRecipeSO[] craftingHammerRecipeSOArray;
+    [SerializeField] private CraftingRecipeSO[] craftingRecipeSOArray;
     [SerializeField] private CraftingIconsUI craftingIconsUI;
-    [SerializeField] private Button firstButton;
-    private bool isUsing = false;
+    [SerializeField] private CraftingRecipeUI craftingRecipeUI;
     private CraftingRecipeSO craftingRecipeSO;
-    private CraftingRecipeSO selectedCraftingRecipeSO;
-    public enum SelectedRecipe
-    {
-        Pickaxe,
-        Axe,
-        Hammer,
-    }
-    public SelectedRecipe selectedRecipe;
+    public CraftingRecipeSO selectedCraftingRecipeSO;
+    private bool isUsing = false;
+    private bool firstShow = true;
 
     private void Awake()
     {
         workshopObjectSOList = new List<WorkshopObjectSO>();
         toRemoveObjectSOList = new List<WorkshopObjectSO>();
-        foreach (WorkshopObjectSO item in craftingPickaxeRecipeSOArray[0].inputSOList)
+        foreach (WorkshopObjectSO item in craftingRecipeSOArray[0].inputSOList)
         {
             toRemoveObjectSOList.Add(item);
         }
-        selectedCraftingRecipeSO = craftingPickaxeRecipeSOArray[0];
+        selectedCraftingRecipeSO = craftingRecipeSOArray[0];
         craftingCanvas.SetActive(false);
     }
 
@@ -96,6 +88,10 @@ public class CraftingWorkstation : BaseWorkstation
         {
             if (isUsing == false)
             {
+                if (firstShow == false)
+                {
+                    craftingRecipeUI.SelectFirstButton();
+                }
                 Show();
                 isUsing = true;
                 GameManager.Instance.ToggleUsingCrafting();
@@ -110,8 +106,8 @@ public class CraftingWorkstation : BaseWorkstation
     }
     public void Show()
     {
-        firstButton.Select();
         craftingCanvas.SetActive(true);
+        firstShow = false;
     }
 
     private void Hide()
@@ -137,20 +133,8 @@ public class CraftingWorkstation : BaseWorkstation
         }
     }
 
-    public void SelectRecipe()
+    public void SelectRecipeActions()
     {
-        switch (selectedRecipe)
-        {
-            case SelectedRecipe.Pickaxe:
-                selectedCraftingRecipeSO = craftingPickaxeRecipeSOArray[0];
-                break;
-            case SelectedRecipe.Axe:
-                selectedCraftingRecipeSO = craftingAxeRecipeSOArray[0];
-                break;
-            case SelectedRecipe.Hammer:
-                selectedCraftingRecipeSO = craftingHammerRecipeSOArray[0];
-                break;
-        }
         workshopObjectSOList = new List<WorkshopObjectSO>();
         ToRemoveNewList();
         Hide();
@@ -170,5 +154,10 @@ public class CraftingWorkstation : BaseWorkstation
     public List<WorkshopObjectSO> GetToRemoveSOList()
     {
         return toRemoveObjectSOList;
+    }
+
+    public CraftingRecipeSO[] GetCraftingRecipeSOArray()
+    {
+        return craftingRecipeSOArray;
     }
 }

@@ -34,7 +34,7 @@ public class PackageIconsUI : MonoBehaviour
         {
             Transform iconTransform = Instantiate(iconTemplate, transform);
             iconTransform.gameObject.SetActive(true);
-            iconTransform.GetComponent<IconsUI>().SetWorkshopObjectSO(workshopObjectSO);
+            iconTransform.GetComponent<CraftingIconsSingleUI>().SetWorkshopObjectSO(workshopObjectSO);
         }
     }
 }
