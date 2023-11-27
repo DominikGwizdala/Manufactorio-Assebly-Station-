@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class TimeOrderUI : MonoBehaviour
 {
-    [SerializeField] private Image timerImage;
+    /*[SerializeField] private Image timerImage;
 
     private void Update()
     {
         timerImage.fillAmount = GameManager.Instance.GetOrderTimerNormalized();
-    }
-
+    }*/
 }

@@ -3643,7 +3643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831e4ab7a855a994f94e2d884d290b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerImage: {fileID: 616720944}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -9993,7 +9992,7 @@ MonoBehaviour:
   recipeNameText: {fileID: 1822829786}
   iconContainer: {fileID: 1748039485}
   iconTemplate: {fileID: 314247705}
-  timer: {fileID: 395632688}
+  timerImage: {fileID: 616720944}
 --- !u!1001 &1327028998
 PrefabInstance:
   m_ObjectHideFlags: 0
