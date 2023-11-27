@@ -115,10 +115,7 @@ public class GameManager : MonoBehaviour
     {
         return 1 - (orderTimer / orderTimerMax);
     }
-    public float TimeToMultiplay()
-    {
-        return 1 + (orderTimer / orderTimerMax);
-    }
+
     public void TogglePauseGame()
     {
         if (isCraftingUsed == false)
