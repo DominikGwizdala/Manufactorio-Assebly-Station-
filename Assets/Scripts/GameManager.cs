@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     private float countdownToStartTimer = 3f;
     private float gamePlayingTimer;
     private float gamePlayingTimerMax = 180f;
+    private float orderTimer;
+    private float orderTimerMax = 50f;
     public bool isGamePaused = false;
     public bool isCraftingUsed = false;
 
@@ -68,11 +70,13 @@ public class GameManager : MonoBehaviour
                 {
                     state = State.GamePlaying;
                     gamePlayingTimer = gamePlayingTimerMax;
+                    orderTimer = orderTimerMax;
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
                 }
                 break;
             case State.GamePlaying:
                 gamePlayingTimer -= Time.deltaTime;
+                orderTimer -= Time.deltaTime;
                 if (gamePlayingTimer < 0f)
                 {
                     state = State.GameOver;
@@ -106,6 +110,14 @@ public class GameManager : MonoBehaviour
     public float GetGamePlayTimerNormalized()
     {
         return 1 - (gamePlayingTimer / gamePlayingTimerMax);
+    }
+    public float GetOrderTimerNormalized()
+    {
+        return 1 - (orderTimer / orderTimerMax);
+    }
+    public float TimeToMultiplay()
+    {
+        return 1 + (orderTimer / orderTimerMax);
     }
     public void TogglePauseGame()
     {

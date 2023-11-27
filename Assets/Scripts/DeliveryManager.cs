@@ -77,7 +77,7 @@ public class DeliveryManager : MonoBehaviour
                 {
                     //W³aœciwe zamówienie
                     successfulRecipesAmount++;
-                    scoreGained += waitingRecipeSO.value;
+                    scoreGained += waitingRecipeSO.value * Convert.ToInt32(GameManager.Instance.TimeToMultiplay());
                     waitingRecipeSOList.RemoveAt(i);
 
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);

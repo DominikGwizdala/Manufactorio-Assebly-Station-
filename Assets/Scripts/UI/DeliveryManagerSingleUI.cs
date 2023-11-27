@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI recipeNameText;
     [SerializeField] private Transform iconContainer;
     [SerializeField] private Transform iconTemplate;
+    [SerializeField] private Transform timer;
 
     private void Awake()
     {
@@ -18,6 +20,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     {
         recipeNameText.text = recipeSO.recipeName;
 
+        
         foreach (Transform child in iconContainer)
         {
             if (child == iconTemplate) continue;
@@ -29,6 +32,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
             Transform iconTransform = Instantiate(iconTemplate, iconContainer);
             iconTransform.gameObject.SetActive(true);
             iconTransform.GetComponent<Image>().sprite = workshopObjectSO.sprite;
+            
         }
     }
 }
