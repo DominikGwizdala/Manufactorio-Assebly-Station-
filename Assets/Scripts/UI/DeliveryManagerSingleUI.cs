@@ -10,9 +10,8 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI recipeNameText;
     [SerializeField] private Transform iconContainer;
     [SerializeField] private Transform iconTemplate;
-    //[SerializeField] private Transform timer;
-    [SerializeField] private Image timerImage;
-    private RecipeSO localRecipeSO;
+    [SerializeField] private TextMeshProUGUI recipeValueText;
+
 
     private float timerIndex = 0;
 
@@ -22,9 +21,10 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     }
     public void SetRecipeSO(RecipeSO recipeSO)
     {
-        localRecipeSO = recipeSO;
+        
 
         recipeNameText.text = recipeSO.recipeName;
+        recipeValueText.text = Convert.ToString(recipeSO.value);
         
         foreach (Transform child in iconContainer)
         {
@@ -40,10 +40,5 @@ public class DeliveryManagerSingleUI : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        float localTimer = 0;
-        localTimer += Time.deltaTime;
-        timerImage.fillAmount = 1 - (localTimer / localRecipeSO.value);
-    }
+
 }
