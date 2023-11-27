@@ -14,27 +14,19 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     }
 
     [SerializeField] GameObject anvilCanvas;
-    [SerializeField] private Button firstButton;
-    [SerializeField] private ForgingRecipeSO[] forgingPickaxeRecipeSOArray;
-    [SerializeField] private ForgingRecipeSO[] forgingAxeRecipeSOArray;
-    [SerializeField] private ForgingRecipeSO[] forgingHammerRecipeSOArray;
-    private ForgingRecipeSO[] selectedForgingRecipeSOArray;
+    [SerializeField] private ForgingRecipeSO[] forgingRecipeSOArray;
+    [SerializeField] private AnvilRecipeUI anvilRecipeUI;
+    public ForgingRecipeSO selectedForgingRecipeSO;
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler OnForge;
     private bool isUsing = false;
-    public enum SelectedRecipe
-    {
-        Pickaxe,
-        Axe,
-        Hammer,
-    }
-    public SelectedRecipe selectedRecipe;
+    private bool firstShow = true;
 
     public int forgingProgress;
 
     private void Awake()
     {
-        selectedForgingRecipeSOArray = forgingPickaxeRecipeSOArray;
+        selectedForgingRecipeSO = forgingRecipeSOArray[0];
         anvilCanvas.SetActive(false);
     }
 
@@ -46,7 +38,7 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
             {
                 player.GetWorkshopObject().SetWorkshopObjectParent(this);
                 forgingProgress = 0;
-                ForgingRecipeSO forgingRecipeSO = GetForgingRecipeSOWithInput(GetWorkshopObject().GetWorkshopObjectSO());
+                ForgingRecipeSO forgingRecipeSO = selectedForgingRecipeSO;
                 OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
                 {
                     progressNormalized = (float)forgingProgress / forgingRecipeSO.forgingProgressMax
@@ -80,21 +72,21 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
 
     public override void InteractAlternate(Player player)
     {
-        if (HasWorkshopObject() && HasRecipeWithInput(GetWorkshopObject().GetWorkshopObjectSO()))
+        if (HasWorkshopObject() && selectedForgingRecipeSO != null)
         {
             forgingProgress++;
             OnForge?.Invoke(this, EventArgs.Empty);
             //Debug.Log(OnAnyForge.GetInvocationList().Length);
             OnAnyForge?.Invoke(this, EventArgs.Empty);
 
-            ForgingRecipeSO forgingRecipeSO = GetForgingRecipeSOWithInput(GetWorkshopObject().GetWorkshopObjectSO());
+            ForgingRecipeSO forgingRecipeSO = selectedForgingRecipeSO;
             OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
             {
                 progressNormalized = (float)forgingProgress / forgingRecipeSO.forgingProgressMax
             });
             if (forgingProgress >= forgingRecipeSO.forgingProgressMax)
             {
-                WorkshopObjectSO outputWorkshopObjectSO = GetOutputForInput(GetWorkshopObject().GetWorkshopObjectSO());
+                WorkshopObjectSO outputWorkshopObjectSO = selectedForgingRecipeSO.output;
                 GetWorkshopObject().DestroySelf();
 
                 WorkshopObject.SpawnWorkshopObject(outputWorkshopObjectSO, this);
@@ -108,6 +100,10 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
         {
             if (isUsing == false)
             {
+                if (firstShow == false)
+                {
+                    anvilRecipeUI.SelectFirstButton();
+                }
                 Show();
                 isUsing = true;
                 GameManager.Instance.ToggleUsingCrafting();
@@ -122,8 +118,8 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     }
     public void Show()
     {
-        firstButton.Select();
         anvilCanvas.SetActive(true);
+        firstShow = false;
     }
 
     private void Hide()
@@ -131,50 +127,14 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
         anvilCanvas.SetActive(false);
     }
 
-    private bool HasRecipeWithInput(WorkshopObjectSO inputWorkshopObjectSO)
+    public void SelectRecipeActions()
     {
-        ForgingRecipeSO forgingRecipeSO = GetForgingRecipeSOWithInput(inputWorkshopObjectSO);
-        return forgingRecipeSO != null;
-    }
-    private WorkshopObjectSO GetOutputForInput(WorkshopObjectSO inputWorkshopObjectSO)
-    {
-        ForgingRecipeSO forgingRecipeSO = GetForgingRecipeSOWithInput(inputWorkshopObjectSO);
-        if (forgingRecipeSO != null)
-        {
-            return forgingRecipeSO.output;
-        }
-        else
-        {
-            return null;
-        }
-    }
-    private ForgingRecipeSO GetForgingRecipeSOWithInput(WorkshopObjectSO inputWorkshopObjectSO)
-    {
-        foreach (ForgingRecipeSO forgingRecipeSO in selectedForgingRecipeSOArray)
-        {
-            if (forgingRecipeSO.input == inputWorkshopObjectSO)
-            {
-                return forgingRecipeSO;
-            }
-        }
-        return null;
-    }
-
-    public void SelectRecipe()
-    {
-        switch (selectedRecipe)
-        {
-            case SelectedRecipe.Pickaxe:
-                selectedForgingRecipeSOArray = forgingPickaxeRecipeSOArray;
-                break;
-            case SelectedRecipe.Axe:
-                selectedForgingRecipeSOArray = forgingAxeRecipeSOArray;
-                break;
-            case SelectedRecipe.Hammer:
-                selectedForgingRecipeSOArray = forgingHammerRecipeSOArray;
-                break;
-        }
         Hide();
         isUsing = false;
+    }
+
+    public ForgingRecipeSO[] GetForgingRecipeSOArray()
+    {
+        return forgingRecipeSOArray;
     }
 }
