@@ -53,14 +53,14 @@ public class DeliveryManager : MonoBehaviour
             {
                 //Ma tak¹ sam¹ liczbê czêœci
                 bool packageContentsMatchesRecipe = true;
-                foreach(WorkshopObjectSO recipeWorkshopObjectSO in waitingRecipeSO.workshopObjectSOList)
+                foreach (WorkshopObjectSO recipeWorkshopObjectSO in waitingRecipeSO.workshopObjectSOList)
                 {
                     //Pêtla przez wszystkie czêœci w przepisie 
                     bool partFound = false;
                     foreach (WorkshopObjectSO packageWorkshopObjectSO in packageWorkshopObject.GetWorkshopObjectSOList())
                     {
                         //Pêtla przez wszystkie czêœci w paczce
-                        if(packageWorkshopObjectSO == recipeWorkshopObjectSO)
+                        if (packageWorkshopObjectSO == recipeWorkshopObjectSO)
                         {
                             //Czêœci siê zgadzaj¹
                             partFound = true;
@@ -73,11 +73,11 @@ public class DeliveryManager : MonoBehaviour
                         packageContentsMatchesRecipe = false;
                     }
                 }
-                if(packageContentsMatchesRecipe) 
+                if (packageContentsMatchesRecipe) 
                 {
                     //W³aœciwe zamówienie
                     successfulRecipesAmount++;
-                    scoreGained += waitingRecipeSO.value *GameManager.Instance.GetOrderTimerNormalized();
+                    scoreGained += waitingRecipeSO.value * GameManager.Instance.GetOrderTimerNormalized();
                     waitingRecipeSOList.RemoveAt(i);
 
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
