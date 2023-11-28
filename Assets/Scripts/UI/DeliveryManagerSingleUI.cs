@@ -12,17 +12,12 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     [SerializeField] private Transform iconTemplate;
     [SerializeField] private TextMeshProUGUI recipeValueText;
 
-
-    private float timerIndex = 0;
-
     private void Awake()
     {
         iconTemplate.gameObject.SetActive(false);
     }
     public void SetRecipeSO(RecipeSO recipeSO)
     {
-        
-
         recipeNameText.text = recipeSO.recipeName;
         recipeValueText.text = Convert.ToString(recipeSO.value);
         
@@ -39,6 +34,4 @@ public class DeliveryManagerSingleUI : MonoBehaviour
             iconTransform.GetComponent<Image>().sprite = workshopObjectSO.sprite;
         }
     }
-
-
 }
