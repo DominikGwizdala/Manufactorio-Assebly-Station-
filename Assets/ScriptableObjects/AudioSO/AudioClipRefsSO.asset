@@ -13,32 +13,30 @@ MonoBehaviour:
   m_Name: AudioClipRefsSO
   m_EditorClassIdentifier: 
   chop:
-  - {fileID: 8300000, guid: e519f586b4ac0904e877dfab85ed729e, type: 3}
-  - {fileID: 8300000, guid: 9c6157275e190604d8136e7e497e941e, type: 3}
-  - {fileID: 8300000, guid: 99c666127ba3b974c99980d14efcf03c, type: 3}
+  - {fileID: 8300000, guid: 2bb076f174008864dbbf6dc7ee46ecad, type: 3}
+  - {fileID: 8300000, guid: 5f2ace22a76d39143854a0de27175c4c, type: 3}
   deliveryFail:
-  - {fileID: 8300000, guid: 400611abd7434234993616a86c030d1e, type: 3}
-  - {fileID: 8300000, guid: 6a936576e1e30a640844535c71d5a149, type: 3}
+  - {fileID: 8300000, guid: 1cef234171b1c7840b432b85f74b1ac6, type: 3}
+  - {fileID: 8300000, guid: 913b831666a88e54a9647852b598ffdd, type: 3}
   deliverySuccess:
-  - {fileID: 8300000, guid: 50205ffe58351d244bbcbd725dbfa802, type: 3}
-  - {fileID: 8300000, guid: 4b22bfbdbacfa0445bc9bbfbb0141085, type: 3}
+  - {fileID: 8300000, guid: 1403aebecd7c37d43ad2b883960292b5, type: 3}
+  - {fileID: 8300000, guid: c856721a7c30af7439a8ad8d66bcccd8, type: 3}
   footstep:
-  - {fileID: 8300000, guid: 078e15982fce2e147bf06c8a7682f28b, type: 3}
-  - {fileID: 8300000, guid: b2d2893ac04fbdb44a226f4b6ea0d271, type: 3}
-  - {fileID: 8300000, guid: cc97c340134faa948bcaf20fea6429c6, type: 3}
-  - {fileID: 8300000, guid: 64a04bb4fa4ed5d4eac6b0a31f91843a, type: 3}
+  - {fileID: 8300000, guid: dbad266ea72e92a4a8e446084969de52, type: 3}
+  - {fileID: 8300000, guid: 8b7c49d6dc063474eabee486e861e976, type: 3}
+  - {fileID: 8300000, guid: 8cba32b5323d237449b4e38a538be232, type: 3}
+  - {fileID: 8300000, guid: 3b8a8a20471a74147b05993f93555c18, type: 3}
   objectDrop:
-  - {fileID: 8300000, guid: 9c88983fa5906dc41944ec5a43b6b5c7, type: 3}
-  - {fileID: 8300000, guid: 331b82ab2c0e2b74d805124d11372c85, type: 3}
-  - {fileID: 8300000, guid: 961379cce253f794abff0d24df806b68, type: 3}
+  - {fileID: 8300000, guid: 50b21412473bd4e49b08b627c6204876, type: 3}
+  - {fileID: 8300000, guid: c4ea8feefc73e464491b169264672e9e, type: 3}
+  - {fileID: 8300000, guid: 20c73429577293c4c9058e9577d54a5c, type: 3}
   objectPickup:
-  - {fileID: 8300000, guid: 668de61a04ca5914aa745f8712c62720, type: 3}
-  - {fileID: 8300000, guid: 6728bf8b07482414e99ba965fdd022d8, type: 3}
-  - {fileID: 8300000, guid: 32d29abc86751884081d2005f9ff2676, type: 3}
-  stoveSizzle: {fileID: 8300000, guid: 511c1cbfb8b48b64083aec78fe17115f, type: 3}
+  - {fileID: 8300000, guid: aac319d10e96c8549bff32d2a6f46b7a, type: 3}
+  - {fileID: 8300000, guid: 18a8a4fb8c63016459c3148c357b5c6d, type: 3}
+  - {fileID: 8300000, guid: 831edb86a2f4bb548a49041f16e78f0b, type: 3}
+  furnaceSmelting: {fileID: 8300000, guid: c61a6a1a38aa08844bdf0f24e0ccb7d4, type: 3}
   trash:
-  - {fileID: 8300000, guid: 4b70ec0f0afb9ac4ea7dfea07aca4eb4, type: 3}
-  - {fileID: 8300000, guid: 6024ba1d53d005f48a96b3a9f6bacedd, type: 3}
+  - {fileID: 8300000, guid: cfaf22a8ef7493b4987619c7d28f66c7, type: 3}
   warning:
-  - {fileID: 8300000, guid: b90d8099bdbf09a40ab1163556d5b5f4, type: 3}
-  - {fileID: 8300000, guid: b59c98e0066c41f42b8100f5cb180f5b, type: 3}
+  - {fileID: 8300000, guid: 879fd909182810c428ec866568302529, type: 3}
+  - {fileID: 8300000, guid: f33fd670cfe49a84783e9a645cdeaaa0, type: 3}

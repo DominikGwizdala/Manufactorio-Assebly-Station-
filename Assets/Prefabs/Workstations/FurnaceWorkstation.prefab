@@ -10261,6 +10261,7 @@ GameObject:
   - component: {fileID: 382511668939651695}
   - component: {fileID: 6181945385034567291}
   - component: {fileID: 251771156970255765}
+  - component: {fileID: 956323060646655319}
   m_Layer: 6
   m_Name: FurnaceWorkstation
   m_TagString: Untagged
@@ -10327,6 +10328,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 685c97e41f0f65c40af014ad9613a88a, type: 2}
   - {fileID: 11400000, guid: 80baea886a97cf842880cfbdb7422929, type: 2}
   oversmeltingRecipeSOArray: []
+--- !u!114 &956323060646655319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503991994364123926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38353a0c84d60c14a96badac00aadf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnaceWorkstation: {fileID: 251771156970255765}
 --- !u!1 &8724558530332957911
 GameObject:
   m_ObjectHideFlags: 0
