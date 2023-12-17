@@ -15,6 +15,9 @@ MonoBehaviour:
   chop:
   - {fileID: 8300000, guid: 2bb076f174008864dbbf6dc7ee46ecad, type: 3}
   - {fileID: 8300000, guid: 5f2ace22a76d39143854a0de27175c4c, type: 3}
+  forge:
+  - {fileID: 8300000, guid: 2bb076f174008864dbbf6dc7ee46ecad, type: 3}
+  - {fileID: 8300000, guid: 5f2ace22a76d39143854a0de27175c4c, type: 3}
   deliveryFail:
   - {fileID: 8300000, guid: 1cef234171b1c7840b432b85f74b1ac6, type: 3}
   - {fileID: 8300000, guid: 913b831666a88e54a9647852b598ffdd, type: 3}
