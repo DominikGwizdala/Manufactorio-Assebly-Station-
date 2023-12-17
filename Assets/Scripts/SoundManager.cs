@@ -71,7 +71,6 @@ public class SoundManager : MonoBehaviour
     private void PlaySound(AudioClip[] audioClipArray,Vector3 position,float volume = 1f )
     {
         PlaySound(audioClipArray[Random.Range(0,audioClipArray.Length)],position,volume);
-        
     }
     private void PlaySound(AudioClip audioClip, Vector3 position, float volumeMultiplier = 1f)
     {
