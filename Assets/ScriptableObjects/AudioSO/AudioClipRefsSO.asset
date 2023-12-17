@@ -37,7 +37,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: aac319d10e96c8549bff32d2a6f46b7a, type: 3}
   - {fileID: 8300000, guid: 18a8a4fb8c63016459c3148c357b5c6d, type: 3}
   - {fileID: 8300000, guid: 831edb86a2f4bb548a49041f16e78f0b, type: 3}
-  furnaceSmelting: {fileID: 8300000, guid: c61a6a1a38aa08844bdf0f24e0ccb7d4, type: 3}
+  furnaceSmelting: {fileID: 8300000, guid: 49596c4140496ce498d2adb3b571f189, type: 3}
   trash:
   - {fileID: 8300000, guid: cfaf22a8ef7493b4987619c7d28f66c7, type: 3}
   warning:
