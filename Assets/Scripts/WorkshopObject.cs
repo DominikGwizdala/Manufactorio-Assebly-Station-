@@ -7,7 +7,8 @@ public class WorkshopObject : MonoBehaviour
     [SerializeField] private WorkshopObjectSO workshopObjectSO;
 
     private IWorkshopObjectParent workshopObjectParent;
-    public WorkshopObjectSO GetWorkshopObjectSO() { 
+    public WorkshopObjectSO GetWorkshopObjectSO() 
+    { 
         return workshopObjectSO;
     }
     public void SetWorkshopObjectParent(IWorkshopObjectParent workshopObjectParent)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 public class AnvilWorkstation : BaseWorkstation, IHasProgress
 {
@@ -17,6 +18,7 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
     [SerializeField] private ForgingRecipeSO[] forgingRecipeSOArray;
     [SerializeField] private AnvilRecipeUI anvilRecipeUI;
     public ForgingRecipeSO selectedForgingRecipeSO;
+    private WorkshopObject selectedInput;
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler OnForge;
     private bool isUsing = false;
@@ -72,24 +74,28 @@ public class AnvilWorkstation : BaseWorkstation, IHasProgress
 
     public override void InteractAlternate(Player player)
     {
-        if (HasWorkshopObject() && selectedForgingRecipeSO != null)
+        if (GetWorkshopObject().GetWorkshopObjectSO() == selectedForgingRecipeSO.input && selectedForgingRecipeSO != null)
         {
-            forgingProgress++;
-            OnForge?.Invoke(this, EventArgs.Empty);
-            //Debug.Log(OnAnyForge.GetInvocationList().Length);
-            OnAnyForge?.Invoke(this, EventArgs.Empty);
-
-            ForgingRecipeSO forgingRecipeSO = selectedForgingRecipeSO;
-            OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+            //selectedInput = GetWorkshopObject();
+            //if (selectedInput == selectedForgingRecipeSO.input)
             {
-                progressNormalized = (float)forgingProgress / forgingRecipeSO.forgingProgressMax
-            });
-            if (forgingProgress >= forgingRecipeSO.forgingProgressMax)
-            {
-                WorkshopObjectSO outputWorkshopObjectSO = selectedForgingRecipeSO.output;
-                GetWorkshopObject().DestroySelf();
+                forgingProgress++;
+                OnForge?.Invoke(this, EventArgs.Empty);
+                //Debug.Log(OnAnyForge.GetInvocationList().Length);
+                OnAnyForge?.Invoke(this, EventArgs.Empty);
 
-                WorkshopObject.SpawnWorkshopObject(outputWorkshopObjectSO, this);
+                ForgingRecipeSO forgingRecipeSO = selectedForgingRecipeSO;
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                {
+                    progressNormalized = (float)forgingProgress / forgingRecipeSO.forgingProgressMax
+                });
+                if (forgingProgress >= forgingRecipeSO.forgingProgressMax)
+                {
+                    WorkshopObjectSO outputWorkshopObjectSO = selectedForgingRecipeSO.output;
+                    GetWorkshopObject().DestroySelf();
+
+                    WorkshopObject.SpawnWorkshopObject(outputWorkshopObjectSO, this);
+                }
             }
         }
     }

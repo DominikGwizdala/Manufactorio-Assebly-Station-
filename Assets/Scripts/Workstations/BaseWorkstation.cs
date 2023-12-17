@@ -17,7 +17,7 @@ public class BaseWorkstation : MonoBehaviour, IWorkshopObjectParent
 
     public virtual void Interact(Player player)
     {
-        Debug.LogError("BaseWorkstation interaction");
+        //Debug.LogError("BaseWorkstation interaction");
     }
     public virtual void InteractAlternate(Player player)
     {
