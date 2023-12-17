@@ -10327,7 +10327,9 @@ MonoBehaviour:
   smeltingRecipeSOArray:
   - {fileID: 11400000, guid: 685c97e41f0f65c40af014ad9613a88a, type: 2}
   - {fileID: 11400000, guid: 80baea886a97cf842880cfbdb7422929, type: 2}
-  oversmeltingRecipeSOArray: []
+  oversmeltingRecipeSOArray:
+  - {fileID: 11400000, guid: 583b393e7716e6a41a2262c704c283fe, type: 2}
+  - {fileID: 11400000, guid: e2e7500e8eb60664ca7940631f969b71, type: 2}
 --- !u!114 &956323060646655319
 MonoBehaviour:
   m_ObjectHideFlags: 0
