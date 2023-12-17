@@ -10482,6 +10482,11 @@ PrefabInstance:
       propertyPath: mode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3075137888635273453, guid: 8cecef2fa71eb284597287e9fd2a874d,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4163739457933493629, guid: 8cecef2fa71eb284597287e9fd2a874d,
         type: 3}
       propertyPath: m_Name
@@ -10626,7 +10631,7 @@ Animator:
   m_GameObject: {fileID: 3610709540281976625}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 92cf4ed7235af744797fa5a6478f3a80, type: 2}
+  m_Controller: {fileID: 9100000, guid: b27d3c91ea13f4a4bbb5a9f094408664, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
