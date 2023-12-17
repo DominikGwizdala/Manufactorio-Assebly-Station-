@@ -54,7 +54,7 @@ public class SoundManager : MonoBehaviour
     private void AnvilWorkstation_OnAnyForge(object sender, System.EventArgs e)
     {
         AnvilWorkstation anvilWorkstation = sender as AnvilWorkstation;
-        PlaySound(audioClipRefsSO.chop, anvilWorkstation.transform.position);
+        PlaySound(audioClipRefsSO.forge, anvilWorkstation.transform.position);
     }
 
     private void DeliveryManager_OnRecipeFailed(object sender, System.EventArgs e)
