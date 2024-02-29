@@ -9,6 +9,7 @@ public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private Button playButton;
     [SerializeField] private Button tutorialButton;
+    [SerializeField] private Button creditsButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private TextMeshProUGUI highscoreText;
 
@@ -24,6 +25,10 @@ public class MainMenuUI : MonoBehaviour
         tutorialButton.onClick.AddListener(() =>
         {
             TutorialUI.Instance.Show();
+        });
+       creditsButton.onClick.AddListener(() =>
+        {
+            CreditsUi.Instance.Show();
         });
 
         quitButton.onClick.AddListener(() =>
