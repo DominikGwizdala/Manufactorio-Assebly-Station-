@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI recipesDeliveredText;
+    [SerializeField] private TextMeshProUGUI scoreGainedText;
+
+    private const string CURRENT_HIGHSCORE = "Highscore";
+
+    private float highscore = 0;
+
+    private void Awake()
+    {
+        highscore = PlayerPrefs.GetFloat(CURRENT_HIGHSCORE, 0f);
+    }
 
     private void Start()
     {
@@ -20,6 +31,13 @@ public class GameOverUI : MonoBehaviour
         {
             Show();
             recipesDeliveredText.text = DeliveryManager.Instance.GetSuccessfulRecipesAmount().ToString();
+            scoreGainedText.text = DeliveryManager.Instance.GetScoreGained().ToString();
+            if (DeliveryManager.Instance.GetScoreGained() > highscore)
+            {
+                scoreGainedText.text = DeliveryManager.Instance.GetScoreGained().ToString() + "\nNEW HIGHSCORE";
+                PlayerPrefs.SetFloat(CURRENT_HIGHSCORE, DeliveryManager.Instance.GetScoreGained());
+                PlayerPrefs.Save();
+            }
         }
         else
         {
