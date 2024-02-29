@@ -28,7 +28,7 @@ public class MainMenuUI : MonoBehaviour
         });
        creditsButton.onClick.AddListener(() =>
         {
-            CreditsUi.Instance.Show();
+            TutorialUI.Instance.Show();
         });
 
         quitButton.onClick.AddListener(() =>
